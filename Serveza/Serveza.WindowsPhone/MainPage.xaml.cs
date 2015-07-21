@@ -32,6 +32,8 @@ namespace Serveza
             this.InitializeComponent();
 
             this.NavigationCacheMode = NavigationCacheMode.Required;
+            progress.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+               
         }
 
 
@@ -49,8 +51,10 @@ namespace Serveza
         {
             Connection co = new Connection();
             co.setParam(UserNameText.Text, PassWordText.Password);
+           // progress.Visibility = Windows.UI.Xaml.Visibility.Visible;    
             if (App.Core.User.Load(co.ExecRequest()))
             {
+             //   progress.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
                 Frame.Navigate(typeof(Pages.HomePage));
             }
         }

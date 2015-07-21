@@ -28,6 +28,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\Connection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\NeerBar.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\NetWork.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\Register.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\Request.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\PubList\PubList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\User\User.cs" />

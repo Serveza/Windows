@@ -1,4 +1,5 @@
-﻿using Serveza.Classes.Facebook;
+﻿using Newtonsoft.Json.Linq;
+using Serveza.Classes.Facebook;
 using Serveza.Utils;
 using System;
 using System.Collections.Generic;
@@ -48,18 +49,24 @@ namespace Serveza.Pages
 
         private async void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            //ok
+
             if (passOneEntry.Password != passTwoEntry.Password)
             {
                 var messageDialog = new MessageDialog("Password doesn't match");
                 await messageDialog.ShowAsync();
                 return;
             }
-            if (App.Core.netWork.CreateAccount(firstnameEntry.Text, lastnameEntry.Text, mailEntry.Text, passOneEntry.Password))
+            Serveza.Classes.Network.Register register = new Serveza.Classes.Network.Register();
+            register.SetParam(firstnameEntry.Text, lastnameEntry.Text, mailEntry.Text, passOneEntry.Password, "http://scontent-cdg2-1.xx.fbcdn.net/hphotos-xpa1/t31.0-8/p600x600/1398639_10202447870099362_1272760343_o.jpg");
+            JObject obj = register.ExecRequest();
+            if (obj != null)
             {
-                /* App.Core.User.mail = mailEntry.Text;
-                 if (App.Core.User.Connect(passOneEntry.Password))
-                     Frame.Navigate(typeof(Pages.HomePage));*/
+                if (obj["email"].ToObject<string>() == mailEntry.Text)
+                {
+                    var messageDialogt = new MessageDialog("Account registered !");
+                    await messageDialogt.ShowAsync();
+                    return;
+                }
             }
             var messageDialogtwo = new MessageDialog("Can't create your account");
             await messageDialogtwo.ShowAsync();
