@@ -7,124 +7,121 @@
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
     <PackageIdentityName>3b3e1d2d-be4b-4167-ac74-362fe8656f98</PackageIdentityName>
-    <IntermediateOutputPath>E:\c#\Serveza\Serveza\Serveza.WindowsPhone\obj\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>E:\c#\Windows\Serveza\Serveza.WindowsPhone\obj\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="E:\c#\Serveza\Serveza\Serveza.WindowsPhone\bin\Debug\AppxManifest.xml">
+    <AppXManifest Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.WindowsPhone\bin\Debug\Serveza.WindowsPhone.exe">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\Serveza.WindowsPhone.exe">
       <PackagePath>Serveza.WindowsPhone.exe</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\packages\Facebook.7.0.6\lib\portable-win81+wpa81\Facebook.dll">
+    <AppxPackagedFile Include="E:\c#\Windows\packages\Facebook.7.0.6\lib\portable-win81+wpa81\Facebook.dll">
       <PackagePath>Facebook.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\packages\Newtonsoft.Json.7.0.1\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll">
+    <AppxPackagedFile Include="E:\c#\Windows\packages\Newtonsoft.Json.7.0.1\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.WindowsPhone\Assets\Logo.scale-240.png">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\Assets\Logo.scale-240.png">
       <PackagePath>Assets\Logo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.WindowsPhone\Assets\SmallLogo.scale-240.png">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\Assets\SmallLogo.scale-240.png">
       <PackagePath>Assets\SmallLogo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.WindowsPhone\Assets\SplashScreen.scale-240.png">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\Assets\SplashScreen.scale-240.png">
       <PackagePath>Assets\SplashScreen.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.WindowsPhone\Assets\Square71x71Logo.scale-240.png">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\Assets\Square71x71Logo.scale-240.png">
       <PackagePath>Assets\Square71x71Logo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.WindowsPhone\Assets\StoreLogo.scale-240.png">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\Assets\StoreLogo.scale-240.png">
       <PackagePath>Assets\StoreLogo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.WindowsPhone\Assets\WideLogo.scale-240.png">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\Assets\WideLogo.scale-240.png">
       <PackagePath>Assets\WideLogo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.Shared\Assets\beer-d.png">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.Shared\Assets\beer-d.png">
       <PackagePath>Assets\beer-d.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.Shared\Assets\beer.png">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.Shared\Assets\beer.png">
       <PackagePath>Assets\beer.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.Shared\Assets\icon128-2x.png">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.Shared\Assets\icon128-2x.png">
       <PackagePath>Assets\icon128-2x.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.Shared\Assets\1.jpg">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.Shared\Assets\1.jpg">
       <PackagePath>Assets\1.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.Shared\Assets\2.jpg">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.Shared\Assets\2.jpg">
       <PackagePath>Assets\2.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.Shared\Assets\3.jpg">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.Shared\Assets\3.jpg">
       <PackagePath>Assets\3.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.Shared\Assets\4.jpg">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.Shared\Assets\4.jpg">
       <PackagePath>Assets\4.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.Shared\Assets\test.jpg">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.Shared\Assets\test.jpg">
       <PackagePath>Assets\test.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.WindowsPhone\bin\Debug\App.xbf">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.WindowsPhone\bin\Debug\Animation\Loading.xbf">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\Animation\Loading.xbf">
       <PackagePath>Animation\Loading.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.WindowsPhone\bin\Debug\MapPoint\PubMapPoint.xbf">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\MapPoint\PubMapPoint.xbf">
       <PackagePath>MapPoint\PubMapPoint.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.WindowsPhone\bin\Debug\MapPoint\UserMapPoint.xbf">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\MapPoint\UserMapPoint.xbf">
       <PackagePath>MapPoint\UserMapPoint.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.WindowsPhone\bin\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.WindowsPhone\bin\Debug\Pages\AddCommentPage.xbf">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\Pages\AddCommentPage.xbf">
       <PackagePath>Pages\AddCommentPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.WindowsPhone\bin\Debug\Pages\BarPage.xbf">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\Pages\BarPage.xbf">
       <PackagePath>Pages\BarPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.WindowsPhone\bin\Debug\Pages\BeerPage.xbf">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\Pages\BeerPage.xbf">
       <PackagePath>Pages\BeerPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.WindowsPhone\bin\Debug\Pages\FacebookConnectionPage.xbf">
-      <PackagePath>Pages\FacebookConnectionPage.xbf</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.WindowsPhone\bin\Debug\Pages\HomePage.xbf">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\Pages\HomePage.xbf">
       <PackagePath>Pages\HomePage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.WindowsPhone\bin\Debug\Pages\NewUserPage.xbf">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\Pages\NewUserPage.xbf">
       <PackagePath>Pages\NewUserPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.WindowsPhone\bin\Debug\Pages\SearchPage.xbf">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\Pages\SearchPage.xbf">
       <PackagePath>Pages\SearchPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.WindowsPhone\bin\Debug\View\BeerListView.xbf">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\View\BeerListView.xbf">
       <PackagePath>View\BeerListView.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.WindowsPhone\bin\Debug\View\CommentListView.xbf">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\View\CommentListView.xbf">
       <PackagePath>View\CommentListView.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.WindowsPhone\bin\Debug\View\EventListView.xbf">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\View\EventListView.xbf">
       <PackagePath>View\EventListView.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.WindowsPhone\bin\Debug\View\PubListView.xbf">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\View\PubListView.xbf">
       <PackagePath>View\PubListView.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.WindowsPhone\bin\Debug\Serveza.WindowsPhone.xr.xml">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\Serveza.WindowsPhone.xr.xml">
       <PackagePath>Serveza.WindowsPhone.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Serveza\Serveza\Serveza.WindowsPhone\bin\Debug\resources.pri">
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

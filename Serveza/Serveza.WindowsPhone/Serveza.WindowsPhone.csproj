@@ -92,9 +92,6 @@
     <Compile Include="Pages\BeerPage.xaml.cs">
       <DependentUpon>BeerPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\FacebookConnectionPage.xaml.cs">
-      <DependentUpon>FacebookConnectionPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
@@ -149,10 +146,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\BeerPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\FacebookConnectionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

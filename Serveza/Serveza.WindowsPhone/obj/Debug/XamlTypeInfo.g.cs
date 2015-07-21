@@ -124,7 +124,7 @@ namespace Serveza.Serveza_WindowsPhone_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[22];
+            _typeNameTable = new string[21];
             _typeNameTable[0] = "Windows.UI.Color";
             _typeNameTable[1] = "System.ValueType";
             _typeNameTable[2] = "Object";
@@ -135,20 +135,19 @@ namespace Serveza.Serveza_WindowsPhone_XamlTypeInfo
             _typeNameTable[7] = "Serveza.Pages.AddCommentPage";
             _typeNameTable[8] = "Serveza.Pages.BarPage";
             _typeNameTable[9] = "Serveza.Pages.BeerPage";
-            _typeNameTable[10] = "Serveza.Pages.FacebookConnectionPage";
-            _typeNameTable[11] = "Serveza.Pages.HomePage";
-            _typeNameTable[12] = "Serveza.Pages.NewUserPage";
-            _typeNameTable[13] = "Serveza.Pages.SearchPage";
-            _typeNameTable[14] = "Serveza.View.BeerListView";
-            _typeNameTable[15] = "Windows.UI.Xaml.Controls.ListView";
-            _typeNameTable[16] = "Serveza.View.CommentListView";
-            _typeNameTable[17] = "Serveza.View.EventListView";
-            _typeNameTable[18] = "Serveza.View.PubListView";
-            _typeNameTable[19] = "Serveza.Animation.Loading";
-            _typeNameTable[20] = "Serveza.MapPoint.PubMapPoint";
-            _typeNameTable[21] = "Serveza.MapPoint.UserMapPoint";
+            _typeNameTable[10] = "Serveza.Pages.HomePage";
+            _typeNameTable[11] = "Serveza.Pages.NewUserPage";
+            _typeNameTable[12] = "Serveza.Pages.SearchPage";
+            _typeNameTable[13] = "Serveza.View.BeerListView";
+            _typeNameTable[14] = "Windows.UI.Xaml.Controls.ListView";
+            _typeNameTable[15] = "Serveza.View.CommentListView";
+            _typeNameTable[16] = "Serveza.View.EventListView";
+            _typeNameTable[17] = "Serveza.View.PubListView";
+            _typeNameTable[18] = "Serveza.Animation.Loading";
+            _typeNameTable[19] = "Serveza.MapPoint.PubMapPoint";
+            _typeNameTable[20] = "Serveza.MapPoint.UserMapPoint";
 
-            _typeTable = new global::System.Type[22];
+            _typeTable = new global::System.Type[21];
             _typeTable[0] = typeof(global::Windows.UI.Color);
             _typeTable[1] = typeof(global::System.ValueType);
             _typeTable[2] = typeof(global::System.Object);
@@ -159,18 +158,17 @@ namespace Serveza.Serveza_WindowsPhone_XamlTypeInfo
             _typeTable[7] = typeof(global::Serveza.Pages.AddCommentPage);
             _typeTable[8] = typeof(global::Serveza.Pages.BarPage);
             _typeTable[9] = typeof(global::Serveza.Pages.BeerPage);
-            _typeTable[10] = typeof(global::Serveza.Pages.FacebookConnectionPage);
-            _typeTable[11] = typeof(global::Serveza.Pages.HomePage);
-            _typeTable[12] = typeof(global::Serveza.Pages.NewUserPage);
-            _typeTable[13] = typeof(global::Serveza.Pages.SearchPage);
-            _typeTable[14] = typeof(global::Serveza.View.BeerListView);
-            _typeTable[15] = typeof(global::Windows.UI.Xaml.Controls.ListView);
-            _typeTable[16] = typeof(global::Serveza.View.CommentListView);
-            _typeTable[17] = typeof(global::Serveza.View.EventListView);
-            _typeTable[18] = typeof(global::Serveza.View.PubListView);
-            _typeTable[19] = typeof(global::Serveza.Animation.Loading);
-            _typeTable[20] = typeof(global::Serveza.MapPoint.PubMapPoint);
-            _typeTable[21] = typeof(global::Serveza.MapPoint.UserMapPoint);
+            _typeTable[10] = typeof(global::Serveza.Pages.HomePage);
+            _typeTable[11] = typeof(global::Serveza.Pages.NewUserPage);
+            _typeTable[12] = typeof(global::Serveza.Pages.SearchPage);
+            _typeTable[13] = typeof(global::Serveza.View.BeerListView);
+            _typeTable[14] = typeof(global::Windows.UI.Xaml.Controls.ListView);
+            _typeTable[15] = typeof(global::Serveza.View.CommentListView);
+            _typeTable[16] = typeof(global::Serveza.View.EventListView);
+            _typeTable[17] = typeof(global::Serveza.View.PubListView);
+            _typeTable[18] = typeof(global::Serveza.Animation.Loading);
+            _typeTable[19] = typeof(global::Serveza.MapPoint.PubMapPoint);
+            _typeTable[20] = typeof(global::Serveza.MapPoint.UserMapPoint);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -209,16 +207,15 @@ namespace Serveza.Serveza_WindowsPhone_XamlTypeInfo
         private object Activate_7_AddCommentPage() { return new global::Serveza.Pages.AddCommentPage(); }
         private object Activate_8_BarPage() { return new global::Serveza.Pages.BarPage(); }
         private object Activate_9_BeerPage() { return new global::Serveza.Pages.BeerPage(); }
-        private object Activate_10_FacebookConnectionPage() { return new global::Serveza.Pages.FacebookConnectionPage(); }
-        private object Activate_11_HomePage() { return new global::Serveza.Pages.HomePage(); }
-        private object Activate_12_NewUserPage() { return new global::Serveza.Pages.NewUserPage(); }
-        private object Activate_13_SearchPage() { return new global::Serveza.Pages.SearchPage(); }
-        private object Activate_14_BeerListView() { return new global::Serveza.View.BeerListView(); }
-        private object Activate_16_CommentListView() { return new global::Serveza.View.CommentListView(); }
-        private object Activate_17_EventListView() { return new global::Serveza.View.EventListView(); }
-        private object Activate_18_PubListView() { return new global::Serveza.View.PubListView(); }
-        private object Activate_19_Loading() { return new global::Serveza.Animation.Loading(); }
-        private object Activate_21_UserMapPoint() { return new global::Serveza.MapPoint.UserMapPoint(); }
+        private object Activate_10_HomePage() { return new global::Serveza.Pages.HomePage(); }
+        private object Activate_11_NewUserPage() { return new global::Serveza.Pages.NewUserPage(); }
+        private object Activate_12_SearchPage() { return new global::Serveza.Pages.SearchPage(); }
+        private object Activate_13_BeerListView() { return new global::Serveza.View.BeerListView(); }
+        private object Activate_15_CommentListView() { return new global::Serveza.View.CommentListView(); }
+        private object Activate_16_EventListView() { return new global::Serveza.View.EventListView(); }
+        private object Activate_17_PubListView() { return new global::Serveza.View.PubListView(); }
+        private object Activate_18_Loading() { return new global::Serveza.Animation.Loading(); }
+        private object Activate_20_UserMapPoint() { return new global::Serveza.MapPoint.UserMapPoint(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -290,86 +287,79 @@ namespace Serveza.Serveza_WindowsPhone_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 10:   //  Serveza.Pages.FacebookConnectionPage
+            case 10:   //  Serveza.Pages.HomePage
                 userType = new global::Serveza.Serveza_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_10_FacebookConnectionPage;
+                userType.Activator = Activate_10_HomePage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 11:   //  Serveza.Pages.HomePage
+            case 11:   //  Serveza.Pages.NewUserPage
                 userType = new global::Serveza.Serveza_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_11_HomePage;
+                userType.Activator = Activate_11_NewUserPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 12:   //  Serveza.Pages.NewUserPage
+            case 12:   //  Serveza.Pages.SearchPage
                 userType = new global::Serveza.Serveza_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_12_NewUserPage;
+                userType.Activator = Activate_12_SearchPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 13:   //  Serveza.Pages.SearchPage
-                userType = new global::Serveza.Serveza_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_13_SearchPage;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 14:   //  Serveza.View.BeerListView
+            case 13:   //  Serveza.View.BeerListView
                 userType = new global::Serveza.Serveza_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_14_BeerListView;
+                userType.Activator = Activate_13_BeerListView;
                 userType.AddMemberName("listViewP");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 15:   //  Windows.UI.Xaml.Controls.ListView
+            case 14:   //  Windows.UI.Xaml.Controls.ListView
                 xamlType = new global::Serveza.Serveza_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 16:   //  Serveza.View.CommentListView
+            case 15:   //  Serveza.View.CommentListView
                 userType = new global::Serveza.Serveza_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_16_CommentListView;
+                userType.Activator = Activate_15_CommentListView;
                 userType.AddMemberName("CommentList");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 17:   //  Serveza.View.EventListView
+            case 16:   //  Serveza.View.EventListView
                 userType = new global::Serveza.Serveza_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_17_EventListView;
+                userType.Activator = Activate_16_EventListView;
                 userType.AddMemberName("pubListView");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 18:   //  Serveza.View.PubListView
+            case 17:   //  Serveza.View.PubListView
                 userType = new global::Serveza.Serveza_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_18_PubListView;
+                userType.Activator = Activate_17_PubListView;
                 userType.AddMemberName("listViewP");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 19:   //  Serveza.Animation.Loading
+            case 18:   //  Serveza.Animation.Loading
                 userType = new global::Serveza.Serveza_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_19_Loading;
+                userType.Activator = Activate_18_Loading;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 20:   //  Serveza.MapPoint.PubMapPoint
+            case 19:   //  Serveza.MapPoint.PubMapPoint
                 userType = new global::Serveza.Serveza_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 21:   //  Serveza.MapPoint.UserMapPoint
+            case 20:   //  Serveza.MapPoint.UserMapPoint
                 userType = new global::Serveza.Serveza_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_21_UserMapPoint;
+                userType.Activator = Activate_20_UserMapPoint;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

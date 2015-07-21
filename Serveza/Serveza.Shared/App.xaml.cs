@@ -1,6 +1,7 @@
 ﻿using Serveza.Classes;
 using Serveza.Classes.Location;
 using Serveza.Model;
+using Serveza.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -134,12 +135,42 @@ namespace Serveza
         /// </summary>
         /// <param name="sender">The source of the suspend request.</param>
         /// <param name="e">Details about the suspend request.</param>
-        private void OnSuspending(object sender, SuspendingEventArgs e)
+        private async void OnSuspending(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();
+            await SuspensionManager.SaveAsync();
+            deferral.Complete(); 
+        }
+        ContinuationManager _continuator = new ContinuationManager();
+        protected async override void OnActivated(IActivatedEventArgs args)
+        {
+            CreateRootFrame();
 
-            // TODO: Save application state and stop any background activity
-            deferral.Complete();
+            if (args.PreviousExecutionState == ApplicationExecutionState.Terminated)
+            {
+                try
+                {
+                    await SuspensionManager.RestoreAsync();
+                }
+                catch { }
+            }
+
+            if (args is IContinuationActivatedEventArgs)
+                _continuator.ContinueWith(args);
+
+            Window.Current.Activate();
+        }
+
+
+        private void CreateRootFrame()
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            if (rootFrame == null)
+            {
+                rootFrame = new Frame();
+                SuspensionManager.RegisterFrame(rootFrame, "AppFrame");
+                Window.Current.Content = rootFrame;
+            }
         }
     }
 }

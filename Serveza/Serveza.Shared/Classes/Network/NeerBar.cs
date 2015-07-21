@@ -9,7 +9,7 @@ namespace Serveza.Classes.Network
         public NeerBar()
             : base("/api/bars", RequestType.GET)
         {
-
+           
         }
 
         public void setParam(double latitude, double longitude, double dist = 0)
