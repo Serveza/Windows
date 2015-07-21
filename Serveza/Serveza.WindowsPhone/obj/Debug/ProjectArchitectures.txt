@@ -1,0 +1,1 @@
+E:\c#\Serveza\Serveza\Serveza.WindowsPhone\Serveza.WindowsPhone.csproj;neutral

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>CARON_T_WINDOWS</Machine>
+    <WindowsUser>caron thomas</WindowsUser>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>edf4a5e4-681d-46b1-a0c0-edf17c894fc0</PackageIdentityName>
+    <IntermediateOutputPath>D:\c#\Serveza\Serveza\Serveza.Windows\obj\Debug\</IntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="D:\c#\Serveza\Serveza\Serveza.Windows\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Windows\bin\Debug\Serveza.Windows.exe">
+      <PackagePath>Serveza.Windows.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Windows\Assets\Logo.scale-100.png">
+      <PackagePath>Assets\Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Windows\Assets\SmallLogo.scale-100.png">
+      <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Windows\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Windows\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Shared\Assets\1.jpg">
+      <PackagePath>Assets\1.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Shared\Assets\2.jpg">
+      <PackagePath>Assets\2.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Shared\Assets\3.jpg">
+      <PackagePath>Assets\3.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Shared\Assets\4.jpg">
+      <PackagePath>Assets\4.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Shared\Assets\test.jpg">
+      <PackagePath>Assets\test.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Windows\bin\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Windows\bin\Debug\MapPoint\PubMapPoint.xbf">
+      <PackagePath>MapPoint\PubMapPoint.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Windows\bin\Debug\MapPoint\UserMapPoint.xbf">
+      <PackagePath>MapPoint\UserMapPoint.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Windows\bin\Debug\MainPage.xbf">
+      <PackagePath>MainPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Windows\bin\Debug\Pages\HomePage.xbf">
+      <PackagePath>Pages\HomePage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Windows\bin\Debug\View\BeerListView.xbf">
+      <PackagePath>View\BeerListView.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Windows\bin\Debug\View\PubListView.xbf">
+      <PackagePath>View\PubListView.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Windows\bin\Debug\Serveza.Windows.xr.xml">
+      <PackagePath>Serveza.Windows.xr.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Windows\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

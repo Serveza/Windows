@@ -1,0 +1,97 @@
+﻿<Page
+    xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
+    x:Class="Serveza.Pages.HomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Serveza.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    >
+    <Page.Background>
+        <SolidColorBrush Color="{StaticResource Background}"/>
+    </Page.Background>
+    <Page.Foreground>
+        <SolidColorBrush Color="{StaticResource Forground}"/>
+    </Page.Foreground>
+    <Pivot Title="Serveza">
+        <Pivot.Foreground>
+            <SolidColorBrush Color="{StaticResource BareForground}"/>
+        </Pivot.Foreground>
+        <PivotItem Header="Home">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100*"/>
+                    <RowDefinition Height="200*"/>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="145*"/>
+                        <ColumnDefinition Width="217*"/>
+                    </Grid.ColumnDefinitions>
+                    <Ellipse x:Name="UserImage" Height="125" Width="125" StrokeThickness="2">
+                        <Ellipse.Stroke>
+                            <SolidColorBrush Color="{StaticResource Bare}"/>
+                        </Ellipse.Stroke>
+                        <Ellipse.Fill>
+                            <ImageBrush Stretch="Uniform" ImageSource="ms-appx:///Assets/icon128-2x.png">
+                                <ImageBrush.RelativeTransform>
+                                    <CompositeTransform CenterY="0.5" CenterX="0.5" ScaleX="1.5" ScaleY="1.5"/>
+                                </ImageBrush.RelativeTransform>
+                            </ImageBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <StackPanel Grid.Column="1"  Margin="10, 0, 0, 0" VerticalAlignment="Center">
+                        <TextBlock Text="UserName" x:Name="UserNameText" FontSize="{StaticResource TitleSize}">
+                            <TextBlock.Foreground>
+                                <SolidColorBrush Color="{StaticResource BareForground}"/>
+                            </TextBlock.Foreground>
+                        </TextBlock>
+                    </StackPanel>
+                </Grid>
+                <Grid x:Name="NotifGrid"/>
+            </Grid>
+        </PivotItem>
+        <PivotItem Header="Near to me">
+            <Grid x:Name="NearOfMeGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40*"/>
+                    <RowDefinition Height="100*"/>
+                </Grid.RowDefinitions>
+                <Maps:MapControl x:Name="MapBar" MapServiceToken="{StaticResource MapToken}"/>
+                <Grid Grid.Row="1" x:Name="BarNeerGrid"/>
+            </Grid>
+        </PivotItem>
+
+        <PivotItem Header="My Beer">
+            <Grid x:Name="MyBeerGrid">
+
+            </Grid>
+        </PivotItem>
+        <PivotItem Header="My Bar">
+            <Grid x:Name="MyBarGrid">
+
+            </Grid>
+        </PivotItem>
+    </Pivot>
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.Background>
+                <SolidColorBrush Color="{StaticResource Bare}"/>
+            </CommandBar.Background>
+            <CommandBar.Foreground>
+                <SolidColorBrush Color="{StaticResource Background}"/>
+            </CommandBar.Foreground>
+            <CommandBar.PrimaryCommands>
+                <AppBarButton x:ConnectionId='1' Label="Search" Icon="Zoom"                             />
+                <AppBarButton x:ConnectionId='2' Label="Locate" Icon="Target"                           />
+            </CommandBar.PrimaryCommands>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Label="Logout" Icon="Back"/>
+                <AppBarButton Label="Settings" Icon="Setting"/>
+                <AppBarButton Label="About" Icon="Emoji2"/>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>
+

@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>CARON_T_WINDOWS</Machine>
+    <WindowsUser>caron thomas</WindowsUser>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>edf4a5e4-681d-46b1-a0c0-edf17c894fc0</PackageIdentityName>
+    <IntermediateOutputPath>D:\c#\Serveza\Serveza\Serveza.Windows\obj\Debug\</IntermediateOutputPath>
+    <RegisteredManifestChecksum>36F52A98AF8212A9C7A75AC693A1391DA4C774B776293CE6BDF3DDB212891C4C</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>edf4a5e4-681d-46b1-a0c0-edf17c894fc0_1.0.0.0_neutral__9e9xe3j00qjpm</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>edf4a5e4-681d-46b1-a0c0-edf17c894fc0_9e9xe3j00qjpm!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>edf4a5e4-681d-46b1-a0c0-edf17c894fc0</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=caron thomas</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+    <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="D:\c#\Serveza\Serveza\Serveza.Windows\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-07-03T16:55:08.493</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Windows\bin\Debug\Serveza.Windows.exe">
+      <PackagePath>Serveza.Windows.exe</PackagePath>
+      <Modified>2015-07-03T16:55:07.754</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Windows\Assets\Logo.scale-100.png">
+      <PackagePath>Assets\Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2014-03-14T10:55:28.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Windows\Assets\SmallLogo.scale-100.png">
+      <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2014-03-14T10:55:28.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Windows\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2014-03-14T10:55:28.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Windows\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2014-03-14T10:55:28.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Shared\Assets\1.jpg">
+      <PackagePath>Assets\1.jpg</PackagePath>
+      <Modified>2015-07-03T16:40:22.813</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Shared\Assets\2.jpg">
+      <PackagePath>Assets\2.jpg</PackagePath>
+      <Modified>2015-07-03T16:42:40.735</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Shared\Assets\3.jpg">
+      <PackagePath>Assets\3.jpg</PackagePath>
+      <Modified>2015-07-03T16:40:14.544</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Shared\Assets\4.jpg">
+      <PackagePath>Assets\4.jpg</PackagePath>
+      <Modified>2015-07-03T16:42:31.673</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Shared\Assets\test.jpg">
+      <PackagePath>Assets\test.jpg</PackagePath>
+      <Modified>2014-12-09T18:51:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Windows\bin\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+      <Modified>2015-06-15T18:13:29.196</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Windows\bin\Debug\MapPoint\PubMapPoint.xbf">
+      <PackagePath>MapPoint\PubMapPoint.xbf</PackagePath>
+      <Modified>2015-06-15T18:13:29.200</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Windows\bin\Debug\MapPoint\UserMapPoint.xbf">
+      <PackagePath>MapPoint\UserMapPoint.xbf</PackagePath>
+      <Modified>2015-06-15T18:13:29.203</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Windows\bin\Debug\MainPage.xbf">
+      <PackagePath>MainPage.xbf</PackagePath>
+      <Modified>2015-07-03T16:55:07.527</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Windows\bin\Debug\Pages\HomePage.xbf">
+      <PackagePath>Pages\HomePage.xbf</PackagePath>
+      <Modified>2015-07-03T16:55:07.530</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Windows\bin\Debug\View\BeerListView.xbf">
+      <PackagePath>View\BeerListView.xbf</PackagePath>
+      <Modified>2015-07-03T16:55:07.532</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Windows\bin\Debug\View\PubListView.xbf">
+      <PackagePath>View\PubListView.xbf</PackagePath>
+      <Modified>2015-07-03T16:55:07.534</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Windows\bin\Debug\Serveza.Windows.xr.xml">
+      <PackagePath>Serveza.Windows.xr.xml</PackagePath>
+      <Modified>2015-07-03T16:55:07.513</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\c#\Serveza\Serveza\Serveza.Windows\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2015-07-03T16:55:07.921</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

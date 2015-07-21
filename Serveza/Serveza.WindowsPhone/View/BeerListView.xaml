@@ -1,0 +1,40 @@
+﻿<UserControl
+    x:Class="Serveza.View.BeerListView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Serveza.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="400"
+    d:DesignWidth="300">
+
+    <Grid>
+        <ListView x:Name="listView" ItemsSource="{Binding}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical" Margin="0, 5">
+                        <TextBlock Text="{Binding name}" FontSize="30">
+                            <TextBlock.Foreground>
+                                <SolidColorBrush Color="{StaticResource Bare}"/>
+                            </TextBlock.Foreground>
+                        </TextBlock>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding degre}" FontSize="20">
+                                <TextBlock.Foreground>
+                                    <SolidColorBrush Color="{StaticResource ButtonColor}"/>
+                                </TextBlock.Foreground>
+                            </TextBlock>
+                            <TextBlock Text="%" FontSize="20">
+                                <TextBlock.Foreground>
+                                    <SolidColorBrush Color="{StaticResource ButtonColor}"/>
+                                </TextBlock.Foreground>
+                            </TextBlock>
+
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</UserControl>

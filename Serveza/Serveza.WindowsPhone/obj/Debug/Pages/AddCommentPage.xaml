@@ -1,0 +1,68 @@
+﻿<Page
+    x:Class="Serveza.Pages.AddCommentPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Serveza.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Background>
+        <SolidColorBrush Color="{StaticResource Background}"/>
+    </Page.Background>
+    <Page.Foreground>
+        <SolidColorBrush Color="{StaticResource Forground}"/>
+    </Page.Foreground>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="100*"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="Title" Text="Title" FontSize="30" Margin="20, 10">
+            <TextBlock.Foreground>
+                <SolidColorBrush Color="{StaticResource Forground}"/>
+            </TextBlock.Foreground>
+        </TextBlock>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions >
+                <RowDefinition Height="25*"/>
+                <RowDefinition Height="100*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Margin="20, 5, 0, 0">
+                <TextBlock Text="Note : " FontSize="{StaticResource SecondPoliceSize}"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Image Height="75" Width="75" Source="ms-appx:///Assets/beer.png"/>
+                    <Image Height="75" Width="75" Source="ms-appx:///Assets/beer.png"/>
+                    <Image Height="75" Width="75" Source="ms-appx:///Assets/beer.png"/>
+                    <Image Height="75" Width="75" Source="ms-appx:///Assets/beer-d.png"/>
+                    <Image Height="75" Width="75" Source="ms-appx:///Assets/beer-d.png"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Margin="20, 10, 20, 0" Grid.Row="1">
+                <TextBlock Text="Comment : " FontSize="{StaticResource SecondPoliceSize}"/>
+                <TextBox Margin="0, 10" ></TextBox>
+
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.Background>
+                <SolidColorBrush Color="{StaticResource Bare}"/>
+            </CommandBar.Background>
+            <CommandBar.Foreground>
+                <SolidColorBrush Color="{StaticResource Background}"/>
+            </CommandBar.Foreground>
+            <CommandBar.PrimaryCommands>
+                <AppBarButton x:ConnectionId='1' Icon="Send" Label="Send"                           />
+                <AppBarButton x:ConnectionId='2' Icon="Cancel" Label="Canel"                             />
+            </CommandBar.PrimaryCommands>
+            <CommandBar.SecondaryCommands>
+
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>
+

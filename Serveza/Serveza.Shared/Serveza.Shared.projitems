@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>58a2fa58-da71-4181-8d6f-9ed1be8505c2</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Serveza</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Loading.xaml.cs">
+      <DependentUpon>Loading.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\BeerList\BeerList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\Collection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\CommentList\CommentList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\EventList\EventList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\Facebook\FacebookCore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\Location\BarMapPoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\Location\LocationCore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\Connection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\NeerBar.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\NetWork.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\Request.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\PubList\PubList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\User\User.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MapPoint\PubMapPoint.xaml.cs">
+      <DependentUpon>PubMapPoint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)MapPoint\UserMapPoint.xaml.cs">
+      <DependentUpon>UserMapPoint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Beer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Comment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Event.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Pub.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\Utils.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ViewModelBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)Animation\Loading.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)MapPoint\PubMapPoint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)MapPoint\UserMapPoint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Assets\1.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\beer-d.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\beer.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\2.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\3.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\4.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\icon128-2x.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\test.jpg" />
+  </ItemGroup>
+</Project>

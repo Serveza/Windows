@@ -1,0 +1,45 @@
+﻿<UserControl
+    x:Class="Serveza.MapPoint.PubMapPoint"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Serveza.UserControl"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="50"
+    d:DesignWidth="100">
+	<UserControl.Resources>
+		<Storyboard x:Name="ShowMapPoint">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="MapPoint">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</UserControl.Resources>
+
+    <Grid Height="50" Width="100" x:Name="MapPoint" RenderTransformOrigin="0,1">
+    	<Grid.RenderTransform>
+    		<CompositeTransform/>
+    	</Grid.RenderTransform>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="75*"/>
+        </Grid.RowDefinitions>
+        <Rectangle>
+            <Rectangle.Fill>
+                <SolidColorBrush Color="#FF4E6877"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBlock Text="Pub Map Point" x:Name="PubNameTextBox" VerticalAlignment="Center" Margin="5, 0, 0, 0" >
+            <TextBlock.Foreground>
+                <SolidColorBrush Color="#FFEEEEEE"/>
+            </TextBlock.Foreground>
+        </TextBlock>
+        <Polygon Grid.Row="1" Points="0, 0 25, 0 0, 20">
+            <Polygon.Fill>
+                <SolidColorBrush Color="#FF4E6877"/>
+            </Polygon.Fill>
+
+        </Polygon>
+    </Grid>
+</UserControl>

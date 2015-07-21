@@ -1,0 +1,16 @@
+﻿<Application
+    x:Class="Serveza.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Serveza">
+    <Application.Resources>
+        <Color x:Key="Background">#FFEEEEEE</Color>
+        <Color x:Key="Forground">#FF8AD8C9</Color>
+        <Color x:Key="ButtonColor">#FFAEEEB7</Color>
+        <Color x:Key="Bare">#FF4E6877</Color>
+        <Color x:Key="BareForground">#FF5789AB</Color>
+        <SolidColorBrush x:Key="PivotHeaderForegroundSelectedBrush" Color="{StaticResource ResourceKey=Forground}"/>
+        <SolidColorBrush x:Key="PivotHeaderForegroundUnselectedBrush" Color="{StaticResource ResourceKey=ButtonColor}"/>
+    </Application.Resources>
+</Application>
+
