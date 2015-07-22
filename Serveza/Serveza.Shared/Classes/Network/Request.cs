@@ -15,7 +15,8 @@ namespace Serveza.Classes.Network
     }
     public class Request
     {
-        private string BaseAddress = "http://serveza.kokakiwi.net";
+        private string BaseAddress = "http://10.11.45.251:5000";
+     //   private string BaseAddress = "http://serveza.kokakiwi.net";
         protected Uri uri;
         protected string url;
         protected HttpWebRequest request;

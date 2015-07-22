@@ -11,6 +11,7 @@ namespace Serveza.Classes.User
         private string _firstName;
         private string _lastName;
 
+        public EventList.EventList eventList;
         public string imageUrl { get; set; }
         public string firstName { get { return _firstName; } set { _firstName = value; } }
         public string lastName { get { return _lastName; } set { _lastName = value; } }
@@ -31,6 +32,12 @@ namespace Serveza.Classes.User
         public User()
         {
 
+        }
+
+        public bool LoadEvent(JObject obj)
+        {
+
+            return true;
         }
         public bool Load(JObject obj)
         {

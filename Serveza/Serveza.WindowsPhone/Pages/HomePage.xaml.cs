@@ -4,6 +4,7 @@ using Serveza.Model;
 using Serveza.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -35,7 +36,8 @@ namespace Serveza.Pages
         public HomePage()
         {
             this.InitializeComponent();
-
+            Utils.StorageApplication.SetValue("token", "token");
+            Debug.WriteLine("token =  " + Utils.StorageApplication.GetValue("token", "toto"));
         }
 
         private void init()
@@ -51,6 +53,11 @@ namespace Serveza.Pages
 
             UserNameText.Text = App.Core.User.name;
             UserImage.Fill = Utils.Utils.UrlToFillSource(App.Core.User.imageUrl);
+
+            Classes.Network.GetEvent getEvent = new Classes.Network.GetEvent();
+            getEvent.SetParam(App.Core.netWork.token, Classes.Network.EventType.NONE);
+            getEvent.ExecRequest();
+            Debug.WriteLine("end");
         }
 
         private void setLocation()

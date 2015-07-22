@@ -36,6 +36,8 @@ namespace Serveza
 
             this.NavigationCacheMode = NavigationCacheMode.Required;
            // progress.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            Utils.StorageApplication.SetValue("token", "token");
+            Debug.WriteLine("token =  " + Utils.StorageApplication.GetValue("token", "toto"));
 
         }
 

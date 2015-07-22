@@ -88,20 +88,14 @@ namespace Serveza.Pages
             }
         }
 
-        private async void AppBarButton_Click(object sender, RoutedEventArgs e)
+        private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
-
-            dispatcher = CoreWindow.GetForCurrentThread().Dispatcher;
-            await this.dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-             {
-                 /* MapBar.Children.Clear();
-                  Debug.WriteLine("ok");
-                  App.Location.SetUserPosition(MapBar);
-                  foreach (Pub p in pubList.list)
-                  {
-                      App.Location.AddOnMap(MapBar, p);
-                  }*/
-             });
+            MapBar.Children.Clear();
+            App.Core.LocationCore.SetUserPosition(MapBar);
+            foreach (Pub p in pubList.list)
+            {
+                App.Core.LocationCore.AddOnMap(MapBar, p);
+            }
         }
 
 
@@ -110,6 +104,7 @@ namespace Serveza.Pages
             Frame rootFrame = Window.Current.Content as Frame;
             if (rootFrame != null && rootFrame.CanGoBack)
             {
+                MapBar.Children.Clear();
                 rootFrame.GoBack();
                 e.Handled = true;
             }

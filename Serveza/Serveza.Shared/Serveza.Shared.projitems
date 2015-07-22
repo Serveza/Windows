@@ -27,6 +27,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Location\LocationCore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\Connection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\GetBarInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\GetEvent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\NeerBar.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\NetWork.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\Register.cs" />
@@ -44,6 +45,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\Event.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Pub.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\ContinuationManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\StorageApplication.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\SuspensionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\Utils.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ViewModelBase.cs" />

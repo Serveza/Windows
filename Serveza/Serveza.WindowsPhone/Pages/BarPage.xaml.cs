@@ -43,7 +43,7 @@ namespace Serveza.Pages
             pub.eventList.elvm = _eventListViewModel;
             App.Core.LocationCore.SetUserPosition(MapBar);
             App.Core.LocationCore.AddOnMap(MapBar, App.Core.PubToDisplay);
-            Debug.WriteLine("end");
+            App.Core.LocationCore.GetRouteAndDirections(App.Core.PubToDisplay, MapBar, DirectionText);
         }
 
         /// <summary>

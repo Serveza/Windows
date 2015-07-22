@@ -46,14 +46,18 @@ namespace Serveza.Classes.PubList
                 string posString;
                 string name;
                 string url;
+                int id;
+                Pub pub;
                 foreach (JObject bar in array)
                 {
                     name = bar["name"].ToObject<string>();
                     posString = bar["position"].ToObject<string>();
                     url = bar["url"].ToObject<string>();
+                    id = bar["id"].ToObject<int>();
 
                     posStringSplit = posString.Split(' ', ',');
-                    this.Add(new Pub(name, Convert.ToDouble(posStringSplit[0]), Convert.ToDouble(posStringSplit[2]), url));
+                    pub = new Pub(name, Convert.ToDouble(posStringSplit[0]), Convert.ToDouble(posStringSplit[2]), url, id);
+                    this.Add(pub);
                 }
                 return true;
             }
@@ -73,6 +77,7 @@ namespace Serveza.Classes.PubList
             try
             {
                 newPub.getInfo(infoBar.ExecRequest());
+                newPub.getEvent(infoBar.ExecRequest());
                 newPub.getAddress();
             }
             catch (Exception ex)

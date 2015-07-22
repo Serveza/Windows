@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Serveza.Utils;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace NotificationEventTask
             Debug.WriteLine("run");
             // Download the feed.
             var feed = await GetMSDNBlogFeed();
-
+            Debug.WriteLine(StorageApplication.GetValue("token", "toto"));
             // Update the live tile with the feed items.
             UpdateTile(feed);
             Debug.WriteLine("UpdateTile");

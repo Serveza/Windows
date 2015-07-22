@@ -5,7 +5,7 @@ using Windows.Storage;
 
 namespace Serveza.Utils
 {
-    public class Storage
+    class StorageApplication
     {
         internal static string GetValue(string key, string defaultValue)
         {
@@ -15,5 +15,11 @@ namespace Serveza.Utils
             }
             return defaultValue;
         }
+
+        internal static void SetValue(string key, string value)
+        {
+            ApplicationData.Current.LocalSettings.Values[key] = value;
+        }
+
     }
 }

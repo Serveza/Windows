@@ -60,13 +60,14 @@ namespace Serveza.Model
             get { return 0.1; }
         }
 
-        public Pub(string name, double clongitude, double clatitude, string url = "")
+        public Pub(string name, double clongitude, double clatitude, string url ="" , int id = 0)
         {
             _name = name;
             this.url = url;
+            this.id = id;
             beerList = new BeerList();
 
-          
+
             eventList = new EventList();
 
             eventList.Add(new Event(DateTime.Now, DateTime.Now, "NewEvent", "Just a new Event"));
@@ -120,5 +121,12 @@ namespace Serveza.Model
 
         public string address { get; set; }
 
+
+        public int id { get; private set; }
+
+        public void getEvent(JObject jObject)
+        {
+            
+        }
     }
 }

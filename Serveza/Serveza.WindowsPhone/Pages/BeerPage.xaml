@@ -10,6 +10,9 @@
     <Page.Background>
         <SolidColorBrush Color="{StaticResource Background}"/>
     </Page.Background>
+    <Page.Foreground>
+        <SolidColorBrush Color="{StaticResource Forground}"/>
+    </Page.Foreground>
 
     <Grid>
         <Grid.RowDefinitions>
