@@ -4,11 +4,14 @@ using Serveza.Classes.Network;
 using Serveza.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.Background;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -32,8 +35,8 @@ namespace Serveza
             this.InitializeComponent();
 
             this.NavigationCacheMode = NavigationCacheMode.Required;
-            progress.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-               
+           // progress.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+
         }
 
 
@@ -44,24 +47,52 @@ namespace Serveza
         /// This parameter is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-
+            this.RegisterBackgroundTask();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
+          //  ConnectAnnim.Begin();
             Connection co = new Connection();
             co.setParam(UserNameText.Text, PassWordText.Password);
-           // progress.Visibility = Windows.UI.Xaml.Visibility.Visible;    
             if (App.Core.User.Load(co.ExecRequest()))
             {
-             //   progress.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
                 Frame.Navigate(typeof(Pages.HomePage));
+                return;
             }
+            var message = new MessageDialog("Can't connect");
+            await message.ShowAsync();
         }
 
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(Pages.NewUserPage));
         }
+
+        private async void RegisterBackgroundTask()
+        {
+            var backgroundAccessStatus = await BackgroundExecutionManager.RequestAccessAsync();
+            if (backgroundAccessStatus == BackgroundAccessStatus.AllowedMayUseActiveRealTimeConnectivity ||
+                backgroundAccessStatus == BackgroundAccessStatus.AllowedWithAlwaysOnRealTimeConnectivity)
+            {
+                Debug.WriteLine("Register");
+                foreach (var task in BackgroundTaskRegistration.AllTasks)
+                {
+                    if (task.Value.Name == taskName)
+                    {
+                        task.Value.Unregister(true);
+                    }
+                }
+
+                BackgroundTaskBuilder taskBuilder = new BackgroundTaskBuilder();
+                taskBuilder.Name = taskName;
+                taskBuilder.TaskEntryPoint = taskEntryPoint;
+                taskBuilder.SetTrigger(new TimeTrigger(15, false));
+                var registration = taskBuilder.Register();
+            }
+        }
+
+        private const string taskName = "BlogFeedBackgroundTask";
+        private const string taskEntryPoint = "NotificationEventTask.BlogFeedBackgroundTask";
     }
 }

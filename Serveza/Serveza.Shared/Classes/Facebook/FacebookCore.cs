@@ -74,6 +74,7 @@ namespace Serveza.Classes.Facebook
         public ImageBrush getUserImage(string id)
         {
             string profilePictureUrl = string.Format("https://graph.facebook.com/{0}/picture?type={1}&access_token={2}", id, "square", AccessToken);
+            Debug.WriteLine(profilePictureUrl);
             return Utils.Utils.UrlToFillSource(profilePictureUrl);
         }
     }

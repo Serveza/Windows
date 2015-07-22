@@ -269,3 +269,6 @@ E:\c#\Windows\Serveza\Serveza.WindowsPhone\obj\Debug\ProjectArchitectures.txt
 E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\WinRTXamlToolkit.dll
 E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\WinRTXamlToolkit.pri
 E:\c#\Windows\Serveza\Serveza.WindowsPhone\obj\Debug\WinRTXamlToolkit.pri.xml
+E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\NotificationEventTask.winmd
+E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\NotificationEventTask.pdb
+E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\NotificationEventTask.pri

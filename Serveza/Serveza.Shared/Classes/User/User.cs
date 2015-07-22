@@ -34,12 +34,14 @@ namespace Serveza.Classes.User
         }
         public bool Load(JObject obj)
         {
+            Debug.WriteLine("ok");
             try
             {
                 firstName = obj["firstname"].ToObject<string>();
                 lastName = obj["lastname"].ToObject<string>();
                 imageUrl = obj["avatar"].ToObject<string>();
                 App.Core.netWork.token = obj["api_token"].ToObject<string>();
+                Debug.WriteLine("done");
                 return true;
             }
             catch (Exception ex)
