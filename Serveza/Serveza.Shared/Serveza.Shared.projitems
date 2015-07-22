@@ -26,6 +26,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Location\BarMapPoint.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Location\LocationCore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\Connection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\GetBarInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\NeerBar.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\NetWork.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\Register.cs" />

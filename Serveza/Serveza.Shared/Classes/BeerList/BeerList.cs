@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Linq;
+using Newtonsoft.Json.Linq;
 
 namespace Serveza.Classes.BeerList
 {
@@ -68,5 +69,16 @@ namespace Serveza.Classes.BeerList
             if (blwm != null)
                 blwm.list = new ObservableCollection<Beer>(list);
         }
+
+       public void Load(Newtonsoft.Json.Linq.JArray jArray)
+       {
+           Beer newBeer;
+           foreach(JObject obj in jArray)
+           {
+               newBeer = new Beer();
+               newBeer.load(obj);
+               Add(newBeer);
+           }
+       }
     }
 }

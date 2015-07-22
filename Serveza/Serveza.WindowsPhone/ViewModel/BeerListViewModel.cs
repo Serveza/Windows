@@ -40,19 +40,19 @@ namespace Serveza.ViewModel
 
         void listViewP_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-              Frame rootFrame = Window.Current.Content as Frame;
-              if (rootFrame != null && rootFrame.CanGoBack)
-              {
-                  try
-                  {
-                      App.Core.BeerToDisplay = _list[_beerListView.listViewP.SelectedIndex];
-                      rootFrame.Navigate(typeof(Pages.BeerPage));
-                  }
-                  catch (Exception ex)
-                  {
-                      Debug.WriteLine(ex);
-                  }
-              }
+            Frame rootFrame = Window.Current.Content as Frame;
+            if (rootFrame != null && rootFrame.CanGoBack)
+            {
+                try
+                {
+                    App.Core.BeerToDisplay = _list[_beerListView.listViewP.SelectedIndex];
+                    rootFrame.Navigate(typeof(Pages.BeerPage));
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
         }
 
         private async void update()
@@ -66,7 +66,7 @@ namespace Serveza.ViewModel
 
         public void detach()
         {
-           // _parent.Children.Remove(_beerListView);
+            // _parent.Children.Remove(_beerListView);
         }
     }
 }

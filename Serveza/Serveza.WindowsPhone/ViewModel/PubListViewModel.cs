@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Core;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -37,7 +38,7 @@ namespace Serveza.ViewModel
             _pubListView.listViewP.SelectionChanged += listViewP_SelectionChanged;
         }
 
-        void listViewP_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public void listViewP_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
             if (rootFrame != null && rootFrame.CanGoBack)

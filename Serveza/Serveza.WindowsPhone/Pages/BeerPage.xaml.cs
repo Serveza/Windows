@@ -46,9 +46,12 @@ namespace Serveza.Pages
 
         public void Init(Beer beer)
         {
+
+            beer.GetInfo();
             BeerName.Text = beer.name;
-            ProductText.Text = beer.product;
-            DegreeText.Text = beer.degre + " %";
+            //title.Text == null ? "" : title.Text;
+            ProductText.Text = ( beer.product == null ? beer.price.ToString() + "€" : beer.product);
+        //    DegreeText.Text = beer.degre + " %";
 
             clwm = new CommentListViewModel(CommentList);
             comList = new CommentList(clwm);

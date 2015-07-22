@@ -40,15 +40,23 @@ namespace Serveza.Classes.Facebook
         {
             if (result.ResponseStatus == WebAuthenticationStatus.Success)
             {
-                var responseUri = new Uri(result.ResponseData.ToString());
-                var facebookOAuthResult = _fb.ParseOAuthCallbackUrl(responseUri);
-
-                if (string.IsNullOrWhiteSpace(facebookOAuthResult.Error))
+                try
                 {
-                    _fb.AccessToken = facebookOAuthResult.AccessToken;
+                    var responseUri = new Uri(result.ResponseData.ToString());
+                    var facebookOAuthResult = _fb.ParseOAuthCallbackUrl(responseUri);
+                    if (string.IsNullOrWhiteSpace(facebookOAuthResult.Error))
+                    {
+                        _fb.AccessToken = facebookOAuthResult.AccessToken;
+                    }
+                    else
+                    {
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
+                    Debug.WriteLine(ex);
+                    _fb.AccessToken = null;
+                    return;
                 }
             }
             else if (result.ResponseStatus == WebAuthenticationStatus.ErrorHttp)

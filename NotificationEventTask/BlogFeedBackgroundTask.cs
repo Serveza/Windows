@@ -85,7 +85,7 @@ namespace NotificationEventTask
                 toastTextElements[0].InnerText = titleText;
                 var toast = new ToastNotification(toastXml);
 
-                ToastNotificationManager.CreateToastNotifier().Show(toast);
+               ToastNotificationManager.CreateToastNotifier().Show(toast);
 
                 // Create a new tile notification. 
                 updater.Update(new TileNotification(tileXml));

@@ -65,17 +65,21 @@ namespace Serveza.Classes.PubList
         }
         public void Add(Pub newPub)
         {
+            Serveza.Classes.Network.GetBarInfo infoBar = new Classes.Network.GetBarInfo();
+            infoBar.SetParam(newPub);
             list.Add(newPub);
             if (plvm != null)
                 plvm.list = new ObservableCollection<Pub>(list);
             try
             {
-                newPub.getInfo();
+                newPub.getInfo(infoBar.ExecRequest());
+                newPub.getAddress();
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
             }
+         
         }
 
         public void Clear()

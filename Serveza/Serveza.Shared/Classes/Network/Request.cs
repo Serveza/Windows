@@ -38,6 +38,7 @@ namespace Serveza.Classes.Network
                 else if (type == RequestType.POST)
                     request.Method = "POST";
                 WebResponse response = request.GetResponseAsync().Result;
+                Debug.WriteLine("ok");
                 HttpWebResponse httpWebResponse = (HttpWebResponse)response;
                 if (httpWebResponse.StatusDescription == "OK")
                 {
@@ -56,7 +57,8 @@ namespace Serveza.Classes.Network
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex);
+                Debug.WriteLine(url + "  " + ex);
+                return null;
             }
             return returnedObject;
         }

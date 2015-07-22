@@ -1,10 +1,12 @@
-﻿using Serveza.Classes.BeerList;
+﻿using Newtonsoft.Json.Linq;
+using Serveza.Classes.BeerList;
 using Serveza.Classes.CommentList;
 using Serveza.Classes.EventList;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using Windows.Devices.Geolocation;
+using Windows.UI.Popups;
 
 namespace Serveza.Model
 {
@@ -52,7 +54,7 @@ namespace Serveza.Model
             get { return _longitude; }
             set { _longitude = value; }
         }
-        public string url { get; set; }
+        public string url { get; private set; }
         public double dist
         {
             get { return 0.1; }
@@ -64,11 +66,7 @@ namespace Serveza.Model
             this.url = url;
             beerList = new BeerList();
 
-            beerList.Add(new Beer("Guiness", 4.2, "Guiness"));
-            beerList.Add(new Beer("Leff", 5, "Leff"));
-            beerList.Add(new Beer("Rince Cochon", 8.5, "Rince Cochon"));
-            beerList.Add(new Beer("Cuvee des Trols", 7, "Cuvee des Trols"));
-
+          
             eventList = new EventList();
 
             eventList.Add(new Event(DateTime.Now, DateTime.Now, "NewEvent", "Just a new Event"));
@@ -97,9 +95,21 @@ namespace Serveza.Model
 
 
 
-        public async void getInfo()
+        public async void getAddress()
         {
             address = await App.Core.LocationCore.GetPubAdress(this);
+        }
+
+        public bool getInfo(JObject obj)
+        {
+            if (obj != null)
+            {
+                JObject objBar = obj["bar"].ToObject<JObject>();
+
+                beerList.Load(objBar["carte"].ToObject<JArray>());
+                return true;
+            }
+            return false;
         }
 
         public override string ToString()
@@ -109,5 +119,6 @@ namespace Serveza.Model
 
 
         public string address { get; set; }
+
     }
 }

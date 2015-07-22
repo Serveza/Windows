@@ -71,7 +71,10 @@ namespace Serveza.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             init();
-            setLocation();
+            Serveza.Classes.Network.NeerBar request = new Serveza.Classes.Network.NeerBar();
+            request.setParam(50.6405435, 3.0601101, 5);
+            if (App.Core.NeerPubList.Load(request.ExecRequest()))
+                setLocation();
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
