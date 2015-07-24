@@ -18,7 +18,7 @@ namespace Serveza.Classes.BeerList
             get { return _blwm; }
             set
             {
-             //   _blwm.detach();
+                //   _blwm.detach();
                 _blwm = value;
                 if (_blwm != null)
                     _blwm.list = new ObservableCollection<Beer>(list);
@@ -38,7 +38,11 @@ namespace Serveza.Classes.BeerList
 
         public void Add(Beer newBeer)
         {
-            list.Add(newBeer);
+            var query = (from b in list where (b.id == newBeer.id) select b).ToList();
+
+            if (query.Count == 0)
+                list.Add(newBeer);
+
             if (blwm != null)
                 blwm.list = new ObservableCollection<Beer>(list);
         }
@@ -63,22 +67,22 @@ namespace Serveza.Classes.BeerList
             return new ObservableCollection<Beer>((from beer in list where (beer.name.ToUpper().Contains(p.ToUpper())) select beer).ToList());
         }
 
-       public void Clear()
+        public void Clear()
         {
             list.Clear();
             if (blwm != null)
                 blwm.list = new ObservableCollection<Beer>(list);
         }
 
-       public void Load(Newtonsoft.Json.Linq.JArray jArray)
-       {
-           Beer newBeer;
-           foreach(JObject obj in jArray)
-           {
-               newBeer = new Beer();
-               newBeer.load(obj);
-               Add(newBeer);
-           }
-       }
+        public void Load(Newtonsoft.Json.Linq.JArray jArray)
+        {
+            Beer newBeer;
+            foreach (JObject obj in jArray)
+            {
+                newBeer = new Beer();
+                newBeer.load(obj);
+                Add(newBeer);
+            }
+        }
     }
 }

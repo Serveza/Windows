@@ -47,6 +47,7 @@ namespace Serveza.Pages
         /// This parameter is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            App.Core.NeerBeer = App.Core.NeerPubList.getBeerList();
         }
 
         private void SearchBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
@@ -54,11 +55,8 @@ namespace Serveza.Pages
             Debug.WriteLine(sender.Text);
             if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
             {
-                if (sender.Text.Length > 3)
-                {
-                    sender.DataContext = App.Core.MyBeerList.Search(sender.Text);
-                    Debug.WriteLine(App.Core.MyBeerList.Search(sender.Text).Count);
-                }
+                sender.DataContext = App.Core.NeerBeer.Search(sender.Text);
+                Debug.WriteLine(App.Core.NeerBeer.Search(sender.Text).Count);
             }
         }
 
@@ -66,12 +64,11 @@ namespace Serveza.Pages
         {
             Beer beer = args.SelectedItem as Beer;
             sender.Text = "";
-         //   sender.DataContext = null;
-            if (!App.Core.SearchBeerList.list.Contains(beer))
-                App.Core.SearchBeerList.Add(beer);
+            //   sender.DataContext = null;
+            App.Core.SearchBeerList.Add(beer);
         }
 
-       
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             App.Core.SearchBeerList.Clear();

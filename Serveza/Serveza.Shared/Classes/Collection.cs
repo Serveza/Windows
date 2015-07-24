@@ -41,6 +41,8 @@ namespace Serveza.Classes
                 isBeer = false;
             }
         }
+
+        public BeerList.BeerList NeerBeer;
         public Collection()
         {
             MyBeerList = new BeerList.BeerList();
@@ -51,22 +53,13 @@ namespace Serveza.Classes
             LocationCore = new Location.LocationCore();
             ResultPubList = new PubList.PubList();
             netWork = new Network.NetWork();
+            NeerBeer = new BeerList.BeerList();
             User = new User.User();
         }
 
         public void Init()
         {
-            MyBeerList.Add(new Beer("Guiness", 4.2, "Guiness"));
-            MyBeerList.Add(new Beer("Leff", 5, "Leff"));
-            MyBeerList.Add(new Beer("Rince Cochon", 8.5, "Rince Cochon"));
-            MyBeerList.Add(new Beer("Cuvee des Trols", 7, "Cuvee des Trols"));
-
-           
-            MyPubList.Add(new Pub("Imaginaire", 50.6404403, 3.064249));
-            MyPubList.Add(new Pub("Capsule", 50.6405435, 3.0601101));
-            MyPubList.Add(new Pub("Chopp'ing", 50.6393988, 3.058493));
-            MyPubList.Add(new Pub("O'Scotland", 50.6308288, 3.0552842));
-
+            
         }
     }
 }

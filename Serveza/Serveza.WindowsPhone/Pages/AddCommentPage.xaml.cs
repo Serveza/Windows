@@ -87,5 +87,55 @@ namespace Serveza.Pages
             }
         }
 
+        private void DisplayNote(bool one, bool two, bool tree, bool four, bool five)
+        {
+            if (one)
+                Note1.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer.png");
+            else
+                Note1.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer-d.png");
+           
+            if (two)
+                Note2.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer.png");
+            else
+                Note2.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer-d.png");
+            
+            if (tree)
+                Note3.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer.png");
+            else
+                Note3.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer-d.png");
+            
+            if (four)
+                Note4.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer.png");
+            else
+                Note4.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer-d.png");
+
+            if (five)
+                Note5.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer.png");
+            else
+                Note5.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer-d.png");
+
+        }
+
+        private void SetNote(Image note)
+        {
+            if (note == Note1)
+                DisplayNote(true, false, false, false, false);
+            else if (note == Note2)
+                DisplayNote(true, true, false, false, false);
+            else if (note == Note3)
+                DisplayNote(true, true, true, false, false);
+            else if (note == Note4)
+                DisplayNote(true, true, true, true, false);
+            else if (note == Note5)
+                DisplayNote(true, true, true, true, true);
+
+        }
+
+        private void Note1_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Image note = sender as Image;
+            SetNote(note);
+        }
+
     }
 }

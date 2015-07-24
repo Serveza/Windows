@@ -57,10 +57,15 @@ namespace Serveza.Model
         public string url { get; private set; }
         public double dist
         {
-            get { return 0.1; }
+            get
+            {
+                //var cor = new Geocoordinate(longitude, latitude);
+                //return cor.GetDistanceTo(new Geocoordinate, latitude));
+                return 0.1;
+            }
         }
 
-        public Pub(string name, double clongitude, double clatitude, string url ="" , int id = 0)
+        public Pub(string name, double clongitude, double clatitude, string url = "", int id = 0)
         {
             _name = name;
             this.url = url;
@@ -126,7 +131,7 @@ namespace Serveza.Model
 
         public void getEvent(JObject jObject)
         {
-            
+
         }
     }
 }

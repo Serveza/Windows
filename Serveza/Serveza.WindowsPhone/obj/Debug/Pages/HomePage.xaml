@@ -62,7 +62,6 @@
                 <Grid Grid.Row="1" x:Name="BarNeerGrid"/>
             </Grid>
         </PivotItem>
-
         <PivotItem Header="My Beer">
             <Grid x:Name="MyBeerGrid">
 

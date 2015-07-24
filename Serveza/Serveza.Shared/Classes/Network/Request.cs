@@ -5,6 +5,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Threading.Tasks;
+using Windows.Web.Http;
 
 namespace Serveza.Classes.Network
 {
@@ -15,8 +17,8 @@ namespace Serveza.Classes.Network
     }
     public class Request
     {
-        private string BaseAddress = "http://10.11.45.251:5000";
-     //   private string BaseAddress = "http://serveza.kokakiwi.net";
+      //  private string BaseAddress = "http://10.11.45.251:5000";
+       private string BaseAddress = "http://serveza.kokakiwi.net";
         protected Uri uri;
         protected string url;
         protected HttpWebRequest request;
@@ -26,6 +28,15 @@ namespace Serveza.Classes.Network
             this.url = BaseAddress + url;
             this.type = type;
         }
+
+        public async Task<JObject> GetJsonAsync()
+        {
+            using (var client = new HttpClient())
+            {
+                var jsonString = await client.GetStringAsync(uri);
+                return JObject.Parse(jsonString);
+            }
+        }            
 
         public JObject ExecRequest()
         {

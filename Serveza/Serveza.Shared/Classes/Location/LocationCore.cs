@@ -22,7 +22,6 @@ namespace Serveza.Classes.Location
         {
             geolocator = new Geolocator();
             geolocator.DesiredAccuracyInMeters = 50;
-
         }
 
         public async void SetUserPosition(MapControl map)
@@ -55,7 +54,7 @@ namespace Serveza.Classes.Location
             MapControl.SetLocation(pmb, pub.pos);
         }
 
-     
+
         public async void GetRouteAndDirections(Pub pub, MapControl map, TextBlock tbOutputText)
         {
             Geoposition geoposition = await geolocator.GetGeopositionAsync(maximumAge: TimeSpan.FromMinutes(5), timeout: TimeSpan.FromSeconds(10));
@@ -111,7 +110,7 @@ namespace Serveza.Classes.Location
                         tbOutputText.Inlines.Add(new LineBreak());
                     }
                 }
-                  // Use the route to initialize a MapRouteView.
+                // Use the route to initialize a MapRouteView.
                 MapRouteView viewOfRoute = new MapRouteView(routeResult.Route);
                 viewOfRoute.RouteColor = Colors.Yellow;
                 viewOfRoute.OutlineColor = Colors.Black;
@@ -132,24 +131,19 @@ namespace Serveza.Classes.Location
                     "A problem occurred: " + routeResult.Status.ToString();
             }
             Debug.WriteLine(tbOutputText.Text);
-            
+
         }
 
 
         public async Task<string> GetPubAdress(Pub pub)
         {
-            // Location to reverse geocode.
             BasicGeoposition location = new BasicGeoposition();
             location.Latitude = pub.latitude;
             location.Longitude = pub.longitude;
             Geopoint pointToReverseGeocode = new Geopoint(location);
 
-            // Reverse geocode the specified geographic location.
-            MapLocationFinderResult result =
-                await MapLocationFinder.FindLocationsAtAsync(pointToReverseGeocode);
+            MapLocationFinderResult result = await MapLocationFinder.FindLocationsAtAsync(pointToReverseGeocode);
 
-            // If the query returns results, display the name of the town
-            // contained in the address of the first result.
             string res = "";
             try
             {

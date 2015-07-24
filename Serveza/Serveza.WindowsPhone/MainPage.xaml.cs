@@ -35,10 +35,9 @@ namespace Serveza
             this.InitializeComponent();
 
             this.NavigationCacheMode = NavigationCacheMode.Required;
-           // progress.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            Utils.StorageApplication.SetValue("token", "token");
-            Debug.WriteLine("token =  " + Utils.StorageApplication.GetValue("token", "toto"));
-
+            // progress.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+           
+            
         }
 
 
@@ -49,21 +48,28 @@ namespace Serveza
         /// This parameter is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            this.RegisterBackgroundTask();
+            // this.RegisterBackgroundTask();
+            if (Utils.StorageApplication.GetValue("token", "toto") != "toto")
+                Frame.Navigate(typeof(Pages.HomePage));
         }
 
+       
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-          //  ConnectAnnim.Begin();
+            ConnectAnnim.Begin();
             Connection co = new Connection();
             co.setParam(UserNameText.Text, PassWordText.Password);
-            if (App.Core.User.Load(co.ExecRequest()))
+            var obj = await co.GetJsonAsync();
+            Debug.WriteLine(obj);
+            if (App.Core.User.Load(obj))
             {
+                ConnectAnnim.Stop();
                 Frame.Navigate(typeof(Pages.HomePage));
                 return;
             }
             var message = new MessageDialog("Can't connect");
             await message.ShowAsync();
+            
         }
 
         private void AppBarButton_Click(object sender, RoutedEventArgs e)

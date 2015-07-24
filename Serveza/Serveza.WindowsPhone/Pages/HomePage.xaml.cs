@@ -33,11 +33,11 @@ namespace Serveza.Pages
         private PubListViewModel _myPubListViewModel;
 
         private PubListViewModel _neerPubListViewModel;
+
+        private EventListViewModel _NotifEventListViewModel;
         public HomePage()
         {
             this.InitializeComponent();
-            Utils.StorageApplication.SetValue("token", "token");
-            Debug.WriteLine("token =  " + Utils.StorageApplication.GetValue("token", "toto"));
         }
 
         private void init()
@@ -50,13 +50,16 @@ namespace Serveza.Pages
 
             _neerPubListViewModel = new PubListViewModel(BarNeerGrid);
             App.Core.NeerPubList.plvm = _neerPubListViewModel;
+            _NotifEventListViewModel = new EventListViewModel(NotifGrid);
+            App.Core.User.eventList.elvm = _NotifEventListViewModel;
 
             UserNameText.Text = App.Core.User.name;
             UserImage.Fill = Utils.Utils.UrlToFillSource(App.Core.User.imageUrl);
 
             Classes.Network.GetEvent getEvent = new Classes.Network.GetEvent();
             getEvent.SetParam(App.Core.netWork.token, Classes.Network.EventType.NONE);
-            getEvent.ExecRequest();
+            App.Core.User.LoadEvent(getEvent.ExecRequest());
+
             Debug.WriteLine("end");
         }
 
@@ -70,6 +73,16 @@ namespace Serveza.Pages
             }
         }
 
+        private async void NeerBars()
+        {
+            
+            Serveza.Classes.Network.NeerBar request = new Serveza.Classes.Network.NeerBar();
+            request.setParam(50.6405435, 3.0601101, 5);
+            var obj = await request.GetJsonAsync();
+            if (App.Core.NeerPubList.Load(obj))
+                setLocation();
+            
+        }
         /// <summary>
         /// Invoked when this page is about to be displayed in a Frame.
         /// </summary>
@@ -78,10 +91,8 @@ namespace Serveza.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             init();
-            Serveza.Classes.Network.NeerBar request = new Serveza.Classes.Network.NeerBar();
-            request.setParam(50.6405435, 3.0601101, 5);
-            if (App.Core.NeerPubList.Load(request.ExecRequest()))
-                setLocation();
+            NeerBars();
+
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
@@ -95,10 +106,7 @@ namespace Serveza.Pages
 
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            Serveza.Classes.Network.NeerBar request = new Serveza.Classes.Network.NeerBar();
-            request.setParam(50.6405435, 3.0601101, 5);
-            if (App.Core.NeerPubList.Load(request.ExecRequest()))
-                setLocation();
+            NeerBars();
         }
 
         private void AppBarButton_Click_1(object sender, RoutedEventArgs e)

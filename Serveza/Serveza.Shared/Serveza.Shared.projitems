@@ -45,6 +45,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\Event.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Pub.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\ContinuationManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\NavigationControl.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\StorageApplication.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\SuspensionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\Utils.cs" />

@@ -31,17 +31,19 @@
             <StackPanel Margin="20, 5, 0, 0">
                 <TextBlock Text="Note : " FontSize="{StaticResource SecondPoliceSize}"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Image Height="75" Width="75" Source="ms-appx:///Assets/beer.png"/>
-                    <Image Height="75" Width="75" Source="ms-appx:///Assets/beer.png"/>
-                    <Image Height="75" Width="75" Source="ms-appx:///Assets/beer.png"/>
-                    <Image Height="75" Width="75" Source="ms-appx:///Assets/beer-d.png"/>
-                    <Image Height="75" Width="75" Source="ms-appx:///Assets/beer-d.png"/>
+                    <Image x:ConnectionId='1' x:Name="Note1" Height="75" Width="75" Source="ms-appx:///Assets/beer.png"                      />
+                    <Image x:ConnectionId='2' x:Name="Note2" Height="75" Width="75" Source="ms-appx:///Assets/beer.png"                      />
+                    <Image x:ConnectionId='3' x:Name="Note3" Height="75" Width="75" Source="ms-appx:///Assets/beer.png"                      />
+                    <Image x:ConnectionId='4' x:Name="Note4" Height="75" Width="75" Source="ms-appx:///Assets/beer-d.png"                      />
+                    <Image x:ConnectionId='5' x:Name="Note5" Height="75" Width="75" Source="ms-appx:///Assets/beer-d.png"                      />
                 </StackPanel>
             </StackPanel>
 
             <StackPanel Margin="20, 10, 20, 0" Grid.Row="1">
                 <TextBlock Text="Comment : " FontSize="{StaticResource SecondPoliceSize}"/>
-                <TextBox Margin="0, 10" ></TextBox>
+                <TextBox Margin="0, 10" >
+                    
+                </TextBox>
 
             </StackPanel>
 
@@ -56,8 +58,8 @@
                 <SolidColorBrush Color="{StaticResource Background}"/>
             </CommandBar.Foreground>
             <CommandBar.PrimaryCommands>
-                <AppBarButton x:ConnectionId='1' Icon="Send" Label="Send"                           />
-                <AppBarButton x:ConnectionId='2' Icon="Cancel" Label="Canel"                             />
+                <AppBarButton x:ConnectionId='6' Icon="Send" Label="Send"                           />
+                <AppBarButton x:ConnectionId='7' Icon="Cancel" Label="Canel"                             />
             </CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
 

@@ -39,6 +39,11 @@ namespace Serveza.Classes.EventList
             if (elvm != null)
                 elvm.list = new ObservableCollection<Event>(list);
         }
-        
+
+
+        public void LoadEvent(Newtonsoft.Json.Linq.JObject jObject)
+        {
+
+        }
     }
 }

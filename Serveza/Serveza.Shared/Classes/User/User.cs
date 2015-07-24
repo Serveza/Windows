@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using Serveza.Model;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -31,7 +32,7 @@ namespace Serveza.Classes.User
 
         public User()
         {
-
+            eventList = new EventList.EventList();
         }
 
         public bool LoadEvent(JObject obj)
@@ -42,6 +43,7 @@ namespace Serveza.Classes.User
         public bool Load(JObject obj)
         {
             Debug.WriteLine("ok");
+            Debug.WriteLine(obj);
             try
             {
                 firstName = obj["firstname"].ToObject<string>();
@@ -58,5 +60,44 @@ namespace Serveza.Classes.User
             }
         }
 
+        public bool LoadNotification(JObject obj)
+        {
+            try
+            {
+                JArray NotificationArray = obj["notifications"].ToObject<JArray>();
+                Event newEvent;
+                foreach (JObject notif in NotificationArray)
+                {
+                    newEvent = new Event();
+                    newEvent.Load(notif);
+                    eventList.Add(newEvent);
+                }
+                Debug.WriteLine("LoadNotification");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return false;
+            }
+
+        }
+
+
+        public void LoadEvent(System.Threading.Tasks.Task<JObject> task)
+        {
+            JObject obj = task.Result as JObject;
+            LoadEvent(obj);
+        }
+
+        public bool Load(System.Threading.Tasks.Task<JObject> task)
+        {
+            Debug.WriteLine("load");
+            JObject obj = task.Result as JObject;
+            Debug.WriteLine("obj = " + obj.ToString());
+            if (Load(obj))
+                Utils.NavigationControl.Navigate(typeof(Pages.HomePage));
+            return true;
+        }
     }
 }

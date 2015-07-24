@@ -46,26 +46,27 @@ namespace Serveza.Classes.PubList
                 string posString;
                 string name;
                 string url;
-                int id;
+                int id = 0;
                 Pub pub;
                 foreach (JObject bar in array)
                 {
                     name = bar["name"].ToObject<string>();
                     posString = bar["position"].ToObject<string>();
                     url = bar["url"].ToObject<string>();
-                    id = bar["id"].ToObject<int>();
+                 //   id = bar["id"].ToObject<int>();
 
                     posStringSplit = posString.Split(' ', ',');
                     pub = new Pub(name, Convert.ToDouble(posStringSplit[0]), Convert.ToDouble(posStringSplit[2]), url, id);
                     this.Add(pub);
                 }
-                return true;
+              //  return true;
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
-                return false;
+             //   return false;
             }
+            return true;
         }
         public void Add(Pub newPub)
         {
@@ -92,6 +93,20 @@ namespace Serveza.Classes.PubList
             list.Clear();
             if (plvm != null)
                 plvm.list = new ObservableCollection<Pub>(list);
+        }
+
+        public BeerList.BeerList getBeerList()
+        {
+            BeerList.BeerList Beerlist = new BeerList.BeerList();
+
+            foreach (Pub p in list)
+            {
+                foreach (Beer b in p.beerList.list)
+                {
+                    Beerlist.Add(b);
+                }
+            }
+            return Beerlist;
         }
     }
 }

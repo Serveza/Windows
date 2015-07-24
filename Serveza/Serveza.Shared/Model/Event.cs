@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace Serveza.Model
@@ -36,6 +37,29 @@ namespace Serveza.Model
             this.desciption = desciption;
         }
 
+        public Event()
+        {
+            
+        }
 
+
+
+        public void Load(Newtonsoft.Json.Linq.JObject notif)
+        {
+            try
+            {
+                name = notif["name"].ToObject<string>();
+                string desc = notif["descriotion"].ToObject<string>();
+                desciption = (desc == null ? "No description" : desc);
+                
+                _startTime = DateTime.Now;
+                _endTime = DateTime.Now;
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+        }
     }
 }

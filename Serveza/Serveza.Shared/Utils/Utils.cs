@@ -5,6 +5,7 @@ using System.Net;
 using System.Text;
 using Windows.Foundation;
 using Windows.UI.Popups;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Shapes;
@@ -54,6 +55,15 @@ namespace Serveza.Utils
         {
             WwwFormUrlDecoder decoder = new WwwFormUrlDecoder(uri.Query);
             return decoder.GetFirstValueByName(search);
+        }
+
+        internal static ImageSource StringToImage(string url)
+        {
+            BitmapImage bitmapImage = new BitmapImage();
+            Uri uri = new Uri(url);
+            bitmapImage.UriSource = uri;
+            return bitmapImage;
+            
         }
     }
 }

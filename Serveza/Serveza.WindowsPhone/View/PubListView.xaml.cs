@@ -24,6 +24,7 @@ namespace Serveza.View
             get { return listView; }
             set { listView = value; }
         }
+
         public PubListView()
         {
             this.InitializeComponent();
