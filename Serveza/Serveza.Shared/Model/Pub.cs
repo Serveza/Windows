@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using Windows.Devices.Geolocation;
 using Windows.UI.Popups;
+using System.Linq;
 
 namespace Serveza.Model
 {
@@ -132,6 +133,18 @@ namespace Serveza.Model
         public void getEvent(JObject jObject)
         {
 
+        }
+
+        public bool HasThisBeers(BeerList beerListToSearch)
+        {
+
+            foreach (Beer b in beerListToSearch.list)
+            {
+                var query = (from beer in beerList.list where (b.id == beer.id) select beer).ToList();
+                if (query.Count == 0)
+                    return false;
+            }
+            return true;
         }
     }
 }

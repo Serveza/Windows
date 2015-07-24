@@ -39,7 +39,10 @@
                 </Button>
             </Grid>
             <Grid x:Name="beerListSelected" Margin="20, 10"/>
+            <TextBlock Text="Result" Margin="20" VerticalAlignment="Center" FontSize="{StaticResource PoliceSize}"/>
+
             <Grid x:Name="resultBarList" Margin="20, 10"/>
+
         </StackPanel>
     </Grid>
 </Page>

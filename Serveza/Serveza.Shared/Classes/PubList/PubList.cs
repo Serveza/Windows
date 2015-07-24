@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Text;
+using System.Linq;
 
 namespace Serveza.Classes.PubList
 {
@@ -53,18 +54,18 @@ namespace Serveza.Classes.PubList
                     name = bar["name"].ToObject<string>();
                     posString = bar["position"].ToObject<string>();
                     url = bar["url"].ToObject<string>();
-                 //   id = bar["id"].ToObject<int>();
+                    //   id = bar["id"].ToObject<int>();
 
                     posStringSplit = posString.Split(' ', ',');
                     pub = new Pub(name, Convert.ToDouble(posStringSplit[0]), Convert.ToDouble(posStringSplit[2]), url, id);
                     this.Add(pub);
                 }
-              //  return true;
+                //  return true;
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
-             //   return false;
+                //   return false;
             }
             return true;
         }
@@ -85,7 +86,7 @@ namespace Serveza.Classes.PubList
             {
                 Debug.WriteLine(ex);
             }
-         
+
         }
 
         public void Clear()
@@ -107,6 +108,16 @@ namespace Serveza.Classes.PubList
                 }
             }
             return Beerlist;
+        }
+
+        public PubList SearchBarByBeer(BeerList.BeerList beerListTosearch)
+        {
+            PubList pubList = new PubList();
+
+            pubList.list = (from pub in list where (pub.HasThisBeers(beerListTosearch)) select pub).ToList();
+
+            return pubList;
+
         }
     }
 }

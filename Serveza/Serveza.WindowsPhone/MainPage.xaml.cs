@@ -49,6 +49,7 @@ namespace Serveza
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             this.RegisterBackgroundTask();
+
             if (Utils.StorageApplication.GetValue("token", "toto") != "toto")
                 Connect();
         }
@@ -56,6 +57,9 @@ namespace Serveza
         private async void Connect()
         {
             ConnectAnnim.Begin();
+            UserNameText.IsReadOnly = true;
+            //            PassWordText.i
+            
             Connection co = new Connection();
             co.setParam(UserNameText.Text, PassWordText.Password);
             var obj = await co.GetJsonAsync();
@@ -67,6 +71,7 @@ namespace Serveza
                 Frame.Navigate(typeof(Pages.HomePage));
                 return;
             }
+            UserNameText.IsReadOnly = false;
             var message = new MessageDialog("Can't connect");
             await message.ShowAsync();
         }

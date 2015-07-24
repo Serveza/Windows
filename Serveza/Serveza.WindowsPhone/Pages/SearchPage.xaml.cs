@@ -27,6 +27,7 @@ namespace Serveza.Pages
     public sealed partial class SearchPage : Page
     {
         private BeerListViewModel blvm;
+        private PubListViewModel plvm;
         public SearchPage()
         {
             this.InitializeComponent();
@@ -37,6 +38,8 @@ namespace Serveza.Pages
         {
             blvm = new BeerListViewModel(beerListSelected);
             App.Core.SearchBeerList.blwm = blvm;
+            plvm = new PubListViewModel(resultBarList);
+            App.Core.ResultPubList.plvm = plvm;
             SearchBox.DataContext = App.Core.MyBeerList.list;
         }
 
@@ -64,14 +67,16 @@ namespace Serveza.Pages
         {
             Beer beer = args.SelectedItem as Beer;
             sender.Text = "";
-            //   sender.DataContext = null;
+            sender.DataContext = null;
             App.Core.SearchBeerList.Add(beer);
+            App.Core.ResultPubList = App.Core.NeerPubList.SearchBarByBeer(App.Core.SearchBeerList);
+            App.Core.ResultPubList.plvm = plvm;
         }
-
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             App.Core.SearchBeerList.Clear();
+            App.Core.ResultPubList.Clear();
         }
     }
 }

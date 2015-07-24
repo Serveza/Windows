@@ -43,6 +43,7 @@ namespace Serveza.Classes
         }
 
         public BeerList.BeerList NeerBeer;
+        public PubList.PubList resultPubList;
         public Collection()
         {
             MyBeerList = new BeerList.BeerList();
@@ -54,6 +55,7 @@ namespace Serveza.Classes
             ResultPubList = new PubList.PubList();
             netWork = new Network.NetWork();
             NeerBeer = new BeerList.BeerList();
+            resultPubList = new PubList.PubList();
             User = new User.User();
         }
 
