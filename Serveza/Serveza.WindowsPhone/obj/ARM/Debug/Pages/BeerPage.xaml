@@ -1,0 +1,116 @@
+﻿<Page xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"  
+    x:Class="Serveza.Pages.BeerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Serveza.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:beer="using:Serveza.Model"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Margin="-1,0,1,0">
+    <Page.Background>
+        <SolidColorBrush Color="{StaticResource Background}"/>
+    </Page.Background>
+    <Page.Foreground>
+        <SolidColorBrush Color="{StaticResource Forground}"/>
+    </Page.Foreground>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="100*"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="BeerName" Text="Beer Name" FontSize="30" Margin="20, 10">
+            <TextBlock.Foreground>
+                <SolidColorBrush Color="{StaticResource Forground}"/>
+            </TextBlock.Foreground>
+        </TextBlock>
+
+        <Pivot Grid.Row="1">
+            <PivotItem x:Name="HomeItem" Header="Infomation">
+                <ScrollViewer>
+                    <StackPanel>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50*"/>
+                                <RowDefinition Height="100*"/>
+                            </Grid.RowDefinitions>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30*"/>
+                                    <ColumnDefinition Width="50*"/>
+                                </Grid.ColumnDefinitions>
+                                <Ellipse Height="125" Width="125" StrokeThickness="2">
+                                    <Ellipse.Stroke>
+                                        <SolidColorBrush Color="{StaticResource Bare}"/>
+                                    </Ellipse.Stroke>
+                                    <Ellipse.Fill>
+                                        <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/beer-d.png"/>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <StackPanel Grid.Column="1"  Margin="10, 0, 0, 0" VerticalAlignment="Center">
+                                    <TextBlock Text="Product" x:Name="ProductText" FontSize="{StaticResource PoliceSize}">
+                                        <TextBlock.Foreground>
+                                            <SolidColorBrush Color="{StaticResource BareForground}"/>
+                                        </TextBlock.Foreground>
+                                    </TextBlock>
+                                    <TextBlock Text="Degree" Grid.Row="1" x:Name="DegreeText" FontSize="{StaticResource PoliceSize}">
+                                        <TextBlock.Foreground>
+                                            <SolidColorBrush Color="{StaticResource BareForground}"/>
+                                        </TextBlock.Foreground>
+                                    </TextBlock>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                        <Image Height="30" Width="30" Source="ms-appx:///Assets/14-512.png"/>
+                                        <Image Height="30" Width="30" Source="ms-appx:///Assets/14-512.png"/>
+                                        <Image Height="30" Width="30" Source="ms-appx:///Assets/14-512.png"/>
+                                        <Image Height="30" Width="30" Source="ms-appx:///Assets/14-512.png"/>
+                                        <Image Height="30" Width="30" Source="ms-appx:///Assets/14-512.png"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                            <StackPanel Grid.Row="1">
+                                <TextBlock Margin="5, 15" TextWrapping="Wrap" Text="The API for Image, BitmapImage and BitmapSource doesn't include any dedicated methods for encoding and decoding of media formats. All of the encode and decode operations are built-in, and at most your app is doing image conversions or manipulation, you should use the APIs that are available in the Windows.Graphics.Imaging namespace. C++, C#, or Visual Basic or Windows Runtime apps using JavaScript. These APIs are also supported by the Windows Imaging Component (WIC) component of Windows 8." FontSize="{StaticResource PoliceSize}">
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush Color="{StaticResource BareForground}"/>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </ScrollViewer>
+            </PivotItem>
+            <PivotItem Header="Near to me">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="100*"/>
+                    </Grid.RowDefinitions>
+                    <Maps:MapControl x:Name="MapBar" MapServiceToken="{StaticResource MapToken}"/>
+                    <Grid Grid.Row="1" x:Name="BarList"/>
+                </Grid>
+            </PivotItem>
+            <PivotItem Header="Comment">
+                <Grid x:Name="CommentList"/>
+            </PivotItem>
+        </Pivot>
+
+    </Grid>
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.Background>
+                <SolidColorBrush Color="{StaticResource Bare}"/>
+            </CommandBar.Background>
+            <CommandBar.Foreground>
+                <SolidColorBrush Color="{StaticResource Background}"/>
+            </CommandBar.Foreground>
+            <CommandBar.PrimaryCommands>
+                <AppBarToggleButton Icon="Favorite" Label="Favorite"/>
+                <AppBarButton x:ConnectionId='1' Icon="Add" Label="Add Comment"                             />
+                <AppBarButton x:ConnectionId='2' Icon="Target" Label="Locate"                           />
+            </CommandBar.PrimaryCommands>
+            <CommandBar.SecondaryCommands>
+
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>
+

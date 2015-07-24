@@ -1,2 +1,2 @@
-E:\c#\Windows\NotificationEventTask\NotificationEventTask.csproj;neutral
+E:\c#\Windows\NotificationTask\NotificationTask.csproj;neutral
 E:\c#\Windows\Serveza\Serveza.WindowsPhone\Serveza.WindowsPhone.csproj;neutral

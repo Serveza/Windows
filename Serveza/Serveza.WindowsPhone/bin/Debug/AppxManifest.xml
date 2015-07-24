@@ -32,7 +32,7 @@
         </m3:InitialRotationPreference>
       </m3:VisualElements>
       <Extensions>
-        <Extension Category="windows.backgroundTasks" EntryPoint="NotificationEventTask.BlogFeedBackgroundTask">
+        <Extension Category="windows.backgroundTasks" EntryPoint="NotificationTask.NotificationTask">
           <BackgroundTasks>
             <Task Type="timer" />
           </BackgroundTasks>
@@ -48,7 +48,7 @@
     <Extension Category="windows.activatableClass.inProcessServer">
       <InProcessServer>
         <Path>CLRHost.dll</Path>
-        <ActivatableClass ActivatableClassId="NotificationEventTask.BlogFeedBackgroundTask" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="NotificationTask.NotificationTask" ThreadingModel="both" />
       </InProcessServer>
     </Extension>
   </Extensions>

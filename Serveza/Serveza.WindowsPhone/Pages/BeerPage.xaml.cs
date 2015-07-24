@@ -34,7 +34,7 @@ namespace Serveza.Pages
         private CommentListViewModel clwm;
         private CommentList comList;
 
-        private CoreDispatcher dispatcher;
+     //   private CoreDispatcher dispatcher;
 
         private PubListViewModel plvm;
         private PubList pubList;

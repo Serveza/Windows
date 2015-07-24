@@ -72,7 +72,6 @@ namespace Serveza.Classes.User
                     newEvent.Load(notif);
                     eventList.Add(newEvent);
                 }
-                Debug.WriteLine("LoadNotification");
                 return true;
             }
             catch (Exception ex)

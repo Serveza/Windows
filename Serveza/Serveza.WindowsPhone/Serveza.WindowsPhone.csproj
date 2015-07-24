@@ -194,9 +194,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\NotificationEventTask\NotificationEventTask.csproj">
-      <Project>{3f898a9a-7e97-4054-a12d-14499c61d900}</Project>
-      <Name>NotificationEventTask</Name>
+    <ProjectReference Include="..\..\NotificationTask\NotificationTask.csproj">
+      <Project>{6b22da25-de97-4857-9703-e87a48d06f97}</Project>
+      <Name>NotificationTask</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">

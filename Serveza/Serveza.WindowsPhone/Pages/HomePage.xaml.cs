@@ -113,5 +113,11 @@ namespace Serveza.Pages
         {
             Frame.Navigate(typeof(SearchPage));
         }
+
+        private void AppBarButton_Click_2(object sender, RoutedEventArgs e)
+        {
+            Utils.StorageApplication.SetValue("token", "toto");
+            Frame.Navigate(typeof(MainPage));
+        }
     }
 }

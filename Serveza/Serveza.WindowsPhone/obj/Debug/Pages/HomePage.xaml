@@ -86,7 +86,7 @@
                 <AppBarButton x:ConnectionId='2' Label="Locate" Icon="Target"                           />
             </CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
-                <AppBarButton Label="Logout" Icon="Back"/>
+                <AppBarButton x:ConnectionId='3' Label="Logout" Icon="Back"                             />
                 <AppBarButton Label="Settings" Icon="Setting"/>
                 <AppBarButton Label="About" Icon="Emoji2"/>
             </CommandBar.SecondaryCommands>

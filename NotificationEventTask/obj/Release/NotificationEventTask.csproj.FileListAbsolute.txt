@@ -1,0 +1,3 @@
+E:\c#\Windows\NotificationEventTask\obj\Release\NotificationEventTask.winmd
+E:\c#\Windows\NotificationEventTask\obj\Release\NotificationEventTask.winmdobj
+E:\c#\Windows\NotificationEventTask\obj\Release\NotificationEventTask.compile.pdb

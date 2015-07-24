@@ -1,4 +1,5 @@
-﻿using Serveza.Utils;
+﻿using Newtonsoft.Json.Linq;
+using Serveza.Utils;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 using Windows.ApplicationModel.Background;
 using Windows.Data.Xml.Dom;
 using Windows.UI.Notifications;
+using Windows.Web.Http;
 using Windows.Web.Syndication;
 
 namespace NotificationEventTask
@@ -21,17 +23,75 @@ namespace NotificationEventTask
             BackgroundTaskDeferral deferral = taskInstance.GetDeferral();
             Debug.WriteLine("run");
             // Download the feed.
-            var feed = await GetMSDNBlogFeed();
-            Debug.WriteLine(StorageApplication.GetValue("token", "toto"));
+
+            string token = StorageApplication.GetValue("token", "toto");
+
+            if (token != "toto")
+            {
+                JObject obj = await GetJsonAsync(token);
+                UpdateTile(obj);
+            }
+
+
             // Update the live tile with the feed items.
-            UpdateTile(feed);
+            // UpdateTile(feed);
             Debug.WriteLine("UpdateTile");
             // Inform the system that the task is finished.
             deferral.Complete();
         }
 
+        public static async Task<JObject> GetJsonAsync(string token)
+        {
+            var updater = TileUpdateManager.CreateTileUpdaterForApplication();
+            updater.EnableNotificationQueue(true);
+            updater.Clear();
+       
+            Uri uri = new Uri("http://serveza.kokakiwi.net/api/user/notifications?api_token=" + token);
+            using (var client = new HttpClient())
+            {
+                //  var jsonString = await client.GetStringAsync(uri);
+                //return JObject.Parse(jsonString);
+                return new JObject();
+            }
+        }
+
+
+        private void UpdateTile(JObject obj)
+        {
+            var updater = TileUpdateManager.CreateTileUpdaterForApplication();
+            updater.EnableNotificationQueue(true);
+            updater.Clear();
+
+            try
+            {
+                JArray NotificationList = obj["notifications"].ToObject<JArray>();
+                foreach (JObject Notification in NotificationList)
+                {
+
+                    XmlDocument tileXml = TileUpdateManager.GetTemplateContent(TileTemplateType.TileSquarePeekImageAndText01);
+
+
+                    string Name = Notification["name"].ToObject<string>() == null ? "" : Notification["name"].ToObject<string>();
+                    tileXml.GetElementsByTagName(textElementName)[0].InnerText = Name;
+                    tileXml.GetElementsByTagName(textElementName)[1].InnerText = Name;
+                    tileXml.GetElementsByTagName(textElementName)[2].InnerText = Name;
+                    tileXml.GetElementsByTagName("image")[0].Attributes.GetNamedItem("src").InnerText = "http://a5.mzstatic.com/us/r30/Purple5/v4/5a/2e/e9/5a2ee9b3-8f0e-4f8b-4043-dd3e3ea29766/icon128-2x.png";
+
+                    updater.Update(new TileNotification(tileXml));
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            //throw new NotImplementedException();
+        }
+
         private static async Task<SyndicationFeed> GetMSDNBlogFeed()
         {
+            var updater = TileUpdateManager.CreateTileUpdaterForApplication();
+            updater.EnableNotificationQueue(true);
+            updater.Clear();
             SyndicationFeed feed = null;
 
             try
@@ -54,7 +114,7 @@ namespace NotificationEventTask
 
         private static void UpdateTile()
         {
-          
+
 
         }
 
@@ -86,7 +146,7 @@ namespace NotificationEventTask
                 toastTextElements[0].InnerText = titleText;
                 var toast = new ToastNotification(toastXml);
 
-               ToastNotificationManager.CreateToastNotifier().Show(toast);
+                ToastNotificationManager.CreateToastNotifier().Show(toast);
 
                 // Create a new tile notification. 
                 updater.Update(new TileNotification(tileXml));

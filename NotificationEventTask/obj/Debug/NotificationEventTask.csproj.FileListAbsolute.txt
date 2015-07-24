@@ -1,11 +1,12 @@
+E:\c#\Windows\NotificationEventTask\obj\Debug\NotificationEventTask.winmd
+E:\c#\Windows\NotificationEventTask\obj\Debug\NotificationEventTask.winmdobj
+E:\c#\Windows\NotificationEventTask\obj\Debug\NotificationEventTask.compile.pdb
 E:\c#\Windows\NotificationEventTask\bin\Debug\NotificationEventTask.winmd
 E:\c#\Windows\NotificationEventTask\bin\Debug\NotificationEventTask.pdb
 E:\c#\Windows\NotificationEventTask\bin\Debug\NotificationEventTask.pri
-E:\c#\Windows\NotificationEventTask\obj\Debug\NotificationEventTask.csprojResolveAssemblyReference.cache
-E:\c#\Windows\NotificationEventTask\obj\Debug\NotificationEventTask.winmd
+E:\c#\Windows\NotificationEventTask\bin\Debug\Newtonsoft.Json.dll
+E:\c#\Windows\NotificationEventTask\bin\Debug\Newtonsoft.Json.xml
 E:\c#\Windows\NotificationEventTask\obj\Debug\NotificationEventTask.pdb
-E:\c#\Windows\NotificationEventTask\obj\Debug\NotificationEventTask.winmdobj
-E:\c#\Windows\NotificationEventTask\obj\Debug\NotificationEventTask.compile.pdb
 E:\c#\Windows\NotificationEventTask\obj\Debug\priconfig.xml
 E:\c#\Windows\NotificationEventTask\obj\Debug\priconfig.xml.intermediate
 E:\c#\Windows\NotificationEventTask\obj\Debug\layout.resfiles
@@ -17,3 +18,4 @@ E:\c#\Windows\NotificationEventTask\obj\Debug\pri.resfiles.intermediate
 E:\c#\Windows\NotificationEventTask\obj\Debug\qualifiers.txt
 E:\c#\Windows\NotificationEventTask\obj\Debug\qualifiers.txt.intermediate
 E:\c#\Windows\NotificationEventTask\obj\Debug\MultipleQualifiersPerDimensionFound.txt
+E:\c#\Windows\NotificationEventTask\obj\Debug\NotificationEventTask.csprojResolveAssemblyReference.cache

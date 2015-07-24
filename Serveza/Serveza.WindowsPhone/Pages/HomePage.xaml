@@ -86,7 +86,7 @@
                 <AppBarButton Label="Locate" Icon="Target" Click="AppBarButton_Click"/>
             </CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
-                <AppBarButton Label="Logout" Icon="Back"/>
+                <AppBarButton Label="Logout" Icon="Back" Click="AppBarButton_Click_2"/>
                 <AppBarButton Label="Settings" Icon="Setting"/>
                 <AppBarButton Label="About" Icon="Emoji2"/>
             </CommandBar.SecondaryCommands>

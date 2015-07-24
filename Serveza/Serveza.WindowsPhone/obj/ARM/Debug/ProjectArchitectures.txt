@@ -1,0 +1,2 @@
+E:\c#\Windows\NotificationTask\NotificationTask.csproj;arm
+E:\c#\Windows\Serveza\Serveza.WindowsPhone\Serveza.WindowsPhone.csproj;arm

@@ -26,7 +26,7 @@
         </m3:InitialRotationPreference>
       </m3:VisualElements>
       <Extensions>
-        <Extension Category="windows.backgroundTasks" EntryPoint="NotificationEventTask.BlogFeedBackgroundTask">
+        <Extension Category="windows.backgroundTasks" EntryPoint="NotificationTask.NotificationTask">
           <BackgroundTasks>
             <Task Type="timer" />
           </BackgroundTasks>

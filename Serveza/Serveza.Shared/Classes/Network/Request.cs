@@ -72,7 +72,6 @@ namespace Serveza.Classes.Network
                 Debug.WriteLine(url + "  " + ex);
                 return null;
             }
-            return returnedObject;
         }
     }
 }

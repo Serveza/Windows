@@ -28,8 +28,8 @@
     <AppxPackagedFile Include="E:\c#\Windows\packages\WinRTXamlToolkit.WindowsPhone.1.8.1.0\lib\wpa\WinRTXamlToolkit.dll">
       <PackagePath>WinRTXamlToolkit.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\c#\Windows\NotificationEventTask\bin\Debug\NotificationEventTask.winmd">
-      <PackagePath>NotificationEventTask.winmd</PackagePath>
+    <AppxPackagedFile Include="E:\c#\Windows\NotificationTask\bin\Debug\NotificationTask.winmd">
+      <PackagePath>NotificationTask.winmd</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\Assets\Logo.scale-240.png">
       <PackagePath>Assets\Logo.scale-240.png</PackagePath>

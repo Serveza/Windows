@@ -36,8 +36,8 @@ namespace Serveza
 
             this.NavigationCacheMode = NavigationCacheMode.Required;
             // progress.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-           
-            
+
+
         }
 
 
@@ -48,13 +48,12 @@ namespace Serveza
         /// This parameter is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            // this.RegisterBackgroundTask();
+            this.RegisterBackgroundTask();
             if (Utils.StorageApplication.GetValue("token", "toto") != "toto")
-                Frame.Navigate(typeof(Pages.HomePage));
+                Connect();
         }
 
-       
-        private async void Button_Click(object sender, RoutedEventArgs e)
+        private async void Connect()
         {
             ConnectAnnim.Begin();
             Connection co = new Connection();
@@ -63,13 +62,18 @@ namespace Serveza
             Debug.WriteLine(obj);
             if (App.Core.User.Load(obj))
             {
+                Utils.StorageApplication.SetValue("token", App.Core.netWork.token);
                 ConnectAnnim.Stop();
                 Frame.Navigate(typeof(Pages.HomePage));
                 return;
             }
             var message = new MessageDialog("Can't connect");
             await message.ShowAsync();
-            
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Connect();
         }
 
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
@@ -100,7 +104,7 @@ namespace Serveza
             }
         }
 
-        private const string taskName = "BlogFeedBackgroundTask";
-        private const string taskEntryPoint = "NotificationEventTask.BlogFeedBackgroundTask";
+        private const string taskName = "NotificationTask";
+        private const string taskEntryPoint = "NotificationTask.NotificationTask";
     }
 }
