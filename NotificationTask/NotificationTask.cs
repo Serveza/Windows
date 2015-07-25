@@ -36,12 +36,14 @@ namespace NotificationTask
             deferral = taskInstance.GetDeferral();
             Debug.WriteLine("run");
             // Download the feed.
-
-            string token = StorageApplication.GetValue("token", "toto");
-
-            if (token != "toto")
+            if (StorageApplication.GetValue("liveTile", "false") != "false")
             {
-                GetJsonAsync(token);
+                string token = StorageApplication.GetValue("token", "toto");
+
+                if (token != "toto")
+                {
+                    GetJsonAsync(token);
+                }
             }
            // Debug.WriteLine("UpdateTile");
             // Inform the system that the task is finished.
@@ -76,8 +78,8 @@ namespace NotificationTask
 
                     XmlDocument tileXml = TileUpdateManager.GetTemplateContent(TileTemplateType.TileSquarePeekImageAndText01);
 
-
                     string Name = Notification["name"].ToObject<string>() == null ? "" : Notification["name"].ToObject<string>();
+                    string ImageUri = Notification["bar_image"].ToObject<string>() == null ? "none" : Notification["bar_image"].ToObject<string>();
                     tileXml.GetElementsByTagName(textElementName)[0].InnerText = "New Event";
                     tileXml.GetElementsByTagName(textElementName)[1].InnerText = Name;
                     tileXml.GetElementsByTagName(textElementName)[2].InnerText = Name;

@@ -62,5 +62,12 @@ namespace Serveza.Classes.EventList
                 Debug.WriteLine(ex);
             }
         }
+
+        public void Clear()
+        {
+            list.Clear();
+            if (elvm != null)
+                elvm.list = new ObservableCollection<Event>(list);
+        }
     }
 }

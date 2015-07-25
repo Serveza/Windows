@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace Serveza.Classes.Network
@@ -14,7 +15,17 @@ namespace Serveza.Classes.Network
 
         public void SetParam(string firstName, string lastName, string mail, string pass, string avatar)
         {
-            uri = new Uri(url + "?firstname=" + firstName + "&lastname=" + lastName + "&email=" + mail + "&password=" + pass + " &avatar=" + avatar);
+
+            content = new Windows.Web.Http.HttpStringContent("{ \"firstName\":\"" + firstName +
+                                                               "\", \"lastname\":\"" + lastName +
+                                                               "\", \"email\":\"" + mail +
+                                                               "\", \"password\":\"" + pass +
+                                                               "\", \"avatar\":\"" + avatar +
+                                                               "\"}",
+                                                                Windows.Storage.Streams.UnicodeEncoding.Utf8,
+                                                               "application/json");
+            Debug.WriteLine(content);
+            uri = new Uri(url);
         }
     }
 }

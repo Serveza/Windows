@@ -272,3 +272,8 @@ E:\c#\Windows\Serveza\Serveza.WindowsPhone\obj\Debug\ProjectArchitectures.txt
 E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\NotificationTask.winmd
 E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\NotificationTask.pdb
 E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\NotificationTask.pri
+E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\Pages\SettingsPage.xbf
+E:\c#\Windows\Serveza\Serveza.WindowsPhone\obj\Debug\Pages\SettingsPage.g.i.cs
+E:\c#\Windows\Serveza\Serveza.WindowsPhone\obj\Debug\Pages\SettingsPage.g.cs
+E:\c#\Windows\Serveza\Serveza.WindowsPhone\obj\Debug\Pages\SettingsPage.xaml
+E:\c#\Windows\Serveza\Serveza.WindowsPhone\obj\Debug\Pages\SettingsPage.xbf

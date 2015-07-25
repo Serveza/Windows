@@ -49,7 +49,7 @@ namespace Serveza.Pages
 
         private async void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
-
+            
             if (passOneEntry.Password != passTwoEntry.Password)
             {
                 var messageDialog = new MessageDialog("Password doesn't match");
@@ -58,14 +58,22 @@ namespace Serveza.Pages
             }
             Serveza.Classes.Network.Register register = new Serveza.Classes.Network.Register();
             register.SetParam(firstnameEntry.Text, lastnameEntry.Text, mailEntry.Text, passOneEntry.Password, "http://scontent-cdg2-1.xx.fbcdn.net/hphotos-xpa1/t31.0-8/p600x600/1398639_10202447870099362_1272760343_o.jpg");
-            JObject obj = register.ExecRequest();
+            JObject obj = await register.GetJsonAsync();
             if (obj != null)
             {
-                if (obj["email"].ToObject<string>() == mailEntry.Text)
+                try
                 {
-                    var messageDialogt = new MessageDialog("Account registered !");
-                    await messageDialogt.ShowAsync();
-                    return;
+                    if (obj["email"].ToObject<string>() == mailEntry.Text)
+                    {
+                        var messageDialogt = new MessageDialog("Account registered !");
+                        await messageDialogt.ShowAsync();
+                        Frame.GoBack();
+                        return;
+                    }
+                }
+                catch(Exception ex)
+                {
+                    Debug.WriteLine(ex);
                 }
             }
             var messageDialogtwo = new MessageDialog("Can't create your account");

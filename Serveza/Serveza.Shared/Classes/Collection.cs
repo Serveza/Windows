@@ -8,6 +8,7 @@ namespace Serveza.Classes
     public class Collection
     {
         public bool isBeer;
+        public Settings.Settings settings;
         public BeerList.BeerList MyBeerList { get; set; }
         public BeerList.BeerList SearchBeerList { get; set; }
         public PubList.PubList ResultPubList { get; set; }
@@ -57,6 +58,7 @@ namespace Serveza.Classes
             NeerBeer = new BeerList.BeerList();
             resultPubList = new PubList.PubList();
             User = new User.User();
+            settings = new Settings.Settings();
         }
 
         public void Init()

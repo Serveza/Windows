@@ -13,7 +13,7 @@
         <ListView x:Name="listView" ItemsSource="{Binding}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Margin="20, 0, 5, 0">
+                    <StackPanel Margin="0, 0, 5, 0">
                         <TextBlock Text="{Binding name}" FontSize="{StaticResource TitleSize}">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{StaticResource Forground}"/>

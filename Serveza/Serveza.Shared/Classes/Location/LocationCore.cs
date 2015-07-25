@@ -74,7 +74,6 @@ namespace Serveza.Classes.Location
                 endPoint,
                 MapRouteOptimization.Time,
                 MapRouteRestrictions.None);
-
             if (routeResult.Status == MapRouteFinderStatus.Success)
             {
                 // Display summary info about the route.

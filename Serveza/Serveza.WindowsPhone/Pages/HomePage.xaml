@@ -50,7 +50,7 @@
                     </StackPanel>
                 </Grid>
                 <StackPanel Grid.Row="1">
-                    <TextBlock Text="My Event" Margin="0, 10, 0, 5" FontSize="{StaticResource TitleSize}">
+                    <TextBlock Text="My Event" Margin="0, 10, 0, 5" FontSize="{StaticResource PoliceSize}">
                         <TextBlock.Foreground>
                             <SolidColorBrush Color="{StaticResource BareForground}"/>
                         </TextBlock.Foreground>
@@ -94,7 +94,7 @@
             </CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
                 <AppBarButton Label="Logout" Icon="Back" Click="AppBarButton_Click_2"/>
-                <AppBarButton Label="Settings" Icon="Setting"/>
+                <AppBarButton Label="Settings" Icon="Setting" Click="AppBarButton_Click_3"/>
                 <AppBarButton Label="About" Icon="Emoji2"/>
             </CommandBar.SecondaryCommands>
         </CommandBar>

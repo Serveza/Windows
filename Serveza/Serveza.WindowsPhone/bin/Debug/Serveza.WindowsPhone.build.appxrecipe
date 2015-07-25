@@ -116,6 +116,9 @@
     <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\Pages\SearchPage.xbf">
       <PackagePath>Pages\SearchPage.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\Pages\SettingsPage.xbf">
+      <PackagePath>Pages\SettingsPage.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\View\BeerListView.xbf">
       <PackagePath>View\BeerListView.xbf</PackagePath>
     </AppxPackagedFile>

@@ -58,22 +58,29 @@ namespace Serveza
 
         private async void Connect()
         {
-            ConnectAnnim.Begin();
-            UserNameText.IsReadOnly = true;
-            //            PassWordText.i
-            
-            Connection co = new Connection();
-            co.setParam(UserNameText.Text, PassWordText.Password);
-            var obj = await co.GetJsonAsync();
-            Debug.WriteLine(obj);
-            if (App.Core.User.Load(obj))
+            try
             {
-                Utils.StorageApplication.SetValue("token", App.Core.netWork.token);
-                ConnectAnnim.Stop();
-                Frame.Navigate(typeof(Pages.HomePage));
-                return;
+                ConnectAnnim.Begin();
+                UserNameText.IsReadOnly = true;
+                Connection co = new Connection();
+                co.setParam(UserNameText.Text, PassWordText.Password);
+                var obj = await co.GetJsonAsync();
+                Debug.WriteLine(obj);
+                if (App.Core.User.Load(obj))
+                {
+                    Utils.StorageApplication.SetValue("token", App.Core.netWork.token);
+                    ConnectAnnim.Stop();
+                    Frame.Navigate(typeof(Pages.HomePage));
+                    return;
+                }
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine(ex);
             }
             UserNameText.IsReadOnly = false;
+            ConnectAnnim.Stop();
+            CancelCoAnnim.Begin();
             var message = new MessageDialog("Can't connect");
             await message.ShowAsync();
         }

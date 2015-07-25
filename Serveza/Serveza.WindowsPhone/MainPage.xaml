@@ -31,6 +31,12 @@
     		</ObjectAnimationUsingKeyFrames>
     		<DoubleAnimation Duration="0:0:0.4" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="button" d:IsOptimized="True"/>
     	</Storyboard>
+    	<Storyboard x:Name="CancelCoAnnim">
+    		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="button">
+    			<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+    			<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+    		</DoubleAnimationUsingKeyFrames>
+    	</Storyboard>
         
     </Page.Resources>
     <Grid>

@@ -70,6 +70,7 @@ namespace Serveza.Pages
         private async void GetUserEvent()
         {
             Debug.WriteLine("getUserEvent");
+            App.Core.User.eventList.Clear();
             Classes.Network.GetEvent getEvent = new Classes.Network.GetEvent();
             getEvent.SetParam(App.Core.netWork.token, Classes.Network.EventType.NONE);
             var obj = await getEvent.GetJsonAsync();
@@ -82,7 +83,7 @@ namespace Serveza.Pages
             
             Serveza.Classes.Network.NeerBar request = new Serveza.Classes.Network.NeerBar();
             var geo = await App.Core.LocationCore.GetUserPosition();
-            request.setParam(geo, 5);
+            request.setParam(geo, App.Core.settings.scope);
             var obj = await request.GetJsonAsync();
             if (App.Core.NeerPubList.Load(obj))
                 setLocation();
@@ -123,6 +124,11 @@ namespace Serveza.Pages
         {
             Utils.StorageApplication.SetValue("token", "toto");
             Frame.Navigate(typeof(MainPage));
+        }
+
+        private void AppBarButton_Click_3(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Pages.SettingsPage));
         }
     }
 }

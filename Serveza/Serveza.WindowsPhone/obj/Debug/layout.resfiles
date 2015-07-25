@@ -24,6 +24,7 @@ Pages\BeerPage.xbf
 Pages\HomePage.xbf
 Pages\NewUserPage.xbf
 Pages\SearchPage.xbf
+Pages\SettingsPage.xbf
 Serveza.WindowsPhone.xr.xml
 View\BeerListView.xbf
 View\CommentListView.xbf
