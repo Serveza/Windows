@@ -107,6 +107,9 @@
     <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\Pages\BeerPage.xbf">
       <PackagePath>Pages\BeerPage.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\Pages\EventPage.xbf">
+      <PackagePath>Pages\EventPage.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\Pages\HomePage.xbf">
       <PackagePath>Pages\HomePage.xbf</PackagePath>
     </AppxPackagedFile>

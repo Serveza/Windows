@@ -1,11 +1,8 @@
 ﻿using Newtonsoft.Json.Linq;
 using Serveza.Utils;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Background;
 using Windows.Data.Xml.Dom;
@@ -56,7 +53,7 @@ namespace NotificationTask
             updater.EnableNotificationQueue(true);
             updater.Clear();
 
-            Uri uri = new Uri("http://serveza.kokakiwi.net/api/user/notifications?api_token=" + token);
+            Uri uri = new Uri("http://serveza.kokakiwi.net/api/user/notifications?api_token=" + token + "&update=true");
             using (var client = new HttpClient())
             {
                 obj = await client.GetStringAsync(uri);

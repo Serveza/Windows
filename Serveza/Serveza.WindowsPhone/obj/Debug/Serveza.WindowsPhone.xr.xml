@@ -193,6 +193,7 @@
     </RootType>
     <RootType FullName="Serveza.Pages.BarPage" />
     <RootType FullName="Serveza.Pages.BeerPage" />
+    <RootType FullName="Serveza.Pages.EventPage" />
     <RootType FullName="Serveza.Pages.HomePage" />
     <RootType FullName="Windows.UI.Xaml.Visibility" />
     <RootType FullName="Serveza.Pages.NewUserPage" />

@@ -55,6 +55,14 @@ namespace Serveza.Classes.Location
             MapControl.SetLocation(pmb, pub.pos);
         }
 
+        public async void AddOnMap(MapControl map, Event eventt)
+        {
+            PubMapPoint pmb = new PubMapPoint(eventt.name);
+            map.Children.Add(pmb);
+            MapControl.SetLocation(pmb, eventt.pos);
+            await map.TrySetViewAsync(eventt.pos, 10.0, 0, 0, MapAnimationKind.Bow);
+        }
+
 
         public async void GetRouteAndDirection(Pub pub, MapControl map, DirectionList.DirectionList list)
         {
@@ -187,6 +195,5 @@ namespace Serveza.Classes.Location
             }
             return res;
         }
-
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Serveza.Model;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -46,7 +47,24 @@ namespace Serveza.Classes.Network
 
         }
 
-        public void SetParam(string token, EventType type)
+
+        public void SetParam(string token, PubList.PubList list)
+        {
+            url += "?api_token=" + token;
+            foreach (Pub p in list.list)
+            {
+                url += "&bar=" + p.id;
+            }
+            uri = new Uri(url);
+        }
+
+        public void SetParam(string token, Pub pub)
+        {
+            url += "?api_token=" + token;
+            url += "&bar=" + pub.id;
+            uri = new Uri(url);
+        }
+        public void SetParam(string token, EventType type, bool update = false)
         {
             switch (type)
             {
@@ -60,6 +78,8 @@ namespace Serveza.Classes.Network
                     url += "?api_token=" + token;
                     break;
             }
+            if (update)
+                url += "&update=true";
 
             uri = new Uri(url);
         }

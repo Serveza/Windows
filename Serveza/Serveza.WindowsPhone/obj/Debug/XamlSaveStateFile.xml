@@ -1,9 +1,9 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <LocalAssembly PathName="e:\c#\windows\serveza\serveza.windowsphone\obj\debug\intermediatexaml\serveza.windowsphone.exe" HashGuid="8860b36c-bcfc-a713-68f6-b67fe9d2f109" />
+    <LocalAssembly PathName="e:\c#\windows\serveza\serveza.windowsphone\obj\debug\intermediatexaml\serveza.windowsphone.exe" HashGuid="b8920289-1860-b4fe-48be-31c3ce60aed3" />
     <ReferenceAssembly PathName="e:\c#\windows\packages\facebook.7.0.6\lib\portable-win81+wpa81\facebook.dll" HashGuid="b23a2499-2700-fb5e-a497-93d9e719fc0b" />
     <ReferenceAssembly PathName="e:\c#\windows\packages\newtonsoft.json.7.0.1\lib\portable-net40+sl5+wp80+win8+wpa81\newtonsoft.json.dll" HashGuid="0b4cdfc1-2257-2e75-23cf-4052e97b309e" />
-    <ReferenceAssembly PathName="e:\c#\windows\notificationtask\bin\debug\notificationtask.winmd" HashGuid="90446961-9b5f-7d3f-3f88-c020d9e50f08" />
+    <ReferenceAssembly PathName="e:\c#\windows\notificationtask\bin\debug\notificationtask.winmd" HashGuid="58469211-afe2-a8e1-6f29-8a53f708ddb6" />
     <ReferenceAssembly PathName="e:\c#\windows\packages\winrtxamltoolkit.windowsphone.1.8.1.0\lib\wpa\winrtxamltoolkit.dll" HashGuid="221e17c6-64f2-d53e-b7b5-145a2dbe921c" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>

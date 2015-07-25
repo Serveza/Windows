@@ -8,6 +8,7 @@ using System.Text;
 using Windows.Devices.Geolocation;
 using Windows.UI.Popups;
 using System.Linq;
+using System.Diagnostics;
 
 namespace Serveza.Model
 {
@@ -71,15 +72,12 @@ namespace Serveza.Model
             _name = name;
             this.url = url;
             this.id = id;
-            beerList = new BeerList();
 
+            beerList = new BeerList();
+            
+            commentList = new CommentList();
 
             eventList = new EventList();
-
-            eventList.Add(new Event(DateTime.Now, DateTime.Now, "NewEvent", "Just a new Event"));
-            eventList.Add(new Event(DateTime.Now, DateTime.Now, "NewEvent", "Just a new Event"));
-            eventList.Add(new Event(DateTime.Now, DateTime.Now, "NewEvent", "Just a new Event"));
-            eventList.Add(new Event(DateTime.Now, DateTime.Now, "NewEvent", "Just a new Event"));
 
             _longitude = clatitude;
             _latitude = clongitude;
@@ -88,16 +86,17 @@ namespace Serveza.Model
 
         public Pub(string name)
         {
-            _name = name;
+            url = name;
             beerList = new BeerList();
-            beerList.Add(new Beer("Guiness", 4.2, "Guiness"));
-            beerList.Add(new Beer("Leff", 5, "Leff"));
-            beerList.Add(new Beer("Rince Cochon", 8.5, "Rince Cochon"));
-            beerList.Add(new Beer("Cuvee des Trols", 7, "Cuvee des Trols"));
-
-
+            eventList = new EventList();
+            commentList = new CommentList();
             //   _longitude = clongitude;
             // _latitude = clatitude;
+        }
+
+        public Pub()
+        {
+           
         }
 
 
@@ -145,6 +144,47 @@ namespace Serveza.Model
                     return false;
             }
             return true;
+        }
+
+        public void LoadEvent(JObject jobj)
+        {
+            try
+            {
+                eventList.Clear();
+                JArray array = jobj["notifications"].ToObject<JArray>();
+                Event tmp;
+                foreach (JObject obj in array)
+                {
+                    tmp = new Event();
+                    tmp.Load(obj);
+                    eventList.Add(tmp);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+        }
+
+        public void Load(JObject obj, Event eve)
+        {
+            try
+            {
+                JObject objBar = obj["bar"].ToObject<JObject>();
+                name = objBar["name"].ToObject<string>();
+                address = objBar["address"].ToObject<string>();
+                id = objBar["id"].ToObject<int>();
+
+                string[] loc = objBar["position"].ToObject<string>().Split(',', ' ');
+                _latitude = Convert.ToDouble(loc[0]);
+                _longitude = Convert.ToDouble(loc[2]);
+                Debug.WriteLine(obj);
+                eve.setCoor(_latitude, _longitude, address);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
         }
     }
 }

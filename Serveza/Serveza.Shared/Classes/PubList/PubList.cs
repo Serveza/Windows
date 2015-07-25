@@ -69,7 +69,7 @@ namespace Serveza.Classes.PubList
             }
             return true;
         }
-        public void Add(Pub newPub)
+        public async void Add(Pub newPub)
         {
             Serveza.Classes.Network.GetBarInfo infoBar = new Classes.Network.GetBarInfo();
             infoBar.SetParam(newPub);
@@ -78,8 +78,8 @@ namespace Serveza.Classes.PubList
                 plvm.list = new ObservableCollection<Pub>(list);
             try
             {
-                newPub.getInfo(infoBar.ExecRequest());
-                newPub.getEvent(infoBar.ExecRequest());
+                newPub.getInfo(await infoBar.GetJsonAsync());
+                newPub.getEvent(await infoBar.GetJsonAsync());
                 newPub.getAddress();
             }
             catch (Exception ex)

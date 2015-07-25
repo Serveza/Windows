@@ -282,3 +282,8 @@ E:\c#\Windows\Serveza\Serveza.WindowsPhone\obj\Debug\View\DirectionListView.g.cs
 E:\c#\Windows\Serveza\Serveza.WindowsPhone\obj\Debug\View\DirectionListView.xaml
 E:\c#\Windows\Serveza\Serveza.WindowsPhone\obj\Debug\View\DirectionListView.xbf
 E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\View\DirectionListView.xbf
+E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\Pages\EventPage.xbf
+E:\c#\Windows\Serveza\Serveza.WindowsPhone\obj\Debug\Pages\EventPage.g.i.cs
+E:\c#\Windows\Serveza\Serveza.WindowsPhone\obj\Debug\Pages\EventPage.g.cs
+E:\c#\Windows\Serveza\Serveza.WindowsPhone\obj\Debug\Pages\EventPage.xaml
+E:\c#\Windows\Serveza\Serveza.WindowsPhone\obj\Debug\Pages\EventPage.xbf

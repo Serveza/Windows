@@ -45,6 +45,7 @@ namespace Serveza.Classes
 
         public BeerList.BeerList NeerBeer;
         public PubList.PubList resultPubList;
+        public Event EventToDisplay;
         public Collection()
         {
             MyBeerList = new BeerList.BeerList();

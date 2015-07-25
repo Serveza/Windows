@@ -3,10 +3,12 @@ using Serveza.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Core;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace Serveza.ViewModel
@@ -38,6 +40,19 @@ namespace Serveza.ViewModel
 
         void pubListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Frame rootFrame = Window.Current.Content as Frame;
+            if (rootFrame != null && rootFrame.CanGoBack)
+            {
+                try
+                {
+                    App.Core.EventToDisplay = _list[_eventListView.pubListView.SelectedIndex];
+                    rootFrame.Navigate(typeof(Pages.EventPage));
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
         }
 
         private async void update()

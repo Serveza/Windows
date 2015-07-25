@@ -1,13 +1,33 @@
-﻿using System;
+﻿using Serveza.Classes.Network;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using Windows.Devices.Geolocation;
 
 namespace Serveza.Model
 {
     public class Event
     {
         private string toto;
+
+        private double _longitude;
+        private double _latitude;
+        public string address;
+
+        public Geopoint pos
+        {
+            get
+            {
+                return new Geopoint(new BasicGeoposition()
+                {
+                    Latitude = _latitude,
+                    Longitude = _longitude
+                });
+            }
+        }
+
+        public Pub pubAttached { get; private set; }
 
         private DateTime _startTime;
         private DateTime _endTime;
@@ -39,7 +59,7 @@ namespace Serveza.Model
 
         public Event()
         {
-            
+            pubAttached = null;
         }
 
 
@@ -49,17 +69,45 @@ namespace Serveza.Model
             try
             {
                 name = notif["name"].ToObject<string>();
-                string desc = notif["descriotion"].ToObject<string>();
+                string desc = notif["description"].ToObject<string>();
                 desciption = (desc == null ? "No description" : desc);
-                
+                if (notif["location"].ToObject<string>() == null)
+                {
+                    pubAttached = new Pub((notif["bar"].ToObject<string>() == null ? "" : notif["bar"].ToObject<string>()));
+                    getInfoPub();
+                }
+                else
+                {
+                    pubAttached = null;
+                    string[] loc = notif["location"].ToObject<string>().Split(',', ' ');
+                    _latitude = Convert.ToDouble(loc[0]);
+                    _longitude = Convert.ToDouble(loc[2]);
+                    address = null;
+                }
+
                 _startTime = DateTime.Now;
                 _endTime = DateTime.Now;
-
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
             }
+        }
+
+        private async void getInfoPub()
+        {
+            GetBarInfo getBarInfo = new GetBarInfo();
+            getBarInfo.SetParam(pubAttached);
+            var obj = await getBarInfo.GetJsonAsync();
+            pubAttached.Load(obj, this);
+
+        }
+
+        public void setCoor(double latitude, double longitude, string adress)
+        {
+            this.address = adress;
+            _latitude = latitude;
+            _longitude = longitude;
         }
     }
 }

@@ -18,3 +18,4 @@ E:\c#\Windows\NotificationTask\obj\Debug\pri.resfiles.intermediate
 E:\c#\Windows\NotificationTask\obj\Debug\qualifiers.txt
 E:\c#\Windows\NotificationTask\obj\Debug\qualifiers.txt.intermediate
 E:\c#\Windows\NotificationTask\obj\Debug\MultipleQualifiersPerDimensionFound.txt
+E:\c#\Windows\NotificationTask\obj\Debug\NotificationTask.csprojResolveAssemblyReference.cache

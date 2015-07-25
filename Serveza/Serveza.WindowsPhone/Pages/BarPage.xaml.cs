@@ -52,6 +52,16 @@ namespace Serveza.Pages
             DisplayOnMap();
         }
 
+        private async void GetEvent()
+        {
+            Classes.Network.GetEvent getEvent = new Classes.Network.GetEvent();
+            getEvent.SetParam(App.Core.netWork.token, App.Core.PubToDisplay);
+
+            var jobj = await getEvent.GetJsonAsync();
+
+            App.Core.PubToDisplay.LoadEvent(jobj);
+        }
+
         private void DisplayOnMap()
         {
             App.Core.LocationCore.SetUserPosition(MapBar);
@@ -67,8 +77,10 @@ namespace Serveza.Pages
         /// This parameter is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Init(App.Core.PubToDisplay);
             HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+
+            Init(App.Core.PubToDisplay);
+            GetEvent();
         }
 
         private void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)

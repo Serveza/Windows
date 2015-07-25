@@ -23,6 +23,7 @@ namespace Serveza.MapPoint
         {
             this.InitializeComponent();
             PubNameTextBox.Text = pubName;
+            ShowMapPoint.Begin();
         }
     }
 }
