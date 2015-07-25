@@ -13,24 +13,24 @@
         <ListView x:Name="listView" ItemsSource="{Binding}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Margin="0, 0, 5, 0">
-                        <TextBlock Text="{Binding name}" FontSize="{StaticResource PoliceSize}">
+                    <StackPanel Margin="20, 0, 5, 0">
+                        <TextBlock Text="{Binding name}" FontSize="{StaticResource TitleSize}">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{StaticResource Forground}"/>
                             </TextBlock.Foreground>
                         </TextBlock>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding startTime}" FontSize="{StaticResource SecondPoliceSize}">
+                            <TextBlock Text="{Binding startTime}" FontSize="{StaticResource PoliceSize}">
                                 <TextBlock.Foreground>
                                     <SolidColorBrush Color="{StaticResource ButtonColor}"/>
                                 </TextBlock.Foreground>
                             </TextBlock>
-                            <TextBlock Text=" - " FontSize="{StaticResource SecondPoliceSize}">
+                            <TextBlock Text=" To " FontSize="{StaticResource PoliceSize}">
                                 <TextBlock.Foreground>
                                     <SolidColorBrush Color="{StaticResource ButtonColor}"/>
                                 </TextBlock.Foreground>
                             </TextBlock>
-                            <TextBlock Text="{Binding endTime}" FontSize="{StaticResource SecondPoliceSize}">
+                            <TextBlock Text="{Binding endTime}" FontSize="{StaticResource PoliceSize}">
                                 <TextBlock.Foreground>
                                     <SolidColorBrush Color="{StaticResource ButtonColor}"/>
                                 </TextBlock.Foreground>

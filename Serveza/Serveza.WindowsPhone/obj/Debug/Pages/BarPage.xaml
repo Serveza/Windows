@@ -64,7 +64,11 @@
                         <RowDefinition Height="200*"/>
                     </Grid.RowDefinitions>
                     <Maps:MapControl MapServiceToken="{StaticResource MapToken}" x:Name="MapBar"/>
-                    <TextBlock x:Name="DirectionText" Grid.Row="1"/>
+                    <TextBlock x:Name="DirectionText" Grid.Row="1">
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="{StaticResource Bare}"/>
+                        </TextBlock.Foreground>
+                    </TextBlock>
                 </Grid>
             </PivotItem>
             <PivotItem Header="Beer">
@@ -84,10 +88,9 @@
                 <SolidColorBrush Color="{StaticResource Background}"/>
             </CommandBar.Foreground>
             <CommandBar.PrimaryCommands>
-                <AppBarToggleButton Icon="Favorite" Label="Favorite"/>
-                <AppBarButton Icon="Directions" Label="Direction"/>
-                <AppBarButton Icon="Target" Label="Locate"/>
-                <AppBarButton x:ConnectionId='1' Icon="Add" Label="Add Comment"                           />
+                <AppBarToggleButton x:ConnectionId='1' Icon="Favorite" Label="Favorite"                                 />
+                <AppBarButton x:ConnectionId='2' Icon="Target" Label="Locate"                             />
+                <AppBarButton x:ConnectionId='3' Icon="Add" Label="Add Comment"                           />
             </CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
 

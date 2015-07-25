@@ -55,12 +55,6 @@ namespace Serveza.Pages
 
             UserNameText.Text = App.Core.User.name;
             UserImage.Fill = Utils.Utils.UrlToFillSource(App.Core.User.imageUrl);
-
-            Classes.Network.GetEvent getEvent = new Classes.Network.GetEvent();
-            getEvent.SetParam(App.Core.netWork.token, Classes.Network.EventType.NONE);
-            App.Core.User.LoadEvent(getEvent.ExecRequest());
-
-            Debug.WriteLine("end");
         }
 
         private void setLocation()
@@ -73,11 +67,22 @@ namespace Serveza.Pages
             }
         }
 
+        private async void GetUserEvent()
+        {
+            Debug.WriteLine("getUserEvent");
+            Classes.Network.GetEvent getEvent = new Classes.Network.GetEvent();
+            getEvent.SetParam(App.Core.netWork.token, Classes.Network.EventType.NONE);
+            var obj = await getEvent.GetJsonAsync();
+            App.Core.User.eventList.LoadEvent(obj);
+            Debug.WriteLine("getUserEvent done");
+        }
+
         private async void NeerBars()
         {
             
             Serveza.Classes.Network.NeerBar request = new Serveza.Classes.Network.NeerBar();
-            request.setParam(50.6405435, 3.0601101, 5);
+            var geo = await App.Core.LocationCore.GetUserPosition();
+            request.setParam(geo, 5);
             var obj = await request.GetJsonAsync();
             if (App.Core.NeerPubList.Load(obj))
                 setLocation();
@@ -92,7 +97,7 @@ namespace Serveza.Pages
         {
             init();
             NeerBars();
-
+            GetUserEvent();
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)

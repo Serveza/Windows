@@ -5,6 +5,7 @@ using System.Net;
 using System.Text;
 using Windows.Foundation;
 using Windows.UI.Popups;
+using Windows.UI.StartScreen;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
@@ -63,7 +64,11 @@ namespace Serveza.Utils
             Uri uri = new Uri(url);
             bitmapImage.UriSource = uri;
             return bitmapImage;
-            
+        }
+
+        internal static void CreateSecondTile(string id, string name, string content, string argument, string imageUri, TileSize size)
+        {
+            SecondaryTile secondaryTile = new SecondaryTile(id, name, argument, new Uri(imageUri), size);
         }
     }
 }

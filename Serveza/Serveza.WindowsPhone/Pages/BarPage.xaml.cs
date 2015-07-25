@@ -8,6 +8,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Phone.UI.Input;
+using Windows.UI.StartScreen;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,6 +26,7 @@ namespace Serveza.Pages
     /// </summary>
     public sealed partial class BarPage : Page
     {
+        public string appbarTileId = "SecondaryTile";
         private BeerListViewModel _beerListViewModel;
         private EventListViewModel _eventListViewModel;
         public BarPage()
@@ -37,10 +39,16 @@ namespace Serveza.Pages
         public void Init(Model.Pub pub)
         {
             BarNameText.Text = pub.name;
+            appbarTileId += pub.url;
             DistanceText.Text = pub.dist.ToString() + " Km";
-            AddressText.Text = pub.address;
+            AddressText.Text = (pub.address == null ? "" : pub.address);
             pub.beerList.blwm = _beerListViewModel;
             pub.eventList.elvm = _eventListViewModel;
+            DisplayOnMap();
+        }
+
+        private void DisplayOnMap()
+        {
             App.Core.LocationCore.SetUserPosition(MapBar);
             App.Core.LocationCore.AddOnMap(MapBar, App.Core.PubToDisplay);
             App.Core.LocationCore.GetRouteAndDirections(App.Core.PubToDisplay, MapBar, DirectionText);
@@ -76,6 +84,16 @@ namespace Serveza.Pages
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(Pages.AddCommentPage));
+        }
+
+        private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            DisplayOnMap();
+        }
+
+        private void AppBarToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            //fav
         }
     }
 }

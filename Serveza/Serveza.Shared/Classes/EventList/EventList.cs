@@ -1,8 +1,10 @@
-﻿using Serveza.Model;
+﻿using Newtonsoft.Json.Linq;
+using Serveza.Model;
 using Serveza.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Text;
 
 namespace Serveza.Classes.EventList
@@ -41,9 +43,24 @@ namespace Serveza.Classes.EventList
         }
 
 
-        public void LoadEvent(Newtonsoft.Json.Linq.JObject jObject)
+        public void LoadEvent(JObject jObject)
         {
-
+            Debug.WriteLine(jObject);
+            try
+            {
+                Event eventTmp;
+                JArray array = jObject["notifications"].ToObject<JArray>();
+                foreach (JObject obj in array)
+                {
+                    eventTmp = new Event();
+                    eventTmp.Load(obj);
+                    Add(eventTmp);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
         }
     }
 }
