@@ -1,0 +1,41 @@
+﻿<Page
+    x:Class="Serveza.Pages.AboutPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Serveza.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Background>
+        <SolidColorBrush Color="{StaticResource Background}"/>
+    </Page.Background>
+    <Page.Foreground>
+        <SolidColorBrush Color="{StaticResource Forground}"/>
+    </Page.Foreground>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="About Serveza" FontSize="30" Margin="20, 10">
+            <TextBlock.Foreground>
+                <SolidColorBrush Color="{StaticResource Forground}"/>
+            </TextBlock.Foreground>
+        </TextBlock>
+        <Image Grid.Row="1" Source="ms-appx:///Assets/WideLogo.png">
+            
+        </Image>
+        <TextBlock Text="Want a beer, find it, drink it !" FontSize="20" Margin="20, 10, 10, 0" TextWrapping="WrapWholeWords" Grid.Row="1">
+            <TextBlock.Foreground>
+                <SolidColorBrush Color="{StaticResource BareForground}"/>
+            </TextBlock.Foreground></TextBlock>
+        <TextBlock Text="Serveza 1.0" Grid.Row="2" FontSize="20" Margin="20, 10, 10, 0" TextWrapping="WrapWholeWords">
+            <TextBlock.Foreground>
+                <SolidColorBrush Color="{StaticResource Bare}"/>
+            </TextBlock.Foreground></TextBlock>
+        <TextBlock Text="Copyright 2015 ©" Grid.Row="3" FontSize="20" Margin="20, 10, 10, 0" TextWrapping="WrapWholeWords"></TextBlock>
+    </Grid>
+</Page>
+

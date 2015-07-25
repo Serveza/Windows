@@ -95,7 +95,7 @@
             <CommandBar.SecondaryCommands>
                 <AppBarButton Label="Logout" Icon="Back" Click="AppBarButton_Click_2"/>
                 <AppBarButton Label="Settings" Icon="Setting" Click="AppBarButton_Click_3"/>
-                <AppBarButton Label="About" Icon="Emoji2"/>
+                <AppBarButton Label="About" Icon="Emoji2" Click="AppBarButton_Click_4"/>
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

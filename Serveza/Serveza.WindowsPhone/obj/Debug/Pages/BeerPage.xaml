@@ -39,7 +39,7 @@
                                     <ColumnDefinition Width="30*"/>
                                     <ColumnDefinition Width="50*"/>
                                 </Grid.ColumnDefinitions>
-                                <Ellipse Height="125" Width="125" StrokeThickness="2">
+                                <Ellipse Height="125" Width="125" x:Name="BeerImage" StrokeThickness="2">
                                     <Ellipse.Stroke>
                                         <SolidColorBrush Color="{StaticResource Bare}"/>
                                     </Ellipse.Stroke>
@@ -48,31 +48,65 @@
                                     </Ellipse.Fill>
                                 </Ellipse>
                                 <StackPanel Grid.Column="1"  Margin="10, 0, 0, 0" VerticalAlignment="Center">
+
+
                                     <TextBlock Text="Product" x:Name="ProductText" FontSize="{StaticResource PoliceSize}">
                                         <TextBlock.Foreground>
                                             <SolidColorBrush Color="{StaticResource BareForground}"/>
                                         </TextBlock.Foreground>
                                     </TextBlock>
-                                    <TextBlock Text="Degree" Grid.Row="1" x:Name="DegreeText" FontSize="{StaticResource PoliceSize}">
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                        <Image Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
+                                        <Image Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
+                                        <Image Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
+                                        <Image Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
+                                        <Image Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                            <StackPanel Grid.Row="1" Margin="0, 10, 0, 0">
+                                <StackPanel Orientation="Vertical" Margin="0, 5">
+                                    <TextBlock Text="Brewery" FontSize="{StaticResource SecondPoliceSize}">
+                                        <TextBlock.Foreground>
+                                            <SolidColorBrush Color="{StaticResource Bare}"/>
+                                        </TextBlock.Foreground></TextBlock>
+                                    <StackPanel Orientation="Horizontal" Margin="0, 5">
+                                        <TextBlock x:Name="breweryText" Text="Unknow" FontSize="{StaticResource PoliceSize}">
+                                            <TextBlock.Foreground>
+                                                <SolidColorBrush Color="{StaticResource BareForground}"/>
+                                            </TextBlock.Foreground></TextBlock>
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Orientation="Vertical" Margin="0, 5">
+                                    <TextBlock Text="Dergee" FontSize="{StaticResource SecondPoliceSize}">
+                                        <TextBlock.Foreground>
+                                            <SolidColorBrush Color="{StaticResource Bare}"/>
+                                        </TextBlock.Foreground></TextBlock>
+                                    <StackPanel Orientation="Horizontal" Margin="0, 5">
+                                        <TextBlock x:Name="degreeText" Text="0" FontSize="{StaticResource PoliceSize}">
+                                            <TextBlock.Foreground>
+                                                <SolidColorBrush Color="{StaticResource BareForground}"/>
+                                            </TextBlock.Foreground>
+                                        </TextBlock>
+                                        <TextBlock Text=" %" FontSize="{StaticResource PoliceSize}">
+                                            <TextBlock.Foreground>
+                                                <SolidColorBrush Color="{StaticResource BareForground}"/>
+                                            </TextBlock.Foreground>
+                                        </TextBlock>
+
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Grid.Row="2" Margin="0, 5">
+                                    <TextBlock Text="Description" FontSize="{StaticResource SecondPoliceSize}">
+                                        <TextBlock.Foreground>
+                                            <SolidColorBrush Color="{StaticResource Bare}"/>
+                                        </TextBlock.Foreground></TextBlock>
+                                    <TextBlock Text="Desc" x:Name="DesciptionText" TextWrapping="WrapWholeWords" Margin="0, 5" FontSize="{StaticResource PoliceSize}">
                                         <TextBlock.Foreground>
                                             <SolidColorBrush Color="{StaticResource BareForground}"/>
                                         </TextBlock.Foreground>
                                     </TextBlock>
-                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                                        <Image Height="30" Width="30" Source="ms-appx:///Assets/14-512.png"/>
-                                        <Image Height="30" Width="30" Source="ms-appx:///Assets/14-512.png"/>
-                                        <Image Height="30" Width="30" Source="ms-appx:///Assets/14-512.png"/>
-                                        <Image Height="30" Width="30" Source="ms-appx:///Assets/14-512.png"/>
-                                        <Image Height="30" Width="30" Source="ms-appx:///Assets/14-512.png"/>
-                                    </StackPanel>
                                 </StackPanel>
-                            </Grid>
-                            <StackPanel Grid.Row="1">
-                                <TextBlock Margin="5, 15" TextWrapping="Wrap" Text="The API for Image, BitmapImage and BitmapSource doesn't include any dedicated methods for encoding and decoding of media formats. All of the encode and decode operations are built-in, and at most your app is doing image conversions or manipulation, you should use the APIs that are available in the Windows.Graphics.Imaging namespace. C++, C#, or Visual Basic or Windows Runtime apps using JavaScript. These APIs are also supported by the Windows Imaging Component (WIC) component of Windows 8." FontSize="{StaticResource PoliceSize}">
-                                    <TextBlock.Foreground>
-                                        <SolidColorBrush Color="{StaticResource BareForground}"/>
-                                    </TextBlock.Foreground>
-                                </TextBlock>
                             </StackPanel>
                         </Grid>
                     </StackPanel>

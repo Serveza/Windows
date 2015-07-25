@@ -14,6 +14,7 @@ namespace Serveza.Classes.Network
     {
         GET,
         POST,
+        DELETE,
     }
     public class Request
     {
@@ -37,49 +38,19 @@ namespace Serveza.Classes.Network
                 string jsonString;
                 if (type == RequestType.GET)
                     jsonString = await client.GetStringAsync(uri);
-                else
+                else if (type == RequestType.POST)
                 {
                     HttpResponseMessage response = await client.PostAsync(uri, content);
-                    Debug.WriteLine(response.StatusCode);
+                    Debug.WriteLine("response : " + response.StatusCode.ToString());
+                    jsonString = await response.Content.ReadAsStringAsync();
+                }
+                else if (type == RequestType.DELETE)
+                {
+                    HttpResponseMessage response = await client.DeleteAsync(uri);
+                    Debug.WriteLine("response : " + response.StatusCode.ToString());
                     jsonString = await response.Content.ReadAsStringAsync();
                 }
                 return JObject.Parse(jsonString);
-            }
-        }
-
-        public JObject ExecRequest()
-        {
-            JObject returnedObject = null;
-            try
-            {
-                Debug.WriteLine("URI : " + uri.ToString());
-                request = WebRequest.CreateHttp(uri);
-                if (type == RequestType.GET)
-                    request.Method = "GET";
-                else if (type == RequestType.POST)
-                    request.Method = "POST";
-                WebResponse response = request.GetResponseAsync().Result;
-                Debug.WriteLine("ok");
-                HttpWebResponse httpWebResponse = (HttpWebResponse)response;
-                if (httpWebResponse.StatusDescription == "OK")
-                {
-                    Stream stream = response.GetResponseStream();
-                    string rawJson = new StreamReader(response.GetResponseStream()).ReadToEnd();
-                    returnedObject = JObject.Parse(rawJson);
-                    Debug.WriteLine(returnedObject);
-                    return returnedObject;
-                }
-                else
-                {
-                    Utils.Utils.DisplayStatusCode(httpWebResponse.StatusCode);
-                    return returnedObject;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(url + "  " + ex);
-                return null;
             }
         }
     }

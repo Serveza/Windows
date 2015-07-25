@@ -130,5 +130,10 @@ namespace Serveza.Pages
         {
             Frame.Navigate(typeof(Pages.SettingsPage));
         }
+
+        private void AppBarButton_Click_4(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Pages.AboutPage));
+        }
     }
 }

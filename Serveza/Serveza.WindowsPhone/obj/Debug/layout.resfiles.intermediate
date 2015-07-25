@@ -18,6 +18,7 @@ App.xbf
 MainPage.xbf
 MapPoint\PubMapPoint.xbf
 MapPoint\UserMapPoint.xbf
+Pages\AboutPage.xbf
 Pages\AddCommentPage.xbf
 Pages\BarPage.xbf
 Pages\BeerPage.xbf

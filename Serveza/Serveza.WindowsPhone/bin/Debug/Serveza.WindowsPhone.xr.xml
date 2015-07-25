@@ -147,11 +147,12 @@
     </RootType>
     <RootType FullName="Serveza.MainPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
+      <RootProperty Name="Source" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
-      <RootProperty Name="Source" />
       <RootEvent Name="Tapped" />
     </RootType>
+    <RootType FullName="Serveza.Pages.AboutPage" />
     <RootType FullName="Serveza.Pages.AddCommentPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.Pivot">
       <RootProperty Name="Items" />

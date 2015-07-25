@@ -95,7 +95,7 @@
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:ConnectionId='3' Label="Logout" Icon="Back"                             />
                 <AppBarButton x:ConnectionId='4' Label="Settings" Icon="Setting"                             />
-                <AppBarButton Label="About" Icon="Emoji2"/>
+                <AppBarButton x:ConnectionId='5' Label="About" Icon="Emoji2"                             />
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

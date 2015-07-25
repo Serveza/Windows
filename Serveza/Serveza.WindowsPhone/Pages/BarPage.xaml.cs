@@ -1,4 +1,5 @@
-﻿using Serveza.Classes.DirectionList;
+﻿using Newtonsoft.Json.Linq;
+using Serveza.Classes.DirectionList;
 using Serveza.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -109,9 +110,13 @@ namespace Serveza.Pages
             DisplayOnMap();
         }
 
-        private void AppBarToggleButton_Click(object sender, RoutedEventArgs e)
+        private async void AppBarToggleButton_Click(object sender, RoutedEventArgs e)
         {
             //fav
+            Classes.Network.AddFavBar addFavBar = new Classes.Network.AddFavBar();
+            addFavBar.SetParam(App.Core.netWork.token, App.Core.PubToDisplay.id);
+            JObject obj = await addFavBar.GetJsonAsync();
+            Debug.WriteLine(obj);
         }
     }
 }

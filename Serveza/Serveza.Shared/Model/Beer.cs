@@ -10,6 +10,8 @@ namespace Serveza.Model
     {
         public int id { get; private set; }
         public string name { get; private set; }
+        public string image { get; private set; }
+        public string desc { get; private set; }
         public double degre { get; private set; }
         public string product { get; private set; }
         public double price { get; private set; }
@@ -20,7 +22,7 @@ namespace Serveza.Model
             this.product = product;
         }
 
-        public Beer() { }
+        public Beer() { price = 0; }
         public void load(JObject obj)
         {
             try
@@ -42,9 +44,19 @@ namespace Serveza.Model
             }
         }
 
-        public void GetInfo()
+        public void GetInfo(JObject obj)
         {
-            
+            try
+            {
+                degre = obj["degree"].ToObject<double>();
+                desc = obj["description"].ToObject<string>();
+                image = obj["image"].ToObject<string>();
+                product = obj["brewery"].ToObject<string>();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
         }
     }
 }

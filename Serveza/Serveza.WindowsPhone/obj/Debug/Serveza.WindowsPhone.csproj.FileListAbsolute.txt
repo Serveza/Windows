@@ -287,3 +287,8 @@ E:\c#\Windows\Serveza\Serveza.WindowsPhone\obj\Debug\Pages\EventPage.g.i.cs
 E:\c#\Windows\Serveza\Serveza.WindowsPhone\obj\Debug\Pages\EventPage.g.cs
 E:\c#\Windows\Serveza\Serveza.WindowsPhone\obj\Debug\Pages\EventPage.xaml
 E:\c#\Windows\Serveza\Serveza.WindowsPhone\obj\Debug\Pages\EventPage.xbf
+E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\Pages\AboutPage.xbf
+E:\c#\Windows\Serveza\Serveza.WindowsPhone\obj\Debug\Pages\AboutPage.g.i.cs
+E:\c#\Windows\Serveza\Serveza.WindowsPhone\obj\Debug\Pages\AboutPage.g.cs
+E:\c#\Windows\Serveza\Serveza.WindowsPhone\obj\Debug\Pages\AboutPage.xaml
+E:\c#\Windows\Serveza\Serveza.WindowsPhone\obj\Debug\Pages\AboutPage.xbf

@@ -98,6 +98,9 @@
     <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\Pages\AboutPage.xbf">
+      <PackagePath>Pages\AboutPage.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\Pages\AddCommentPage.xbf">
       <PackagePath>Pages\AddCommentPage.xbf</PackagePath>
     </AppxPackagedFile>
