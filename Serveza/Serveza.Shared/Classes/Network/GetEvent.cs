@@ -34,6 +34,7 @@ namespace Serveza.Classes.Network
     {
         BAR,
         NOTIF,
+        UPDATE,
         NONE,
     }
 
@@ -52,6 +53,8 @@ namespace Serveza.Classes.Network
                 case (EventType.BAR) :
                     break;
                 case(EventType.NOTIF) :
+                    break;
+                case (EventType.UPDATE):
                     break;
                 case(EventType.NONE):
                     url += "?api_token=" + token;

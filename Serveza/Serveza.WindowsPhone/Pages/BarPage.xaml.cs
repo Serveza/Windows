@@ -1,4 +1,5 @@
-﻿using Serveza.ViewModel;
+﻿using Serveza.Classes.DirectionList;
+using Serveza.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -29,11 +30,14 @@ namespace Serveza.Pages
         public string appbarTileId = "SecondaryTile";
         private BeerListViewModel _beerListViewModel;
         private EventListViewModel _eventListViewModel;
+        private DirectionListViewModel _directionListViewModel;
+        private DirectionList _dl;
         public BarPage()
         {
             this.InitializeComponent();
             _beerListViewModel = new BeerListViewModel(beerGrid);
             _eventListViewModel = new EventListViewModel(eventGrid);
+            _directionListViewModel = new DirectionListViewModel(DirectionGrid);
         }
 
         public void Init(Model.Pub pub)
@@ -44,6 +48,7 @@ namespace Serveza.Pages
             AddressText.Text = (pub.address == null ? "" : pub.address);
             pub.beerList.blwm = _beerListViewModel;
             pub.eventList.elvm = _eventListViewModel;
+            _dl = new DirectionList(_directionListViewModel);
             DisplayOnMap();
         }
 
@@ -51,7 +56,8 @@ namespace Serveza.Pages
         {
             App.Core.LocationCore.SetUserPosition(MapBar);
             App.Core.LocationCore.AddOnMap(MapBar, App.Core.PubToDisplay);
-            App.Core.LocationCore.GetRouteAndDirections(App.Core.PubToDisplay, MapBar, DirectionText);
+            App.Core.LocationCore.GetRouteAndDirection(App.Core.PubToDisplay, MapBar, _dl);
+            //App.Core.LocationCore.GetRouteAndDirections(App.Core.PubToDisplay, MapBar, DirectionText);
         }
 
         /// <summary>

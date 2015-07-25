@@ -125,6 +125,9 @@
     <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\View\CommentListView.xbf">
       <PackagePath>View\CommentListView.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\View\DirectionListView.xbf">
+      <PackagePath>View\DirectionListView.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="E:\c#\Windows\Serveza\Serveza.WindowsPhone\bin\Debug\View\EventListView.xbf">
       <PackagePath>View\EventListView.xbf</PackagePath>
     </AppxPackagedFile>

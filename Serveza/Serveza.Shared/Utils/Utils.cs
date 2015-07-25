@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Net;
 using System.Text;
 using Windows.Foundation;
+using Windows.UI;
 using Windows.UI.Popups;
 using Windows.UI.StartScreen;
 using Windows.UI.Xaml;
@@ -69,6 +70,23 @@ namespace Serveza.Utils
         internal static void CreateSecondTile(string id, string name, string content, string argument, string imageUri, TileSize size)
         {
             SecondaryTile secondaryTile = new SecondaryTile(id, name, argument, new Uri(imageUri), size);
+        }
+
+        internal static Color GetColorFromHex(string hexString)
+        {
+            if (hexString.StartsWith("#"))
+            {
+                hexString = hexString.Substring(1, 8);
+            }
+            var a = Convert.ToByte(Int32.Parse(hexString.Substring(0, 2),
+                System.Globalization.NumberStyles.AllowHexSpecifier));
+            var r = Convert.ToByte(Int32.Parse(hexString.Substring(2, 2),
+                System.Globalization.NumberStyles.AllowHexSpecifier));
+            var g = Convert.ToByte(Int32.Parse(hexString.Substring(4, 2),
+                System.Globalization.NumberStyles.AllowHexSpecifier));
+            var b = Convert.ToByte(Int32.Parse(hexString.Substring(6, 2),
+                System.Globalization.NumberStyles.AllowHexSpecifier));
+            return Color.FromArgb(a, r, g, b);
         }
     }
 }

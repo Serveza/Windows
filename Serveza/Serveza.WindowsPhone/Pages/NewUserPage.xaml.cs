@@ -85,6 +85,7 @@ namespace Serveza.Pages
         private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
         {
             //cancel
+            Frame.GoBack();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

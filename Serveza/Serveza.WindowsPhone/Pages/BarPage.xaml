@@ -64,11 +64,7 @@
                         <RowDefinition Height="200*"/>
                     </Grid.RowDefinitions>
                     <Maps:MapControl MapServiceToken="{StaticResource MapToken}" x:Name="MapBar"/>
-                    <TextBlock x:Name="DirectionText" Grid.Row="1">
-                        <TextBlock.Foreground>
-                            <SolidColorBrush Color="{StaticResource Bare}"/>
-                        </TextBlock.Foreground>
-                    </TextBlock>
+                    <Grid x:Name="DirectionGrid" Grid.Row="1"/>
                 </Grid>
             </PivotItem>
             <PivotItem Header="Beer">

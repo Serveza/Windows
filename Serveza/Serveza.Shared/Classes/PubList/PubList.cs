@@ -54,7 +54,7 @@ namespace Serveza.Classes.PubList
                     name = bar["name"].ToObject<string>();
                     posString = bar["position"].ToObject<string>();
                     url = bar["url"].ToObject<string>();
-                    //   id = bar["id"].ToObject<int>();
+                    id = bar["id"].ToObject<int>();
 
                     posStringSplit = posString.Split(' ', ',');
                     pub = new Pub(name, Convert.ToDouble(posStringSplit[0]), Convert.ToDouble(posStringSplit[2]), url, id);

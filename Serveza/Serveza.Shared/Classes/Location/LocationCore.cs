@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Windows.Devices.Geolocation;
 using Windows.Services.Maps;
 using Windows.UI;
+using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Maps;
 using Windows.UI.Xaml.Documents;
@@ -54,6 +55,38 @@ namespace Serveza.Classes.Location
             MapControl.SetLocation(pmb, pub.pos);
         }
 
+
+        public async void GetRouteAndDirection(Pub pub, MapControl map, DirectionList.DirectionList list)
+        {
+            Geoposition geoposition = await geolocator.GetGeopositionAsync(maximumAge: TimeSpan.FromMinutes(5), timeout: TimeSpan.FromSeconds(10));
+            BasicGeoposition startLocation = new BasicGeoposition();
+            startLocation.Latitude = geoposition.Coordinate.Latitude;
+            startLocation.Longitude = geoposition.Coordinate.Longitude;
+            Geopoint startPoint = new Geopoint(startLocation);
+
+            BasicGeoposition endLocation = new BasicGeoposition();
+            endLocation.Latitude = pub.latitude;
+            endLocation.Longitude = pub.longitude;
+            Geopoint endPoint = new Geopoint(endLocation);
+
+            MapRouteFinderResult routeResult = await MapRouteFinder.GetDrivingRouteAsync(
+                startPoint,
+                endPoint,
+                MapRouteOptimization.Time,
+                MapRouteRestrictions.None);
+            if (routeResult.Status == MapRouteFinderStatus.Success)
+            {
+                list.Load(routeResult);
+                MapRouteView viewOfRoute = new MapRouteView(routeResult.Route);
+                viewOfRoute.RouteColor = Utils.Utils.GetColorFromHex("#FFAEEEB7");
+                viewOfRoute.OutlineColor = Colors.Black;
+            }
+            else
+            {
+                var message = new MessageDialog("Can't find Direction");
+                await message.ShowAsync();
+            }
+        }
 
         public async void GetRouteAndDirections(Pub pub, MapControl map, TextBlock tbOutputText)
         {

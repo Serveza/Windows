@@ -148,7 +148,7 @@ namespace Serveza.Serveza_WindowsPhone_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[22];
+            _typeNameTable = new string[23];
             _typeNameTable[0] = "Windows.UI.Color";
             _typeNameTable[1] = "System.ValueType";
             _typeNameTable[2] = "Object";
@@ -166,13 +166,14 @@ namespace Serveza.Serveza_WindowsPhone_XamlTypeInfo
             _typeNameTable[14] = "Serveza.View.BeerListView";
             _typeNameTable[15] = "Windows.UI.Xaml.Controls.ListView";
             _typeNameTable[16] = "Serveza.View.CommentListView";
-            _typeNameTable[17] = "Serveza.View.EventListView";
-            _typeNameTable[18] = "Serveza.View.PubListView";
-            _typeNameTable[19] = "Serveza.Animation.Loading";
-            _typeNameTable[20] = "Serveza.MapPoint.PubMapPoint";
-            _typeNameTable[21] = "Serveza.MapPoint.UserMapPoint";
+            _typeNameTable[17] = "Serveza.View.DirectionListView";
+            _typeNameTable[18] = "Serveza.View.EventListView";
+            _typeNameTable[19] = "Serveza.View.PubListView";
+            _typeNameTable[20] = "Serveza.Animation.Loading";
+            _typeNameTable[21] = "Serveza.MapPoint.PubMapPoint";
+            _typeNameTable[22] = "Serveza.MapPoint.UserMapPoint";
 
-            _typeTable = new global::System.Type[22];
+            _typeTable = new global::System.Type[23];
             _typeTable[0] = typeof(global::Windows.UI.Color);
             _typeTable[1] = typeof(global::System.ValueType);
             _typeTable[2] = typeof(global::System.Object);
@@ -190,11 +191,12 @@ namespace Serveza.Serveza_WindowsPhone_XamlTypeInfo
             _typeTable[14] = typeof(global::Serveza.View.BeerListView);
             _typeTable[15] = typeof(global::Windows.UI.Xaml.Controls.ListView);
             _typeTable[16] = typeof(global::Serveza.View.CommentListView);
-            _typeTable[17] = typeof(global::Serveza.View.EventListView);
-            _typeTable[18] = typeof(global::Serveza.View.PubListView);
-            _typeTable[19] = typeof(global::Serveza.Animation.Loading);
-            _typeTable[20] = typeof(global::Serveza.MapPoint.PubMapPoint);
-            _typeTable[21] = typeof(global::Serveza.MapPoint.UserMapPoint);
+            _typeTable[17] = typeof(global::Serveza.View.DirectionListView);
+            _typeTable[18] = typeof(global::Serveza.View.EventListView);
+            _typeTable[19] = typeof(global::Serveza.View.PubListView);
+            _typeTable[20] = typeof(global::Serveza.Animation.Loading);
+            _typeTable[21] = typeof(global::Serveza.MapPoint.PubMapPoint);
+            _typeTable[22] = typeof(global::Serveza.MapPoint.UserMapPoint);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -239,10 +241,11 @@ namespace Serveza.Serveza_WindowsPhone_XamlTypeInfo
         private object Activate_13_SettingsPage() { return new global::Serveza.Pages.SettingsPage(); }
         private object Activate_14_BeerListView() { return new global::Serveza.View.BeerListView(); }
         private object Activate_16_CommentListView() { return new global::Serveza.View.CommentListView(); }
-        private object Activate_17_EventListView() { return new global::Serveza.View.EventListView(); }
-        private object Activate_18_PubListView() { return new global::Serveza.View.PubListView(); }
-        private object Activate_19_Loading() { return new global::Serveza.Animation.Loading(); }
-        private object Activate_21_UserMapPoint() { return new global::Serveza.MapPoint.UserMapPoint(); }
+        private object Activate_17_DirectionListView() { return new global::Serveza.View.DirectionListView(); }
+        private object Activate_18_EventListView() { return new global::Serveza.View.EventListView(); }
+        private object Activate_19_PubListView() { return new global::Serveza.View.PubListView(); }
+        private object Activate_20_Loading() { return new global::Serveza.Animation.Loading(); }
+        private object Activate_22_UserMapPoint() { return new global::Serveza.MapPoint.UserMapPoint(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -362,38 +365,46 @@ namespace Serveza.Serveza_WindowsPhone_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 17:   //  Serveza.View.EventListView
+            case 17:   //  Serveza.View.DirectionListView
                 userType = new global::Serveza.Serveza_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_17_EventListView;
+                userType.Activator = Activate_17_DirectionListView;
+                userType.AddMemberName("pListView");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 18:   //  Serveza.View.EventListView
+                userType = new global::Serveza.Serveza_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_18_EventListView;
                 userType.AddMemberName("pubListView");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 18:   //  Serveza.View.PubListView
+            case 19:   //  Serveza.View.PubListView
                 userType = new global::Serveza.Serveza_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_18_PubListView;
+                userType.Activator = Activate_19_PubListView;
                 userType.AddMemberName("listViewP");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 19:   //  Serveza.Animation.Loading
+            case 20:   //  Serveza.Animation.Loading
                 userType = new global::Serveza.Serveza_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_19_Loading;
+                userType.Activator = Activate_20_Loading;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 20:   //  Serveza.MapPoint.PubMapPoint
+            case 21:   //  Serveza.MapPoint.PubMapPoint
                 userType = new global::Serveza.Serveza_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 21:   //  Serveza.MapPoint.UserMapPoint
+            case 22:   //  Serveza.MapPoint.UserMapPoint
                 userType = new global::Serveza.Serveza_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_21_UserMapPoint;
+                userType.Activator = Activate_22_UserMapPoint;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -515,22 +526,32 @@ namespace Serveza.Serveza_WindowsPhone_XamlTypeInfo
             var that = (global::Serveza.View.CommentListView)instance;
             that.CommentList = (global::Windows.UI.Xaml.Controls.ListView)Value;
         }
-        private object get_6_EventListView_pubListView(object instance)
+        private object get_6_DirectionListView_pListView(object instance)
+        {
+            var that = (global::Serveza.View.DirectionListView)instance;
+            return that.pListView;
+        }
+        private void set_6_DirectionListView_pListView(object instance, object Value)
+        {
+            var that = (global::Serveza.View.DirectionListView)instance;
+            that.pListView = (global::Windows.UI.Xaml.Controls.ListView)Value;
+        }
+        private object get_7_EventListView_pubListView(object instance)
         {
             var that = (global::Serveza.View.EventListView)instance;
             return that.pubListView;
         }
-        private void set_6_EventListView_pubListView(object instance, object Value)
+        private void set_7_EventListView_pubListView(object instance, object Value)
         {
             var that = (global::Serveza.View.EventListView)instance;
             that.pubListView = (global::Windows.UI.Xaml.Controls.ListView)Value;
         }
-        private object get_7_PubListView_listViewP(object instance)
+        private object get_8_PubListView_listViewP(object instance)
         {
             var that = (global::Serveza.View.PubListView)instance;
             return that.listViewP;
         }
-        private void set_7_PubListView_listViewP(object instance, object Value)
+        private void set_8_PubListView_listViewP(object instance, object Value)
         {
             var that = (global::Serveza.View.PubListView)instance;
             that.listViewP = (global::Windows.UI.Xaml.Controls.ListView)Value;
@@ -579,17 +600,23 @@ namespace Serveza.Serveza_WindowsPhone_XamlTypeInfo
                 xamlMember.Getter = get_5_CommentListView_CommentList;
                 xamlMember.Setter = set_5_CommentListView_CommentList;
                 break;
+            case "Serveza.View.DirectionListView.pListView":
+                userType = (global::Serveza.Serveza_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Serveza.View.DirectionListView");
+                xamlMember = new global::Serveza.Serveza_WindowsPhone_XamlTypeInfo.XamlMember(this, "pListView", "Windows.UI.Xaml.Controls.ListView");
+                xamlMember.Getter = get_6_DirectionListView_pListView;
+                xamlMember.Setter = set_6_DirectionListView_pListView;
+                break;
             case "Serveza.View.EventListView.pubListView":
                 userType = (global::Serveza.Serveza_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Serveza.View.EventListView");
                 xamlMember = new global::Serveza.Serveza_WindowsPhone_XamlTypeInfo.XamlMember(this, "pubListView", "Windows.UI.Xaml.Controls.ListView");
-                xamlMember.Getter = get_6_EventListView_pubListView;
-                xamlMember.Setter = set_6_EventListView_pubListView;
+                xamlMember.Getter = get_7_EventListView_pubListView;
+                xamlMember.Setter = set_7_EventListView_pubListView;
                 break;
             case "Serveza.View.PubListView.listViewP":
                 userType = (global::Serveza.Serveza_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Serveza.View.PubListView");
                 xamlMember = new global::Serveza.Serveza_WindowsPhone_XamlTypeInfo.XamlMember(this, "listViewP", "Windows.UI.Xaml.Controls.ListView");
-                xamlMember.Getter = get_7_PubListView_listViewP;
-                xamlMember.Setter = set_7_PubListView_listViewP;
+                xamlMember.Getter = get_8_PubListView_listViewP;
+                xamlMember.Setter = set_8_PubListView_listViewP;
                 break;
             }
             return xamlMember;
@@ -916,7 +943,6 @@ namespace Serveza.Serveza_WindowsPhone_XamlTypeInfo
         }
     }
 }
-
 
 
 

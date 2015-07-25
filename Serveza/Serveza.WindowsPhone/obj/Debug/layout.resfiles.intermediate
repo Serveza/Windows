@@ -28,5 +28,6 @@ Pages\SettingsPage.xbf
 Serveza.WindowsPhone.xr.xml
 View\BeerListView.xbf
 View\CommentListView.xbf
+View\DirectionListView.xbf
 View\EventListView.xbf
 View\PubListView.xbf

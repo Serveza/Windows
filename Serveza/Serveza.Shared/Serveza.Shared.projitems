@@ -21,9 +21,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Classes\BeerList\BeerList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Collection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\CommentList\CommentList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\DirectionList\DirectionList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\EventList\EventList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Facebook\FacebookCore.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Classes\Location\BarMapPoint.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Location\LocationCore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\Connection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\GetBarInfo.cs" />
@@ -43,6 +43,7 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Model\Beer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Comment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Direction.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Event.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Pub.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\ContinuationManager.cs" />

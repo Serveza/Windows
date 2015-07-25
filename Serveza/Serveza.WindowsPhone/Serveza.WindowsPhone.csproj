@@ -107,6 +107,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\BeerListViewModel.cs" />
     <Compile Include="ViewModel\CommentListViewModel.cs" />
+    <Compile Include="ViewModel\DirectionListViewModel.cs" />
     <Compile Include="ViewModel\EventListViewModel.cs" />
     <Compile Include="ViewModel\PubListViewModel.cs" />
     <Compile Include="View\BeerListView.xaml.cs">
@@ -114,6 +115,9 @@
     </Compile>
     <Compile Include="View\CommentListView.xaml.cs">
       <DependentUpon>CommentListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DirectionListView.xaml.cs">
+      <DependentUpon>DirectionListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\EventListView.xaml.cs">
       <DependentUpon>EventListView.xaml</DependentUpon>
@@ -174,6 +178,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\CommentListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DirectionListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
