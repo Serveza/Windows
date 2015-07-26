@@ -149,6 +149,8 @@ namespace Serveza.Classes
                 if (User.Load(obj))
                 {
                     Debug.WriteLine("userConnect");
+                    Utils.StorageApplication.SetValue("name", userName);
+                    Utils.StorageApplication.SetValue("pass", pass);
                     Utils.StorageApplication.SetValue("token", App.Core.netWork.token);
 
                     Debug.WriteLine("get Neer Bars");
@@ -156,10 +158,12 @@ namespace Serveza.Classes
                     var geo = await App.Core.LocationCore.GetUserPosition();
                     request.setParam(geo, settings.scope);
                     var objNeerBar = await request.GetJsonAsync();
+                    NeerPubList.Clear();
                     NeerPubList.Load(objNeerBar);
 
                     Debug.WriteLine("getUserEvent");
 
+                    User.eventList.Clear();
                     Classes.Network.GetEvent getEvent = new Classes.Network.GetEvent();
                     getEvent.SetParam(App.Core.netWork.token, Classes.Network.EventType.NONE);
                     var objEvent = await getEvent.GetJsonAsync();
@@ -167,6 +171,7 @@ namespace Serveza.Classes
 
                     Debug.WriteLine("GetFavBar");
 
+                    MyPubList.Clear();
                     Classes.Network.GetFavBar getfavBar = new GetFavBar();
                     getfavBar.SetParam(netWork.token);
                     var objFavBar = await getfavBar.GetJsonAsync();
@@ -176,6 +181,7 @@ namespace Serveza.Classes
 
                     Debug.WriteLine("GetFavBeer");
 
+                    MyBeerList.Clear();
                     GetFavBeer getFavBeer = new GetFavBeer();
                     getFavBeer.SetParam(netWork.token);
                     var objFavBeer = await getFavBeer.GetJsonAsync();

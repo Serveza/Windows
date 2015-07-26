@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using Serveza.Classes.BeerList;
+using Serveza.Classes.Facebook;
 using Serveza.Classes.Network;
 using Serveza.ViewModel;
 using System;
@@ -8,9 +9,11 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Background;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Security.Authentication.Web;
 using Windows.System;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
@@ -31,11 +34,12 @@ namespace Serveza
     /// </summary>
     public sealed partial class MainPage : Page
     {
-
+        FacebookCore core;
+        
         public MainPage()
         {
             this.InitializeComponent();
-
+            core = new FacebookCore();
             this.NavigationCacheMode = NavigationCacheMode.Required;
             // progress.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
 
@@ -51,18 +55,18 @@ namespace Serveza
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             this.RegisterBackgroundTask();
-
+            Debug.WriteLine("oken : " + Utils.StorageApplication.GetValue("token", "toto"));
             if (Utils.StorageApplication.GetValue("token", "toto") != "toto")
-                Connect();
+                Connect(Utils.StorageApplication.GetValue("name", ""), Utils.StorageApplication.GetValue("pass", ""));
         }
 
-        private async void Connect()
+        private async void Connect(string name, string pass)
         {
             try
             {
                 ConnectAnnim.Begin();
                 UserNameText.IsReadOnly = true;
-                bool isConnect = await App.Core.Connect(UserNameText.Text, PassWordText.Password);
+                bool isConnect = await App.Core.Connect(name, pass);
                 if (isConnect)
                 {
                     ConnectAnnim.Stop();
@@ -83,7 +87,7 @@ namespace Serveza
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Connect();
+            Connect(UserNameText.Text, PassWordText.Password);
         }
 
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
@@ -122,8 +126,29 @@ namespace Serveza
             if (e.Key == VirtualKey.Enter)
             {
                 // PassWordText.Focus(FocusState.Pointer);
-                Connect();
+                Connect(UserNameText.Text, PassWordText.Password);
             }
+        }
+
+        public async void ContinueWithWebAuthenticationBroker(WebAuthenticationBrokerContinuationEventArgs args)
+        {
+            core.ContinueAuthentication(args);
+            if (core.AccessToken != null)
+            {
+                Facebook.FacebookClient client = core.Client;
+
+                dynamic result = await client.GetTaskAsync("/me");
+                string id = result.id;
+
+                Connect(id, id);
+            }
+        }
+
+        private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            Uri _callbackUri = WebAuthenticationBroker.GetCurrentApplicationCallbackUri();
+            Debug.WriteLine(_callbackUri);
+            core.LoginAndContinue();
         }
     }
 }

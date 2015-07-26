@@ -16,6 +16,60 @@ namespace Serveza.Utils
 {
     public class Utils
     {
+        //26 Jul 2015
+        internal static DateTime StringToTime(string s)
+        {
+            if (s == null)
+                return DateTime.Now;
+            string[] split = s.Split(' ', ':');
+            int mount = 0;
+
+            switch (split[2])
+            {
+                case "Jan":
+                    mount = 1;
+                    break;
+                case "Fev":
+                    mount = 2;
+                    break;
+                case "Mar":
+                    mount = 3;
+                    break;
+                case "Apr":
+                    mount = 4;
+                    break;
+                case "May":
+                    mount = 5;
+                    break;
+                case "Jun":
+                    mount = 6;
+                    break;
+                case "Jul":
+                    mount = 7;
+                    break;
+                case "Aug":
+                    mount = 8;
+                    break;
+                case "Sep":
+                    mount = 9;
+                    break;
+                case "Oct":
+                    mount = 10;
+                    break;
+                case "Nov":
+                    mount = 11;
+                    break;
+                case "Dec":
+                    mount = 12;
+                    break;
+                default:
+                    mount = 1;
+                    break;
+            }
+            return new DateTime(Convert.ToInt32(split[3]), mount, Convert.ToInt32(split[1]),
+                Convert.ToInt32(split[4]), Convert.ToInt32(split[5]), Convert.ToInt32(split[6]));
+        }
+
         internal static ImageBrush UrlToFillSource(string url)
         {
             try

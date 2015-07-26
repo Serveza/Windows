@@ -85,8 +85,8 @@ namespace Serveza.Model
                     address = null;
                 }
 
-                _startTime = DateTime.Now;
-                _endTime = DateTime.Now;
+                _startTime = Utils.Utils.StringToTime(notif["start"].ToObject<string>());
+                _endTime = Utils.Utils.StringToTime(notif["end"].ToObject<string>());
             }
             catch (Exception ex)
             {

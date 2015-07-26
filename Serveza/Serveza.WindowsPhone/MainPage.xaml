@@ -53,8 +53,8 @@
         </Grid>
         <Grid Grid.Row="2">
             <StackPanel Orientation="Vertical" Margin="30">
-                <TextBox Margin="0, 10" PlaceholderText="Username" x:Name="UserNameText" Text="toto"/>
-                <PasswordBox Margin="0, 10" PlaceholderText="Password" x:Name="PassWordText" Password="titi" KeyDown="PassWordText_KeyDown"/>
+                <TextBox Margin="0, 10" PlaceholderText="E-Mail" x:Name="UserNameText" />
+                <PasswordBox Margin="0, 10" PlaceholderText="Password" x:Name="PassWordText" KeyDown="PassWordText_KeyDown"/>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="3">
@@ -90,11 +90,12 @@
             </CommandBar.Foreground>
             <CommandBar.PrimaryCommands>
                 <AppBarButton Label="Register" Icon="Add" Click="AppBarButton_Click"/>
+                <!--AppBarButton Label="Facebook" Click="AppBarButton_Click_1">
+                    <AppBarButton.Icon>
+                        <FontIcon Glyph="f" FontFamily="Segoe WP SemiLight" FontSize="15" FontWeight="Bold"/>
+                    </AppBarButton.Icon>
+                </-->
             </CommandBar.PrimaryCommands>
-            <CommandBar.SecondaryCommands>
-                <AppBarButton Label="Settings" Icon="Setting"/>
-                <AppBarButton Label="About" Icon="Emoji2"/>
-            </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>
 </Page>

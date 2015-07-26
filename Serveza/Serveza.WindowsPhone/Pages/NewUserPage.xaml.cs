@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -34,6 +35,7 @@ namespace Serveza.Pages
         {
             this.InitializeComponent();
             core = new FacebookCore();
+            profilePictureUrl = "";
             this.NavigationCacheMode = NavigationCacheMode.Required;
         }
 
@@ -47,17 +49,16 @@ namespace Serveza.Pages
 
         }
 
-        private async void AppBarButton_Click(object sender, RoutedEventArgs e)
+        private async Task<bool> Register(string firstName, string lastName, string mail, string pass, string avatar = "")
         {
-            
             if (passOneEntry.Password != passTwoEntry.Password)
             {
                 var messageDialog = new MessageDialog("Password doesn't match");
                 await messageDialog.ShowAsync();
-                return;
+                return false;
             }
             Serveza.Classes.Network.Register register = new Serveza.Classes.Network.Register();
-            register.SetParam(firstnameEntry.Text, lastnameEntry.Text, mailEntry.Text, passOneEntry.Password, "http://scontent-cdg2-1.xx.fbcdn.net/hphotos-xpa1/t31.0-8/p600x600/1398639_10202447870099362_1272760343_o.jpg");
+            register.SetParam(firstName, lastName, mail, pass, avatar);
             JObject obj = await register.GetJsonAsync();
             if (obj != null)
             {
@@ -67,19 +68,28 @@ namespace Serveza.Pages
                     {
                         var messageDialogt = new MessageDialog("Account registered !");
                         await messageDialogt.ShowAsync();
-                        Frame.GoBack();
-                        return;
+
+                        return true;
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Debug.WriteLine(ex);
                 }
             }
             var messageDialogtwo = new MessageDialog("Can't create your account");
             await messageDialogtwo.ShowAsync();
+            return false;
 
+        }
 
+        private async void AppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (await Register(firstnameEntry.Text, lastnameEntry.Text, mailEntry.Text, passOneEntry.Password, profilePictureUrl))
+            {
+                if (await App.Core.Connect(mailEntry.Text, passOneEntry.Password))
+                    Frame.Navigate(typeof(HomePage));
+            }
         }
 
         private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
@@ -104,26 +114,23 @@ namespace Serveza.Pages
 
                 dynamic result = await client.GetTaskAsync("/me");
                 string id = result.id;
-                string email = result.email;
-                string fn = result.first_name;
-                string ln = result.last_name;
 
-                string link = result.link;
+                string name = result.name;
 
-                Debug.WriteLine(email);
-                Debug.WriteLine(fn);
-                Debug.WriteLine(link);
+                string[] plit = name.Split(' ');
+                profilePictureUrl = string.Format("https://graph.facebook.com/{0}/picture?type={1}&access_token={2}", id, "square", core.AccessToken);
 
                 UserImage.Fill = core.getUserImage(id);
                 ChangePictureAnim.Begin();
 
-                if (fn != null)
-                    firstnameEntry.Text = fn;
-                if (ln != null)
-                    lastnameEntry.Text = ln;
-                if (email != null)
-                    mailEntry.Text = email;
+                lastnameEntry.Text = plit[0];
+                firstnameEntry.Text = plit[1];
+                passOneEntry.Password = id;
+                passTwoEntry.Password = id;
+                // Register(plit[0], plit[1], id, id, profilePictureUrl);
             }
         }
+
+        public string profilePictureUrl { get; set; }
     }
 }

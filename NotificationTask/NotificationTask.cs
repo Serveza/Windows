@@ -20,6 +20,39 @@ namespace NotificationTask
             set { UpdateTile(value); }
         }
 
+        public string objTwo
+        {
+            get { return _obj; }
+            set { UpdateTileNotif(value); }
+        }
+
+        private void UpdateTileNotif(string value)
+        {
+            JObject jobj = JObject.Parse(value);
+            try
+            {
+
+                JArray NotificationList = jobj["notifications"].ToObject<JArray>();
+                foreach (JObject Notification in NotificationList)
+                {
+
+
+                    string Name = Notification["name"].ToObject<string>() == null ? "" : Notification["name"].ToObject<string>();
+
+                    var toastXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText01);
+                    var toastTextElements = toastXml.GetElementsByTagName("text");
+                    toastTextElements[0].InnerText = Name;
+                    var toast = new ToastNotification(toastXml);
+
+                    ToastNotificationManager.CreateToastNotifier().Show(toast);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+        }
+
         private void UpdateTile(string value)
         {
             JObject obj = JObject.Parse(value);
@@ -40,6 +73,7 @@ namespace NotificationTask
                 if (token != "toto")
                 {
                     GetJsonAsync(token);
+                    GetJsonAsyncToNotif(token);
                 }
             }
             // Debug.WriteLine("UpdateTile");
@@ -53,10 +87,24 @@ namespace NotificationTask
             updater.EnableNotificationQueue(true);
             updater.Clear();
 
-            Uri uri = new Uri("http://serveza.kokakiwi.net/api/user/notifications?api_token=" + token + "&update=true");
+            Uri uri = new Uri("http://serveza.kokakiwi.net/api/user/notifications?api_token=" + token);
             using (var client = new HttpClient())
             {
                 obj = await client.GetStringAsync(uri);
+            }
+        }
+
+        public async void GetJsonAsyncToNotif(string token)
+        {
+            var updater = TileUpdateManager.CreateTileUpdaterForApplication();
+            updater.EnableNotificationQueue(true);
+            updater.Clear();
+
+            //            Uri uri = new Uri("http://serveza.kokakiwi.net/api/user/notifications?api_token=" + token + "?update=true");
+            Uri uri = new Uri("http://serveza.kokakiwi.net/api/user/notifications?api_token=" + token);
+            using (var client = new HttpClient())
+            {
+                objTwo = await client.GetStringAsync(uri);
             }
         }
 
@@ -117,11 +165,7 @@ namespace NotificationTask
             return feed;
         }
 
-        private static void UpdateTile()
-        {
-
-
-        }
+        
 
         private static void UpdateTile(SyndicationFeed feed)
         {
