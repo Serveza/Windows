@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -23,6 +24,7 @@ namespace Serveza.Pages
     /// </summary>
     public sealed partial class AddCommentPage : Page
     {
+        private int note;
         public AddCommentPage()
         {
             this.InitializeComponent();
@@ -40,6 +42,7 @@ namespace Serveza.Pages
                 init(App.Core.BeerToDisplay);
             else
                 init(App.Core.PubToDisplay);
+            note = 3;
         }
 
         private void init(Model.Pub pub)
@@ -67,9 +70,30 @@ namespace Serveza.Pages
             HardwareButtons.BackPressed -= HardwareButtons_BackPressed;
         }
 
-        private void AppBarButton_Click(object sender, RoutedEventArgs e)
+        private async void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
             //send
+            try
+            {
+                if (App.Core.isBeer)
+                {
+                    Debug.WriteLine("comment beer");
+                    Classes.Network.AddComBeer addComBeer = new Classes.Network.AddComBeer();
+                    addComBeer.SetParam(App.Core.netWork.token, App.Core.PubToDisplay.id, CommentText.Text, note);
+                    await addComBeer.GetJsonAsync();
+                }
+                else
+                {
+                    Debug.WriteLine("comment bar");
+                    Classes.Network.AddComBar addComBar = new Classes.Network.AddComBar();
+                    addComBar.SetParam(App.Core.netWork.token, App.Core.PubToDisplay.id, CommentText.Text, note);
+                    await addComBar.GetJsonAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
             Frame rootFrame = Window.Current.Content as Frame;
             if (rootFrame != null && rootFrame.CanGoBack)
             {
@@ -89,28 +113,44 @@ namespace Serveza.Pages
 
         private void DisplayNote(bool one, bool two, bool tree, bool four, bool five)
         {
+            note = 0;
             if (one)
+            {
                 Note1.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer.png");
+                note++;
+            }
             else
                 Note1.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer-d.png");
-           
+
             if (two)
+            {
                 Note2.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer.png");
+                note++;
+            }
             else
                 Note2.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer-d.png");
-            
+
             if (tree)
+            {
                 Note3.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer.png");
+                note++;
+            }
             else
                 Note3.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer-d.png");
-            
+
             if (four)
+            {
                 Note4.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer.png");
+                note++;
+            }
             else
                 Note4.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer-d.png");
 
             if (five)
+            {
                 Note5.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer.png");
+                note++;
+            }
             else
                 Note5.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer-d.png");
 

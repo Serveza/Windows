@@ -60,12 +60,10 @@ namespace Serveza.Classes.PubList
                     pub = new Pub(name, Convert.ToDouble(posStringSplit[0]), Convert.ToDouble(posStringSplit[2]), url, id);
                     this.Add(pub);
                 }
-                //  return true;
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
-                //   return false;
             }
             return true;
         }
@@ -118,6 +116,40 @@ namespace Serveza.Classes.PubList
 
             return pubList;
 
+        }
+
+        public void SetFav(PubList pubList)
+        {
+            foreach (Pub pT in pubList.list)
+            {
+                pT.isFav = false;
+            }
+
+            foreach (Pub p in pubList.list)
+            {
+                foreach (Pub ptwo in list)
+                {
+                    if (p.id == ptwo.id)
+                    {
+                        ptwo.isFav = true;
+                    }
+                }
+            }
+        }
+
+        public void Remove(Pub pub)
+        {
+            list.Remove(pub);
+            if (plvm != null)
+                plvm.list = new ObservableCollection<Pub>(list);
+        }
+
+        public void SetFav()
+        {
+            foreach (Pub p in list)
+            {
+                p.isFav = true;
+            }
         }
     }
 }

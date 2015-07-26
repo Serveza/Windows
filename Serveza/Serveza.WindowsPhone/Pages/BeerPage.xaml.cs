@@ -4,22 +4,10 @@ using Serveza.Classes.PubList;
 using Serveza.Model;
 using Serveza.ViewModel;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Devices.Geolocation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Phone.UI.Input;
-using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
@@ -63,19 +51,27 @@ namespace Serveza.Pages
             tmp.Add(beer);
             pubList = App.Core.NeerPubList.SearchBarByBeer(tmp);
             pubList.plvm = plvm;
-
-            comList.Add(new Comment("Good One", "Thomas", 3));
-            comList.Add(new Comment("Good One", "Thomas", 3));
-            comList.Add(new Comment("Good One", "Thomas", 3));
-            comList.Add(new Comment("Good One", "Thomas", 3));
-            comList.Add(new Comment("Good One", "Thomas", 3));
-            comList.Add(new Comment("Good One", "Thomas", 3));
-            comList.Add(new Comment("Good One", "Thomas", 3));
+            GetComment();
             foreach (Pub p in pubList.list)
             {
                 App.Core.LocationCore.AddOnMap(MapBar, p);
             }
+        }
 
+        private async void GetComment()
+        {
+            try
+            {
+                Classes.Network.GetComBeer getbarComment = new Classes.Network.GetComBeer();
+                getbarComment.SetParam(App.Core.BeerToDisplay.id);
+                var obj = await getbarComment.GetJsonAsync();
+                comList.Load(obj);
+                DisplayNote(comList.moyen);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
         }
 
         /// <summary>
@@ -114,6 +110,65 @@ namespace Serveza.Pages
             }
         }
 
+        private void DisplayNote(int note)
+        {
+            if (note == 1)
+                DisplayNote(true, false, false, false, false);
+            else if (note == 2)
+                DisplayNote(true, true, false, false, false);
+            else if (note == 3)
+                DisplayNote(true, true, true, false, false);
+            else if (note == 4)
+                DisplayNote(true, true, true, true, false);
+            else if (note == 5)
+                DisplayNote(true, true, true, true, true);
+        }
+
+        private void DisplayNote(bool one, bool two, bool tree, bool four, bool five)
+        {
+            int note = 0;
+            if (one)
+            {
+                Note1.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer.png");
+                note++;
+            }
+            else
+                Note1.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer-d.png");
+
+            if (two)
+            {
+                Note2.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer.png");
+                note++;
+            }
+            else
+                Note2.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer-d.png");
+
+            if (tree)
+            {
+                Note3.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer.png");
+                note++;
+            }
+            else
+                Note3.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer-d.png");
+
+            if (four)
+            {
+                Note4.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer.png");
+                note++;
+            }
+            else
+                Note4.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer-d.png");
+
+            if (five)
+            {
+                Note5.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer.png");
+                note++;
+            }
+            else
+                Note5.Source = Utils.Utils.StringToImage("ms-appx:///Assets/beer-d.png");
+
+        }
+
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
             HardwareButtons.BackPressed -= HardwareButtons_BackPressed;
@@ -122,6 +177,31 @@ namespace Serveza.Pages
         private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(Pages.AddCommentPage));
+        }
+
+        private async void favButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (App.Core.BeerToDisplay.isFav == false)
+            {
+                try
+                {
+                    Classes.Network.AddFavBeer addFavBar = new Classes.Network.AddFavBeer();
+                    addFavBar.SetParam(App.Core.netWork.token, App.Core.BeerToDisplay.id);
+                    await addFavBar.GetJsonAsync();
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+                App.Core.BeerToDisplay.isFav = true;
+                App.Core.MyBeerList.Add(App.Core.BeerToDisplay);
+                SetFav(true);
+            }
+        }
+
+        private void SetFav(bool p)
+        {
+            // throw new NotImplementedException();
         }
     }
 

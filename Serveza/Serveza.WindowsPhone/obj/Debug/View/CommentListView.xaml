@@ -23,7 +23,7 @@
                                 <SolidColorBrush Color="{StaticResource Bare}"/>
                             </Ellipse.Stroke>
                             <Ellipse.Fill>
-                                <ImageBrush Stretch="Uniform" ImageSource="ms-appx:///Assets/test.jpg">
+                                <ImageBrush Stretch="Uniform" ImageSource="{Binding Path=image}">
                                     <ImageBrush.RelativeTransform>
                                         <CompositeTransform CenterY="0.5" CenterX="0.5" ScaleX="1.5" ScaleY="1.5"/>
                                     </ImageBrush.RelativeTransform>

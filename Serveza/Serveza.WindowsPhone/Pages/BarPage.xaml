@@ -31,7 +31,7 @@
                                 <ColumnDefinition Width="30*"/>
                                 <ColumnDefinition Width="50*"/>
                             </Grid.ColumnDefinitions>
-                            <Ellipse Height="125" Width="125" StrokeThickness="2">
+                            <Ellipse x:Name="barimage" Height="125" Width="125" StrokeThickness="2">
                                 <Ellipse.Stroke>
                                     <SolidColorBrush Color="{StaticResource Bare}"/>
                                 </Ellipse.Stroke>
@@ -40,19 +40,61 @@
                                 </Ellipse.Fill>
                             </Ellipse>
                             <StackPanel Grid.Column="1"  Margin="10, 0, 0, 0" VerticalAlignment="Center">
-                                <TextBlock Text="Address" TextWrapping="Wrap" x:Name="AddressText" FontSize="{StaticResource PoliceSize}">
-                                    <TextBlock.Foreground>
-                                        <SolidColorBrush Color="{StaticResource BareForground}"/>
-                                    </TextBlock.Foreground>
-                                </TextBlock>
-                                <TextBlock Text="Distance" Grid.Row="1" x:Name="DistanceText" FontSize="{StaticResource PoliceSize}">
-                                    <TextBlock.Foreground>
-                                        <SolidColorBrush Color="{StaticResource BareForground}"/>
-                                    </TextBlock.Foreground>
-                                </TextBlock>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                    <Image x:Name="Note1" Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
+                                    <Image x:Name="Note2" Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
+                                    <Image x:Name="Note3" Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
+                                    <Image x:Name="Note4" Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
+                                    <Image x:Name="Note5" Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
+                                </StackPanel>
                             </StackPanel>
                         </Grid>
-                        <Grid x:Name="eventGrid"></Grid>
+                        <StackPanel Margin="0, 10">
+                            <StackPanel Orientation="Vertical" Margin="0, 5">
+                                <TextBlock Text="Address" FontSize="{StaticResource SecondPoliceSize}">
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush Color="{StaticResource Bare}"/>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                                <StackPanel Orientation="Horizontal" Margin="0, 5">
+                                    <TextBlock x:Name="AddressText" Text="Unknow" FontSize="{StaticResource PoliceSize}">
+                                        <TextBlock.Foreground>
+                                            <SolidColorBrush Color="{StaticResource BareForground}"/>
+                                        </TextBlock.Foreground>
+                                    </TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Margin="0, 5">
+                                <TextBlock Text="Distance" FontSize="{StaticResource SecondPoliceSize}">
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush Color="{StaticResource Bare}"/>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                                <StackPanel Orientation="Horizontal" Margin="0, 5">
+                                    <TextBlock x:Name="DistanceText" Text="0 km" FontSize="{StaticResource PoliceSize}">
+                                        <TextBlock.Foreground>
+                                            <SolidColorBrush Color="{StaticResource BareForground}"/>
+                                        </TextBlock.Foreground>
+                                    </TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Vertical" Margin="0, 5">
+                                <TextBlock Text="Web Site" FontSize="{StaticResource SecondPoliceSize}">
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush Color="{StaticResource Bare}"/>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                                <StackPanel Orientation="Horizontal" Margin="0, 5">
+                                    <HyperlinkButton x:Name="linkWebSite" Content="none " FontSize="{StaticResource PoliceSize}" Background="{x:Null}" BorderBrush="{x:Null}">
+                                        <HyperlinkButton.Foreground>
+                                            <SolidColorBrush Color="{StaticResource BareForground}"/>
+                                        </HyperlinkButton.Foreground>
+                                    </HyperlinkButton>
+                                </StackPanel>
+                            </StackPanel>
+                            
+                        </StackPanel>
                     </StackPanel>
                 </ScrollViewer>
             </PivotItem>
@@ -76,8 +118,12 @@
                 <Grid x:Name="beerGrid"/>
             </PivotItem>
             <PivotItem Header="Comment">
-                <Grid x:Name="CommentList"/>
+                <Grid x:Name="CommentGrid"/>
             </PivotItem>
+            <PivotItem Header="Event">
+                <Grid x:Name="eventGrid"/>
+            </PivotItem>
+
         </Pivot>
     </Grid>
     <Page.BottomAppBar>
@@ -89,7 +135,7 @@
                 <SolidColorBrush Color="{StaticResource Background}"/>
             </CommandBar.Foreground>
             <CommandBar.PrimaryCommands>
-                <AppBarToggleButton Icon="Favorite" Label="Favorite" Click="AppBarToggleButton_Click"/>
+                <AppBarToggleButton Icon="Favorite" Label="Favorite" x:Name="favButton" Click="AppBarToggleButton_Click"/>
                 <AppBarButton Icon="Target" Label="Locate" Click="AppBarButton_Click_1"/>
                 <AppBarButton Icon="Add" Label="Add Comment" Click="AppBarButton_Click"/>
             </CommandBar.PrimaryCommands>

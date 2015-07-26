@@ -9,6 +9,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Phone.UI.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -51,6 +52,23 @@ namespace Serveza.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             App.Core.NeerBeer = App.Core.NeerPubList.getBeerList();
+            HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+           
+        }
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            HardwareButtons.BackPressed -= HardwareButtons_BackPressed;
+
+        }
+
+        private void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            if (rootFrame != null && rootFrame.CanGoBack)
+            {
+                rootFrame.GoBack();
+                e.Handled = true;
+            }
         }
 
         private void SearchBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)

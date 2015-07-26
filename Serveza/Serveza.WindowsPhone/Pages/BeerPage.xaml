@@ -56,11 +56,11 @@
                                         </TextBlock.Foreground>
                                     </TextBlock>
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                                        <Image Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
-                                        <Image Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
-                                        <Image Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
-                                        <Image Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
-                                        <Image Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
+                                        <Image x:Name="Note1" Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
+                                        <Image x:Name="Note2" Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
+                                        <Image x:Name="Note3" Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
+                                        <Image x:Name="Note4" Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
+                                        <Image x:Name="Note5" Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
                                     </StackPanel>
                                 </StackPanel>
                             </Grid>
@@ -137,7 +137,7 @@
                 <SolidColorBrush Color="{StaticResource Background}"/>
             </CommandBar.Foreground>
             <CommandBar.PrimaryCommands>
-                <AppBarToggleButton Icon="Favorite" Label="Favorite"/>
+                <AppBarToggleButton Icon="Favorite" x:Name="favButton" Click="favButton_Click" Label="Favorite"/>
                 <AppBarButton Icon="Add" Label="Add Comment" Click="AppBarButton_Click_1"/>
                 <AppBarButton Icon="Target" Label="Locate" Click="AppBarButton_Click"/>
             </CommandBar.PrimaryCommands>

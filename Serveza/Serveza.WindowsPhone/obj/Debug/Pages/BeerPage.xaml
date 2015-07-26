@@ -56,11 +56,11 @@
                                         </TextBlock.Foreground>
                                     </TextBlock>
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                                        <Image Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
-                                        <Image Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
-                                        <Image Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
-                                        <Image Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
-                                        <Image Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
+                                        <Image x:Name="Note1" Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
+                                        <Image x:Name="Note2" Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
+                                        <Image x:Name="Note3" Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
+                                        <Image x:Name="Note4" Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
+                                        <Image x:Name="Note5" Height="30" Width="30" Source="ms-appx:///Assets/beer-d.png"/>
                                     </StackPanel>
                                 </StackPanel>
                             </Grid>
@@ -137,9 +137,9 @@
                 <SolidColorBrush Color="{StaticResource Background}"/>
             </CommandBar.Foreground>
             <CommandBar.PrimaryCommands>
-                <AppBarToggleButton Icon="Favorite" Label="Favorite"/>
-                <AppBarButton x:ConnectionId='1' Icon="Add" Label="Add Comment"                             />
-                <AppBarButton x:ConnectionId='2' Icon="Target" Label="Locate"                           />
+                <AppBarToggleButton x:ConnectionId='1' Icon="Favorite" x:Name="favButton"                         Label="Favorite"/>
+                <AppBarButton x:ConnectionId='2' Icon="Add" Label="Add Comment"                             />
+                <AppBarButton x:ConnectionId='3' Icon="Target" Label="Locate"                           />
             </CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
 

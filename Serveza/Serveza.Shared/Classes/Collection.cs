@@ -110,28 +110,30 @@ namespace Serveza.Classes
                     request.setParam(geo, settings.scope);
                     var objNeerBar = await request.GetJsonAsync();
                     NeerPubList.Load(objNeerBar);
-                    
+
                     Debug.WriteLine("getUserEvent");
-                    
+
                     Classes.Network.GetEvent getEvent = new Classes.Network.GetEvent();
                     getEvent.SetParam(App.Core.netWork.token, Classes.Network.EventType.NONE);
                     var objEvent = await getEvent.GetJsonAsync();
                     App.Core.User.eventList.LoadEvent(objEvent);
 
-                 /*   Debug.WriteLine("GetFavBar");
-                    
+                    Debug.WriteLine("GetFavBar");
+
                     Classes.Network.GetFavBar getfavBar = new GetFavBar();
                     getfavBar.SetParam(netWork.token);
                     var objFavBar = await getfavBar.GetJsonAsync();
                     MyPubList.Load(objFavBar);
+                    NeerPubList.SetFav(MyPubList);
+                    MyPubList.SetFav();
 
                     Debug.WriteLine("GetFavBeer");
 
                     GetFavBeer getFavBeer = new GetFavBeer();
                     getFavBeer.SetParam(netWork.token);
                     var objFavBeer = await getFavBeer.GetJsonAsync();
-                   // MyBeerList.Load(objFavBeer);
-                    */
+                    MyBeerList.Load(objFavBeer);
+
                     Debug.WriteLine("done");
                     return true;
                 }

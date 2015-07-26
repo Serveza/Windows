@@ -41,7 +41,7 @@
 
             <StackPanel Margin="20, 10, 20, 0" Grid.Row="1">
                 <TextBlock Text="Comment : " FontSize="{StaticResource SecondPoliceSize}"/>
-                <TextBox Margin="0, 10" >
+                <TextBox Margin="0, 10" x:Name="CommentText" Height="100" >
                     
                 </TextBox>
 

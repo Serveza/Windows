@@ -101,11 +101,19 @@ namespace Serveza.Pages
             if (core.AccessToken != null)
             {
                 Facebook.FacebookClient client = core.Client;
-                dynamic result = await client.GetTaskAsync("me");
+
+                dynamic result = await client.GetTaskAsync("/me");
                 string id = result.id;
                 string email = result.email;
                 string fn = result.first_name;
                 string ln = result.last_name;
+
+                string link = result.link;
+
+                Debug.WriteLine(email);
+                Debug.WriteLine(fn);
+                Debug.WriteLine(link);
+
                 UserImage.Fill = core.getUserImage(id);
                 ChangePictureAnim.Begin();
                 if (fn != null)

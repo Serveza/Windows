@@ -64,7 +64,7 @@ namespace Serveza.Classes.Location
         }
 
 
-        public async void GetRouteAndDirection(Pub pub, MapControl map, DirectionList.DirectionList list)
+        public async Task<bool> GetRouteAndDirection(Pub pub, MapControl map, DirectionList.DirectionList list)
         {
             Geoposition geoposition = await geolocator.GetGeopositionAsync(maximumAge: TimeSpan.FromMinutes(5), timeout: TimeSpan.FromSeconds(10));
             BasicGeoposition startLocation = new BasicGeoposition();
@@ -94,6 +94,7 @@ namespace Serveza.Classes.Location
                 var message = new MessageDialog("Can't find Direction");
                 await message.ShowAsync();
             }
+            return true;
         }
 
         public async void GetRouteAndDirections(Pub pub, MapControl map, TextBlock tbOutputText)

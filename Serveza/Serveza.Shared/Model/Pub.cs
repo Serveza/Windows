@@ -19,6 +19,10 @@ namespace Serveza.Model
         private double _latitude;
         private double _longitude;
 
+        public string image { get; private set; }
+        public string website { get; private set; }
+        public bool isFav { get; set; }
+
         public Geopoint pos
         {
             get
@@ -111,6 +115,9 @@ namespace Serveza.Model
             if (obj != null)
             {
                 JObject objBar = obj["bar"].ToObject<JObject>();
+
+                image = objBar["image"].ToObject<string>() == null ? "" : objBar["image"].ToObject<string>();
+                website = objBar["website"].ToObject<string>() == null ? "https://fr.wiktionary.org/wiki/bierre" : objBar["website"].ToObject<string>();
 
                 beerList.Load(objBar["carte"].ToObject<JArray>());
                 return true;

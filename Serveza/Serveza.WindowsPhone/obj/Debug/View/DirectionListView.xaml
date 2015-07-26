@@ -18,7 +18,7 @@
                 </Grid.RowDefinitions>
                 <TextBlock Text="Time estimate" FontSize="{StaticResource SecondPoliceSize}">
                     <TextBlock.Foreground>
-                        <SolidColorBrush Color="{StaticResource ButtonColor}"/>
+                        <SolidColorBrush Color="{StaticResource Bare}"/>
                     </TextBlock.Foreground>
                 </TextBlock>
                 <TextBlock Grid.Row="1" Margin="0, 5, 0, 0" x:Name="TimeEstimate" FontSize="{StaticResource PoliceSize}">
@@ -34,7 +34,7 @@
                 </Grid.RowDefinitions>
                 <TextBlock Text="Total length (km)" FontSize="{StaticResource SecondPoliceSize}">
                     <TextBlock.Foreground>
-                        <SolidColorBrush Color="{StaticResource ButtonColor}"/>
+                        <SolidColorBrush Color="{StaticResource Bare}"/>
                     </TextBlock.Foreground>
                 </TextBlock>
                 <TextBlock Margin="0,0.667,0,8.5" Grid.Row="1" x:Name="Totallength" FontSize="{StaticResource PoliceSize}">
@@ -50,16 +50,16 @@
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                                 <TextBlock Text="{Binding lenght}" HorizontalAlignment="Left">
                                     <TextBlock.Foreground>
-                                        <SolidColorBrush Color="{StaticResource ButtonColor}"/>
+                                        <SolidColorBrush Color="{StaticResource Bare}"/>
                                     </TextBlock.Foreground>
                                 </TextBlock>
                                 <TextBlock Text=" m" HorizontalAlignment="Left">
                                     <TextBlock.Foreground>
-                                        <SolidColorBrush Color="{StaticResource ButtonColor}"/>
+                                        <SolidColorBrush Color="{StaticResource Bare}"/>
                                     </TextBlock.Foreground>
                                 </TextBlock>
                             </StackPanel>
-                            <TextBlock Text="{Binding direction}" Width="300" TextWrapping="Wrap" HorizontalAlignment="Right">
+                            <TextBlock Text="{Binding direction}" Width="300" TextWrapping="Wrap" HorizontalAlignment="Right" FontSize="{StaticResource PoliceSize}">
                                 <TextBlock.Foreground>
                                     <SolidColorBrush Color="{StaticResource BareForground}"/>
                                 </TextBlock.Foreground>

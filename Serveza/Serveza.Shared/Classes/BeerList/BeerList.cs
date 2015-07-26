@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 using System.Linq;
 using Newtonsoft.Json.Linq;
+using System.Diagnostics;
 
 namespace Serveza.Classes.BeerList
 {
@@ -85,9 +86,39 @@ namespace Serveza.Classes.BeerList
             }
         }
 
-        internal void Load(JObject objFavBeer)
+        public void Load(JObject objFavBeer)
         {
-            throw new NotImplementedException();
+            try
+            {
+                JArray array = objFavBeer["beers"].ToObject<JArray>();
+                Load(array);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+        }
+
+        public void setFav(BeerList beerlist)
+        {
+            foreach (Beer b in beerlist.list)
+            {
+                b.isFav = false;
+                foreach (Beer bT in list)
+                {
+                    if (bT.id == b.id)
+                        b.isFav = true;
+                }
+            }
+            
+        }
+
+        public void setFav()
+        {
+            foreach (Beer b in list)
+            {
+                b.isFav = true;
+            }
         }
     }
 }

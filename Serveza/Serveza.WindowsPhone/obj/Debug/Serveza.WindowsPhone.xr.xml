@@ -6,6 +6,7 @@
     <RootPropertyPathName Name="degre" />
     <RootPropertyPathName Name="text" />
     <RootPropertyPathName Name="userName" />
+    <RootPropertyPathName Name="image" />
     <RootPropertyPathName Name="direction" />
     <RootPropertyPathName Name="lenght" />
     <RootPropertyPathName Name="endTime" />
@@ -127,6 +128,7 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="PlaceholderText" />
       <RootProperty Name="Text" />
+      <RootProperty Name="Height" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.PasswordBox">
       <RootProperty Name="Margin" />
@@ -169,6 +171,13 @@
     <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
       <RootProperty Name="Content" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.HyperlinkButton">
+      <RootProperty Name="Content" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="BorderBrush" />
+      <RootProperty Name="Foreground" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
       <RootProperty Name="Width" />
     </RootType>
@@ -207,6 +216,7 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="ElementName" />
+      <RootProperty Name="Path" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.DataTemplate">
       <RootProperty Name="Template" />

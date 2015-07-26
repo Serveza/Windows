@@ -25,10 +25,15 @@
     <Compile Include="$(MSBuildThisFileDirectory)Classes\EventList\EventList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Facebook\FacebookCore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Location\LocationCore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\AddComBar.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\AddComBeer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\AddFavBar.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\AddFavBeer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\Connection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\GetBarComment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\GetBarInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\GetBeerInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\GetComBeer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\GetEvent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\GetFavBar.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\GetFavBeer.cs" />
@@ -36,6 +41,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\NetWork.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\Register.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\Request.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classes\Network\UnFavBar.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\PubList\PubList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\Settings\Settings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Classes\User\User.cs" />

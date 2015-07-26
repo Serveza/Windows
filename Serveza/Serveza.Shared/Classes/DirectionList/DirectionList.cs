@@ -10,7 +10,7 @@ namespace Serveza.Classes.DirectionList
 {
     public class DirectionList
     {
-        private double dist;
+        public double dist;
         private double time;
 
         public List<Direction> list;

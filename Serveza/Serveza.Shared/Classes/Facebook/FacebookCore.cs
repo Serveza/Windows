@@ -16,7 +16,7 @@ namespace Serveza.Classes.Facebook
         readonly Uri _callbackUri = WebAuthenticationBroker.GetCurrentApplicationCallbackUri();
         readonly Uri _loginUrl;
         private const string FacebookAppId = "820916864694793";//Enter your FaceBook App ID here       
-        private const string FacebookPermissions = "user_about_me";
+        private const string FacebookPermissions = "user_about_me,public_profile,email";
         public string AccessToken
         {
             get { return _fb.AccessToken; }

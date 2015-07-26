@@ -27,15 +27,22 @@ namespace Serveza.Model
         {
             try
             {
-                Debug.WriteLine("load");
+                Debug.WriteLine("load Beer");
                 name = obj["name"].ToObject<string>();
-                string[] posStringSplit = obj["price"].ToObject<string>().Split(' ');
-                price = Convert.ToDouble(posStringSplit[1]);
-                id = obj["beer_id"].ToObject<int>();
+                try
+                {
+                    string[] posStringSplit = obj["price"].ToObject<string>().Split(' ');
+                    price = Convert.ToDouble(posStringSplit[1]);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+                id = obj["id"].ToObject<int>();
 
-                Debug.WriteLine(name);
+                Debug.WriteLine("name : " + name);
                 Debug.WriteLine(price);
-                Debug.WriteLine(id);
+                Debug.WriteLine("id : " + id.ToString());
 
             }
             catch (Exception ex)
@@ -57,6 +64,13 @@ namespace Serveza.Model
             {
                 Debug.WriteLine(ex);
             }
+        }
+
+        public bool isFav { get; set; }
+
+        public override string ToString()
+        {
+            return "";
         }
     }
 }
