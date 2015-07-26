@@ -25,13 +25,23 @@ namespace NotificationTask
             get { return _obj; }
             set { UpdateTileNotif(value); }
         }
+        public static void ShowToast(string header, string content)
+        {
+            ToastTemplateType toastTemplate = ToastTemplateType.ToastText02;
+            XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
+            XmlNodeList toastTextElements = toastXml.GetElementsByTagName("text");
+            toastTextElements[0].AppendChild(toastXml.CreateTextNode(header));
+            toastTextElements[1].AppendChild(toastXml.CreateTextNode(content));
+            ToastNotification toast = new ToastNotification(toastXml);
+            ToastNotificationManager.CreateToastNotifier().Show(toast);
+        }
 
         private void UpdateTileNotif(string value)
         {
             JObject jobj = JObject.Parse(value);
             try
             {
-
+                Debug.WriteLine("nofif:" + jobj.ToString());
                 JArray NotificationList = jobj["notifications"].ToObject<JArray>();
                 foreach (JObject Notification in NotificationList)
                 {
@@ -39,12 +49,8 @@ namespace NotificationTask
 
                     string Name = Notification["name"].ToObject<string>() == null ? "" : Notification["name"].ToObject<string>();
 
-                    var toastXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText01);
-                    var toastTextElements = toastXml.GetElementsByTagName("text");
-                    toastTextElements[0].InnerText = Name;
-                    var toast = new ToastNotification(toastXml);
+                    ShowToast("New Event", Name);
 
-                    ToastNotificationManager.CreateToastNotifier().Show(toast);
                 }
             }
             catch (Exception ex)
@@ -66,15 +72,12 @@ namespace NotificationTask
             deferral = taskInstance.GetDeferral();
             Debug.WriteLine("run");
             // Download the feed.
-            if (StorageApplication.GetValue("liveTile", "false") != "false")
-            {
-                string token = StorageApplication.GetValue("token", "toto");
+            string token = StorageApplication.GetValue("token", "toto");
 
-                if (token != "toto")
-                {
-                    GetJsonAsync(token);
-                    GetJsonAsyncToNotif(token);
-                }
+            if (token != "toto")
+            {
+                GetJsonAsync(token);
+                GetJsonAsyncToNotif(token);
             }
             // Debug.WriteLine("UpdateTile");
             // Inform the system that the task is finished.
@@ -91,6 +94,7 @@ namespace NotificationTask
             using (var client = new HttpClient())
             {
                 obj = await client.GetStringAsync(uri);
+                Debug.WriteLine(obj);
             }
         }
 
@@ -100,8 +104,8 @@ namespace NotificationTask
             updater.EnableNotificationQueue(true);
             updater.Clear();
 
-            //            Uri uri = new Uri("http://serveza.kokakiwi.net/api/user/notifications?api_token=" + token + "?update=true");
-            Uri uri = new Uri("http://serveza.kokakiwi.net/api/user/notifications?api_token=" + token);
+            Uri uri = new Uri("http://serveza.kokakiwi.net/api/user/notifications?api_token=" + token + "?update=true");
+            // Uri uri = new Uri("http://serveza.kokakiwi.net/api/user/notifications?api_token=" + token);
             using (var client = new HttpClient())
             {
                 objTwo = await client.GetStringAsync(uri);
@@ -127,8 +131,8 @@ namespace NotificationTask
                     string ImageUri = Notification["bar_image"].ToObject<string>() == null ? "none" : Notification["bar_image"].ToObject<string>();
                     tileXml.GetElementsByTagName(textElementName)[0].InnerText = "New Event";
                     tileXml.GetElementsByTagName(textElementName)[1].InnerText = Name;
-                    tileXml.GetElementsByTagName(textElementName)[2].InnerText = Name;
-                    tileXml.GetElementsByTagName("image")[0].Attributes.GetNamedItem("src").InnerText = "http://a5.mzstatic.com/us/r30/Purple5/v4/5a/2e/e9/5a2ee9b3-8f0e-4f8b-4043-dd3e3ea29766/icon128-2x.png";
+                    tileXml.GetElementsByTagName(textElementName)[2].InnerText = Notification["description"].ToObject<string>() == null ? "" : Notification["description"].ToObject<string>();
+                    tileXml.GetElementsByTagName("image")[0].Attributes.GetNamedItem("src").InnerText = Notification["bar_image"].ToObject<string>() == null ? "" : Notification["bar_image"].ToObject<string>();
 
                     updater.Update(new TileNotification(tileXml));
                 }
@@ -165,7 +169,7 @@ namespace NotificationTask
             return feed;
         }
 
-        
+
 
         private static void UpdateTile(SyndicationFeed feed)
         {

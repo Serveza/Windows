@@ -24,6 +24,7 @@ namespace Serveza.Utils
             string[] split = s.Split(' ', ':');
             int mount = 0;
 
+            #region switch mounth
             switch (split[2])
             {
                 case "Jan":
@@ -66,6 +67,7 @@ namespace Serveza.Utils
                     mount = 1;
                     break;
             }
+            #endregion
             return new DateTime(Convert.ToInt32(split[3]), mount, Convert.ToInt32(split[1]),
                 Convert.ToInt32(split[4]), Convert.ToInt32(split[5]), Convert.ToInt32(split[6]));
         }

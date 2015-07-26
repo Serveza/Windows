@@ -86,7 +86,7 @@ namespace Serveza.Classes.Location
             {
                 list.Load(routeResult);
                 MapRouteView viewOfRoute = new MapRouteView(routeResult.Route);
-                viewOfRoute.RouteColor = Utils.Utils.GetColorFromHex("#FFAEEEB7");
+                viewOfRoute.RouteColor = Colors.Blue;
                 viewOfRoute.OutlineColor = Colors.Black;
             }
             else

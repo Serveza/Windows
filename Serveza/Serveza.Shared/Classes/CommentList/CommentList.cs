@@ -49,6 +49,7 @@ namespace Serveza.Classes.CommentList
         {
             try
             {
+                Debug.WriteLine(obj);
                 JArray array = obj["comments"].ToObject<JArray>();
                 Comment tmp;
                 foreach (JObject objt in array)

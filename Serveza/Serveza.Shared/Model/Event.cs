@@ -68,9 +68,14 @@ namespace Serveza.Model
         {
             try
             {
+                Debug.WriteLine(notif);
                 name = notif["name"].ToObject<string>();
                 string desc = notif["description"].ToObject<string>();
                 desciption = (desc == null ? "No description" : desc);
+                string start = notif["start"].ToObject<string>();
+                string end = notif["end"].ToObject<string>();
+                _startTime = Utils.Utils.StringToTime(start);
+                _endTime = Utils.Utils.StringToTime(end);
                 if (notif["location"].ToObject<string>() == null)
                 {
                     pubAttached = new Pub((notif["bar"].ToObject<string>() == null ? "" : notif["bar"].ToObject<string>()));
@@ -84,9 +89,7 @@ namespace Serveza.Model
                     _longitude = Convert.ToDouble(loc[2]);
                     address = null;
                 }
-
-                _startTime = Utils.Utils.StringToTime(notif["start"].ToObject<string>());
-                _endTime = Utils.Utils.StringToTime(notif["end"].ToObject<string>());
+              
             }
             catch (Exception ex)
             {

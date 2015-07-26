@@ -118,7 +118,7 @@ namespace Serveza.Model
 
                 image = objBar["image"].ToObject<string>() == null ? "" : objBar["image"].ToObject<string>();
                 website = objBar["website"].ToObject<string>() == null ? "https://fr.wiktionary.org/wiki/bierre" : objBar["website"].ToObject<string>();
-
+                address = objBar["address"].ToObject<string>();
                 beerList.Load(objBar["carte"].ToObject<JArray>());
                 return true;
             }

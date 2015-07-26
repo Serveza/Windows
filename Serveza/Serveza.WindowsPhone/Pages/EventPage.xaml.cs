@@ -37,7 +37,6 @@ namespace Serveza.Pages
             EndText.Text = App.Core.EventToDisplay.endTime;
             DesciptionText.Text = App.Core.EventToDisplay.desciption;
             App.Core.LocationCore.AddOnMap(MapBar, App.Core.EventToDisplay);
-          //  App.Core.LocationCore.SetUserPosition(MapBar);
             if (App.Core.EventToDisplay.address == null)
             {
                 MapLocationFinderResult result = await MapLocationFinder.FindLocationsAtAsync(App.Core.EventToDisplay.pos);
@@ -50,7 +49,15 @@ namespace Serveza.Pages
                     Debug.WriteLine(ex);
                 }
             }
-            AddressText.Text = App.Core.EventToDisplay.address;
+            try
+            {
+                AddressText.Text = App.Core.EventToDisplay.address;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                AddressText.Text = "";
+            }
         }
 
         /// <summary>

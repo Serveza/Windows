@@ -125,8 +125,7 @@ namespace Serveza.Pages
 
                 lastnameEntry.Text = plit[0];
                 firstnameEntry.Text = plit[1];
-                passOneEntry.Password = id;
-                passTwoEntry.Password = id;
+               
                 // Register(plit[0], plit[1], id, id, profilePictureUrl);
             }
         }

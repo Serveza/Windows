@@ -141,5 +141,10 @@ namespace Serveza.Pages
         {
            await App.Core.update();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            App.Core.User.eventList.Clear();
+        }
     }
 }

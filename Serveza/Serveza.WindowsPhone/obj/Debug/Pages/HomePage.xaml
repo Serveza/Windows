@@ -19,45 +19,51 @@
             <SolidColorBrush Color="{StaticResource BareForground}"/>
         </Pivot.Foreground>
         <PivotItem Header="Home">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="100*"/>
-                    <RowDefinition Height="200*"/>
-                </Grid.RowDefinitions>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="145*"/>
-                        <ColumnDefinition Width="217*"/>
-                    </Grid.ColumnDefinitions>
-                    <Ellipse x:Name="UserImage" Height="125" Width="125" StrokeThickness="2">
-                        <Ellipse.Stroke>
-                            <SolidColorBrush Color="{StaticResource Bare}"/>
-                        </Ellipse.Stroke>
-                        <Ellipse.Fill>
-                            <ImageBrush Stretch="Uniform" ImageSource="ms-appx:///Assets/icon128-2x.png">
-                                <ImageBrush.RelativeTransform>
-                                    <CompositeTransform CenterY="0.5" CenterX="0.5" ScaleX="1.5" ScaleY="1.5"/>
-                                </ImageBrush.RelativeTransform>
-                            </ImageBrush>
-                        </Ellipse.Fill>
-                    </Ellipse>
-                    <StackPanel Grid.Column="1"  Margin="10, 0, 0, 0" VerticalAlignment="Center">
-                        <TextBlock Text="UserName" x:Name="UserNameText" FontSize="{StaticResource TitleSize}">
-                            <TextBlock.Foreground>
-                                <SolidColorBrush Color="{StaticResource BareForground}"/>
-                            </TextBlock.Foreground>
-                        </TextBlock>
+            <ScrollViewer>
+                <StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="145*"/>
+                            <ColumnDefinition Width="217*"/>
+                        </Grid.ColumnDefinitions>
+                        <Ellipse x:Name="UserImage" Height="125" Width="125" StrokeThickness="2">
+                            <Ellipse.Stroke>
+                                <SolidColorBrush Color="{StaticResource Bare}"/>
+                            </Ellipse.Stroke>
+                            <Ellipse.Fill>
+                                <ImageBrush Stretch="Uniform" ImageSource="ms-appx:///Assets/icon128-2x.png">
+                                    <ImageBrush.RelativeTransform>
+                                        <CompositeTransform CenterY="0.5" CenterX="0.5" ScaleX="1.5" ScaleY="1.5"/>
+                                    </ImageBrush.RelativeTransform>
+                                </ImageBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <StackPanel Grid.Column="1"  Margin="10, 0, 0, 0" VerticalAlignment="Center">
+                            <TextBlock Text="UserName" x:Name="UserNameText" FontSize="{StaticResource TitleSize}">
+                                <TextBlock.Foreground>
+                                    <SolidColorBrush Color="{StaticResource BareForground}"/>
+                                </TextBlock.Foreground>
+                            </TextBlock>
+                        </StackPanel>
+                    </Grid>
+
+                    <StackPanel Grid.Row="1">
+                        <Grid Margin="0, 5">
+                            <TextBlock Text="My Events" VerticalAlignment="Center" FontSize="{StaticResource PoliceSize}"/>
+                            <Button x:ConnectionId='1' HorizontalAlignment="Right" Width="50"                      Margin="0, 0, 5, 0" FontSize="{StaticResource PoliceSize}" BorderBrush="{x:Null}" Background="{x:Null}" RequestedTheme="Light">
+                                <Button.Content>
+                                    <TextBlock Text="x" TextAlignment="Center">
+                                        <TextBlock.Foreground>
+                                            <SolidColorBrush Color="{StaticResource Bare}"/>
+                                        </TextBlock.Foreground>
+                                    </TextBlock>
+                                </Button.Content>
+                            </Button>
+                        </Grid>
+                        <Grid x:Name="NotifGrid"/>
                     </StackPanel>
-                </Grid>
-                <StackPanel Grid.Row="1">
-                    <TextBlock Text="My Event" Margin="0, 10, 0, 5" FontSize="{StaticResource PoliceSize}">
-                        <TextBlock.Foreground>
-                            <SolidColorBrush Color="{StaticResource BareForground}"/>
-                        </TextBlock.Foreground>
-                    </TextBlock>
-                    <Grid x:Name="NotifGrid"/>
                 </StackPanel>
-            </Grid>
+            </ScrollViewer>
         </PivotItem>
         <PivotItem Header="Near to me">
             <Grid x:Name="NearOfMeGrid">
@@ -89,14 +95,14 @@
                 <SolidColorBrush Color="{StaticResource Background}"/>
             </CommandBar.Foreground>
             <CommandBar.PrimaryCommands>
-                <AppBarButton x:ConnectionId='1' Label="Search" Icon="Zoom"                             />
-                <AppBarButton x:ConnectionId='2' Label="Locate" Icon="Target"                           />
-                <AppBarButton x:ConnectionId='3' Label="Update" Icon="Sync"                             />
+                <AppBarButton x:ConnectionId='2' Label="Search" Icon="Zoom"                             />
+                <AppBarButton x:ConnectionId='3' Label="Locate" Icon="Target"                           />
+                <AppBarButton x:ConnectionId='4' Label="Update" Icon="Sync"                             />
             </CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:ConnectionId='4' Label="Logout" Icon="Back"                             />
-                <AppBarButton x:ConnectionId='5' Label="Settings" Icon="Setting"                             />
-                <AppBarButton x:ConnectionId='6' Label="About" Icon="Emoji2"                             />
+                <AppBarButton x:ConnectionId='5' Label="Logout" Icon="Back"                             />
+                <AppBarButton x:ConnectionId='6' Label="Settings" Icon="Setting"                             />
+                <AppBarButton x:ConnectionId='7' Label="About" Icon="Emoji2"                             />
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

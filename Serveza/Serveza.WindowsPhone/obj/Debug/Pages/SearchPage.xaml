@@ -34,7 +34,8 @@
                         <TextBlock Text="x" TextAlignment="Center">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{StaticResource Bare}"/>
-                            </TextBlock.Foreground></TextBlock>
+                            </TextBlock.Foreground>
+                        </TextBlock>
                     </Button.Content>
                 </Button>
             </Grid>
