@@ -136,5 +136,10 @@ namespace Serveza.Pages
         {
             Frame.Navigate(typeof(Pages.AboutPage));
         }
+
+        private async void AppBarButton_Click_5(object sender, RoutedEventArgs e)
+        {
+           await App.Core.update();
+        }
     }
 }

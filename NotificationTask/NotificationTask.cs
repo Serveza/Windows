@@ -39,15 +39,15 @@ namespace NotificationTask
 
                 if (token != "toto")
                 {
-            //        GetJsonAsync(token);
+                    GetJsonAsync(token);
                 }
             }
-           // Debug.WriteLine("UpdateTile");
+            // Debug.WriteLine("UpdateTile");
             // Inform the system that the task is finished.
-            
+
         }
 
-        public  async void GetJsonAsync(string token)
+        public async void GetJsonAsync(string token)
         {
             var updater = TileUpdateManager.CreateTileUpdaterForApplication();
             updater.EnableNotificationQueue(true);

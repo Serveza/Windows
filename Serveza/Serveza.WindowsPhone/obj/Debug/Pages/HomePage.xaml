@@ -91,11 +91,12 @@
             <CommandBar.PrimaryCommands>
                 <AppBarButton x:ConnectionId='1' Label="Search" Icon="Zoom"                             />
                 <AppBarButton x:ConnectionId='2' Label="Locate" Icon="Target"                           />
+                <AppBarButton x:ConnectionId='3' Label="Update" Icon="Sync"                             />
             </CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:ConnectionId='3' Label="Logout" Icon="Back"                             />
-                <AppBarButton x:ConnectionId='4' Label="Settings" Icon="Setting"                             />
-                <AppBarButton x:ConnectionId='5' Label="About" Icon="Emoji2"                             />
+                <AppBarButton x:ConnectionId='4' Label="Logout" Icon="Back"                             />
+                <AppBarButton x:ConnectionId='5' Label="Settings" Icon="Setting"                             />
+                <AppBarButton x:ConnectionId='6' Label="About" Icon="Emoji2"                             />
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

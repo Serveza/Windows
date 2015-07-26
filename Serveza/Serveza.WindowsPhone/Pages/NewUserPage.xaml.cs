@@ -116,6 +116,7 @@ namespace Serveza.Pages
 
                 UserImage.Fill = core.getUserImage(id);
                 ChangePictureAnim.Begin();
+
                 if (fn != null)
                     firstnameEntry.Text = fn;
                 if (ln != null)

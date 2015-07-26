@@ -5,11 +5,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml;
 
 namespace Serveza.Classes
 {
     public class Collection
     {
+        public DispatcherTimer timer = new DispatcherTimer();
         public bool isBeer;
         public Settings.Settings settings;
         public BeerList.BeerList MyBeerList { get; set; }
@@ -63,11 +65,56 @@ namespace Serveza.Classes
             resultPubList = new PubList.PubList();
             User = new User.User();
             settings = new Settings.Settings();
+
+            timer.Interval = TimeSpan.FromSeconds(1);
+            //timer.Tick += timer_Tick;
         }
+
+       
 
         public void Init()
         {
 
+        }
+
+        public async Task update()
+        {
+            Debug.WriteLine("get Neer Bars");
+            Serveza.Classes.Network.NeerBar request = new Serveza.Classes.Network.NeerBar();
+            var geo = await App.Core.LocationCore.GetUserPosition();
+            request.setParam(geo, settings.scope);
+            var objNeerBar = await request.GetJsonAsync();
+            NeerPubList.Clear();
+            NeerPubList.Load(objNeerBar);
+
+            Debug.WriteLine("getUserEvent");
+
+            User.eventList.Clear();
+            Classes.Network.GetEvent getEvent = new Classes.Network.GetEvent();
+            getEvent.SetParam(App.Core.netWork.token, Classes.Network.EventType.NONE);
+            var objEvent = await getEvent.GetJsonAsync();
+            App.Core.User.eventList.LoadEvent(objEvent);
+
+            Debug.WriteLine("GetFavBar");
+
+            MyPubList.Clear();
+            Classes.Network.GetFavBar getfavBar = new GetFavBar();
+            getfavBar.SetParam(netWork.token);
+            var objFavBar = await getfavBar.GetJsonAsync();
+            MyPubList.Load(objFavBar);
+            NeerPubList.SetFav(MyPubList);
+            MyPubList.SetFav();
+
+            Debug.WriteLine("GetFavBeer");
+
+            MyBeerList.Clear();
+            GetFavBeer getFavBeer = new GetFavBeer();
+            getFavBeer.SetParam(netWork.token);
+            var objFavBeer = await getFavBeer.GetJsonAsync();
+            MyBeerList.Load(objFavBeer);
+
+            Debug.WriteLine("done");
+                    
         }
 
         private async void GetUserEvent()
@@ -135,6 +182,7 @@ namespace Serveza.Classes
                     MyBeerList.Load(objFavBeer);
 
                     Debug.WriteLine("done");
+                   // timer.Start();
                     return true;
                 }
                 return false;
@@ -144,6 +192,11 @@ namespace Serveza.Classes
                 Debug.WriteLine(ex);
                 return false;
             }
+        }
+
+        public void Run()
+        {
+
         }
     }
 }

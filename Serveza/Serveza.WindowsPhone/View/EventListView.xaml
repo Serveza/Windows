@@ -22,17 +22,17 @@
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding startTime}" FontSize="{StaticResource PoliceSize}">
                                 <TextBlock.Foreground>
-                                    <SolidColorBrush Color="{StaticResource ButtonColor}"/>
+                                    <SolidColorBrush Color="{StaticResource BareForground}"/>
                                 </TextBlock.Foreground>
                             </TextBlock>
                             <TextBlock Text=" To " FontSize="{StaticResource PoliceSize}">
                                 <TextBlock.Foreground>
-                                    <SolidColorBrush Color="{StaticResource ButtonColor}"/>
+                                    <SolidColorBrush Color="{StaticResource BareForground}"/>
                                 </TextBlock.Foreground>
                             </TextBlock>
                             <TextBlock Text="{Binding endTime}" FontSize="{StaticResource PoliceSize}">
                                 <TextBlock.Foreground>
-                                    <SolidColorBrush Color="{StaticResource ButtonColor}"/>
+                                    <SolidColorBrush Color="{StaticResource BareForground}"/>
                                 </TextBlock.Foreground>
                             </TextBlock>
                         </StackPanel>

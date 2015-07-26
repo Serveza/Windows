@@ -91,6 +91,7 @@
             <CommandBar.PrimaryCommands>
                 <AppBarButton Label="Search" Icon="Zoom" Click="AppBarButton_Click_1"/>
                 <AppBarButton Label="Locate" Icon="Target" Click="AppBarButton_Click"/>
+                <AppBarButton Label="Update" Icon="Sync" Click="AppBarButton_Click_5"/>
             </CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
                 <AppBarButton Label="Logout" Icon="Back" Click="AppBarButton_Click_2"/>
