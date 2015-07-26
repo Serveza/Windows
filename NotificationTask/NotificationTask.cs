@@ -39,7 +39,7 @@ namespace NotificationTask
 
                 if (token != "toto")
                 {
-                    GetJsonAsync(token);
+            //        GetJsonAsync(token);
                 }
             }
            // Debug.WriteLine("UpdateTile");

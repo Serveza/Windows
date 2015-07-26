@@ -84,7 +84,7 @@ namespace Serveza.Classes.PubList
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex);
+                Debug.WriteLine("PubList.Add : " + ex.ToString());
             }
 
         }

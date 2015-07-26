@@ -18,8 +18,8 @@ namespace Serveza.Classes.Network
     }
     public class Request
     {
-        //  private string BaseAddress = "http://10.11.45.251:5000";
-        private string BaseAddress = "http://serveza.kokakiwi.net";
+        private string BaseAddress = "http://10.11.45.251:5000";
+        //private string BaseAddress = "http://serveza.kokakiwi.net";
         protected Uri uri;
         protected string url;
         protected HttpWebRequest request;
@@ -35,14 +35,15 @@ namespace Serveza.Classes.Network
         {
             using (var client = new HttpClient())
             {
-                string jsonString;
+                string jsonString = "";
                 if (type == RequestType.GET)
                     jsonString = await client.GetStringAsync(uri);
                 else if (type == RequestType.POST)
                 {
                     HttpResponseMessage response = await client.PostAsync(uri, content);
-                    Debug.WriteLine("response : " + response.StatusCode.ToString());
+                    Debug.WriteLine("response : " + response.ToString());
                     jsonString = await response.Content.ReadAsStringAsync();
+                    Debug.WriteLine(jsonString);
                 }
                 else if (type == RequestType.DELETE)
                 {

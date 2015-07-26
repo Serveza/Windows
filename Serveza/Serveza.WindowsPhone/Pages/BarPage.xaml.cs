@@ -48,7 +48,6 @@ namespace Serveza.Pages
             DistanceText.Text = pub.dist.ToString() + " Km";
             AddressText.Text = (pub.address == null ? "" : pub.address);
             pub.beerList.blwm = _beerListViewModel;
-            pub.eventList.elvm = _eventListViewModel;
             _dl = new DirectionList(_directionListViewModel);
             DisplayOnMap();
         }
@@ -57,10 +56,12 @@ namespace Serveza.Pages
         {
             Classes.Network.GetEvent getEvent = new Classes.Network.GetEvent();
             getEvent.SetParam(App.Core.netWork.token, App.Core.PubToDisplay);
-
+            Debug.WriteLine("GetEvent By Bar");
             var jobj = await getEvent.GetJsonAsync();
 
             App.Core.PubToDisplay.LoadEvent(jobj);
+            App.Core.PubToDisplay.eventList.elvm = _eventListViewModel;
+
         }
 
         private void DisplayOnMap()
@@ -115,8 +116,8 @@ namespace Serveza.Pages
             //fav
             Classes.Network.AddFavBar addFavBar = new Classes.Network.AddFavBar();
             addFavBar.SetParam(App.Core.netWork.token, App.Core.PubToDisplay.id);
-            JObject obj = await addFavBar.GetJsonAsync();
-            Debug.WriteLine(obj);
+            await addFavBar.GetJsonAsync();
+
         }
     }
 }

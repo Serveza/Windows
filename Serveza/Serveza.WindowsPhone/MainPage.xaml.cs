@@ -62,19 +62,15 @@ namespace Serveza
             {
                 ConnectAnnim.Begin();
                 UserNameText.IsReadOnly = true;
-                Connection co = new Connection();
-                co.setParam(UserNameText.Text, PassWordText.Password);
-                var obj = await co.GetJsonAsync();
-                Debug.WriteLine(obj);
-                if (App.Core.User.Load(obj))
+                bool isConnect = await App.Core.Connect(UserNameText.Text, PassWordText.Password);
+                if (isConnect)
                 {
-                    Utils.StorageApplication.SetValue("token", App.Core.netWork.token);
                     ConnectAnnim.Stop();
                     Frame.Navigate(typeof(Pages.HomePage));
                     return;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex);
             }
@@ -125,7 +121,7 @@ namespace Serveza
         {
             if (e.Key == VirtualKey.Enter)
             {
-               // PassWordText.Focus(FocusState.Pointer);
+                // PassWordText.Focus(FocusState.Pointer);
                 Connect();
             }
         }

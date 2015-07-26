@@ -67,7 +67,7 @@ namespace Serveza.Pages
             }
         }
 
-        private async void GetUserEvent()
+      /*  private async void GetUserEvent()
         {
             Debug.WriteLine("getUserEvent");
             App.Core.User.eventList.Clear();
@@ -76,7 +76,7 @@ namespace Serveza.Pages
             var obj = await getEvent.GetJsonAsync();
             App.Core.User.eventList.LoadEvent(obj);
             Debug.WriteLine("getUserEvent done");
-        }
+        }*/
 
         private async void NeerBars()
         {
@@ -97,8 +97,9 @@ namespace Serveza.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             init();
-            NeerBars();
-            GetUserEvent();
+            setLocation();
+            //NeerBars();
+            //GetUserEvent();
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)

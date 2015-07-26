@@ -84,5 +84,10 @@ namespace Serveza.Classes.BeerList
                 Add(newBeer);
             }
         }
+
+        internal void Load(JObject objFavBeer)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

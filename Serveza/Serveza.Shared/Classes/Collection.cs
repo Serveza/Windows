@@ -1,7 +1,10 @@
-﻿using Serveza.Model;
+﻿using Serveza.Classes.Network;
+using Serveza.Model;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Serveza.Classes
 {
@@ -64,7 +67,81 @@ namespace Serveza.Classes
 
         public void Init()
         {
-            
+
+        }
+
+        private async void GetUserEvent()
+        {
+            Debug.WriteLine("getUserEvent");
+            App.Core.User.eventList.Clear();
+            Classes.Network.GetEvent getEvent = new Classes.Network.GetEvent();
+            getEvent.SetParam(App.Core.netWork.token, Classes.Network.EventType.NONE);
+            var obj = await getEvent.GetJsonAsync();
+            App.Core.User.eventList.LoadEvent(obj);
+            Debug.WriteLine("getUserEvent done");
+        }
+
+        private async void NeerBars()
+        {
+
+            Serveza.Classes.Network.NeerBar request = new Serveza.Classes.Network.NeerBar();
+            var geo = await App.Core.LocationCore.GetUserPosition();
+            request.setParam(geo, settings.scope);
+            var obj = await request.GetJsonAsync();
+            NeerPubList.Load(obj);
+        }
+
+        public async Task<bool> Connect(string userName, string pass)
+        {
+            try
+            {
+                Connection co = new Connection();
+                co.setParam(userName, pass);
+                var obj = await co.GetJsonAsync();
+                Debug.WriteLine(obj);
+                if (User.Load(obj))
+                {
+                    Debug.WriteLine("userConnect");
+                    Utils.StorageApplication.SetValue("token", App.Core.netWork.token);
+
+                    Debug.WriteLine("get Neer Bars");
+                    Serveza.Classes.Network.NeerBar request = new Serveza.Classes.Network.NeerBar();
+                    var geo = await App.Core.LocationCore.GetUserPosition();
+                    request.setParam(geo, settings.scope);
+                    var objNeerBar = await request.GetJsonAsync();
+                    NeerPubList.Load(objNeerBar);
+                    
+                    Debug.WriteLine("getUserEvent");
+                    
+                    Classes.Network.GetEvent getEvent = new Classes.Network.GetEvent();
+                    getEvent.SetParam(App.Core.netWork.token, Classes.Network.EventType.NONE);
+                    var objEvent = await getEvent.GetJsonAsync();
+                    App.Core.User.eventList.LoadEvent(objEvent);
+
+                 /*   Debug.WriteLine("GetFavBar");
+                    
+                    Classes.Network.GetFavBar getfavBar = new GetFavBar();
+                    getfavBar.SetParam(netWork.token);
+                    var objFavBar = await getfavBar.GetJsonAsync();
+                    MyPubList.Load(objFavBar);
+
+                    Debug.WriteLine("GetFavBeer");
+
+                    GetFavBeer getFavBeer = new GetFavBeer();
+                    getFavBeer.SetParam(netWork.token);
+                    var objFavBeer = await getFavBeer.GetJsonAsync();
+                   // MyBeerList.Load(objFavBeer);
+                    */
+                    Debug.WriteLine("done");
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return false;
+            }
         }
     }
 }

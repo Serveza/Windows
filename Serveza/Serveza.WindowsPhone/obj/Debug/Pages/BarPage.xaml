@@ -63,8 +63,13 @@
                         <RowDefinition Height="100*"/>
                         <RowDefinition Height="200*"/>
                     </Grid.RowDefinitions>
+
                     <Maps:MapControl MapServiceToken="{StaticResource MapToken}" x:Name="MapBar"/>
-                    <Grid x:Name="DirectionGrid" Grid.Row="1"/>
+                    <ScrollViewer Grid.Row="1">
+                        <StackPanel>
+                            <Grid x:Name="DirectionGrid" />
+                        </StackPanel>
+                    </ScrollViewer>
                 </Grid>
             </PivotItem>
             <PivotItem Header="Beer">
