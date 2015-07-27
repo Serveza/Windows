@@ -90,11 +90,18 @@ namespace NotificationTask
             updater.EnableNotificationQueue(true);
             updater.Clear();
 
-            Uri uri = new Uri("http://serveza.kokakiwi.net/api/user/notifications?api_token=" + token);
-            using (var client = new HttpClient())
+            try
             {
-                obj = await client.GetStringAsync(uri);
-                Debug.WriteLine(obj);
+                Uri uri = new Uri("http://serveza.kokakiwi.net/api/user/notifications?api_token=" + token);
+                using (var client = new HttpClient())
+                {
+                    obj = await client.GetStringAsync(uri);
+                    Debug.WriteLine(obj);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
             }
         }
 
@@ -103,12 +110,18 @@ namespace NotificationTask
             var updater = TileUpdateManager.CreateTileUpdaterForApplication();
             updater.EnableNotificationQueue(true);
             updater.Clear();
-
-            Uri uri = new Uri("http://serveza.kokakiwi.net/api/user/notifications?api_token=" + token + "?update=true");
-            // Uri uri = new Uri("http://serveza.kokakiwi.net/api/user/notifications?api_token=" + token);
-            using (var client = new HttpClient())
+            try
             {
-                objTwo = await client.GetStringAsync(uri);
+                Uri uri = new Uri("http://serveza.kokakiwi.net/api/user/notifications?api_token=" + token + "?update=true");
+                // Uri uri = new Uri("http://serveza.kokakiwi.net/api/user/notifications?api_token=" + token);
+                using (var client = new HttpClient())
+                {
+                    objTwo = await client.GetStringAsync(uri);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
             }
         }
 
