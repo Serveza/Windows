@@ -33,11 +33,15 @@ namespace Serveza.Classes.Network
 
         public async Task<JObject> GetJsonAsync()
         {
+            Debug.WriteLine(uri);
             using (var client = new HttpClient())
             {
                 string jsonString = "";
                 if (type == RequestType.GET)
+                {
                     jsonString = await client.GetStringAsync(uri);
+                    Debug.WriteLine(jsonString);
+                }
                 else if (type == RequestType.POST)
                 {
                     HttpResponseMessage response = await client.PostAsync(uri, content);
